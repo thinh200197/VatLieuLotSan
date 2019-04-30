@@ -283,6 +283,11 @@
     <Content Include="TaiLieu\Admin\TrangDangNhap\vendor\select2\select2.js" />
     <Content Include="TaiLieu\Admin\TrangDangNhap\vendor\select2\select2.min.css" />
     <Content Include="TaiLieu\Admin\TrangDangNhap\vendor\select2\select2.min.js" />
+    <Content Include="TaiLieu\lotSan\slide-1.jpg" />
+    <Content Include="TaiLieu\lotSan\slide-2.jpg" />
+    <Content Include="TaiLieu\lotSan\slide-3.jpg" />
+    <Content Include="TaiLieu\lotSan\slide-4.jpg" />
+    <Content Include="TaiLieu\lotSan\Slide-5.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -376,6 +381,11 @@
     <Content Include="TaiLieu\Admin\TrangDangNhap\fonts\Fira_Sans_Condensed\FiraSansCondensed-SemiBoldItalic.ttf" />
     <Content Include="TaiLieu\Admin\TrangDangNhap\fonts\Fira_Sans_Condensed\FiraSansCondensed-Thin.ttf" />
     <Content Include="TaiLieu\Admin\TrangDangNhap\fonts\Fira_Sans_Condensed\FiraSansCondensed-ThinItalic.ttf" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\HeaderMobile.cshtml" />
+    <Content Include="Views\Shared\HeaderDesktop.cshtml" />
+    <Content Include="Views\Shared\MenuMobile.cshtml" />
+    <Content Include="Views\Shared\Slide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -385,7 +395,12 @@
     <Folder Include="TaiLieu\Admin\QuanTri\build\" />
     <Folder Include="TaiLieu\Admin\QuanTri\dist\" />
     <Folder Include="TaiLieu\Admin\QuanTri\plugins\" />
-    <Folder Include="TaiLieu\Client\" />
+    <Folder Include="TaiLieu\Client\css\" />
+    <Folder Include="TaiLieu\Client\fonts\" />
+    <Folder Include="TaiLieu\Client\images\" />
+    <Folder Include="TaiLieu\Client\includes\" />
+    <Folder Include="TaiLieu\Client\js\" />
+    <Folder Include="TaiLieu\Client\vendor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
