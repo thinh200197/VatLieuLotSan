@@ -15,6 +15,9 @@ namespace VatLieuLotSan.DataBase
         [Column(TypeName = "ntext")]
         public string Content { get; set; }
 
+        [StringLength(250)]
+        public string Link { get; set; }
+
         public bool? TrangThai { get; set; }
     }
 }

@@ -168,7 +168,10 @@
     <Compile Include="Areas\Admin\Models\DangNhapQuanTriModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\DangNhapCommon.cs" />
+    <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LienHeController.cs" />
+    <Compile Include="Controllers\MenuClientController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="DataBase\CHITIETNHOMQUYEN.cs" />
     <Compile Include="DataBase\CTGIOHANG.cs" />
@@ -201,8 +204,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\NhanVienModel.cs" />
     <Compile Include="Areas\Admin\Models\TaiKhoanNhanVienModel.cs" />
+    <Compile Include="Models\SanPhamModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -389,6 +394,9 @@
     <Content Include="Views\Shared\MenuMobile.cshtml" />
     <Content Include="Views\Shared\Slide.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
+    <Content Include="Views\MenuClient\DanhMuc.cshtml" />
+    <Content Include="Views\LienHe\Index.cshtml" />
+    <Content Include="Views\GioiThieu\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

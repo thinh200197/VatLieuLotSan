@@ -44,7 +44,7 @@
     <!-- Header -->
     <header class="header1">
         <!-- Header desktop -->
-        @{Html.RenderPartial("HeaderDesktop");} 
+        @{Html.RenderAction("HeaderDesktop", "Home");} 
         <!--===============================================================================================-->
         <!-- Header Mobile -->
         @{Html.RenderPartial("HeaderMobile");}
