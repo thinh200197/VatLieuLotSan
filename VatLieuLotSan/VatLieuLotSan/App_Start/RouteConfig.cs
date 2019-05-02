@@ -14,30 +14,35 @@ namespace VatLieuLotSan
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-               name: "Trang chủ",
-               url: "trang-chu",
-               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-           );
+                name: "Trang chủ",
+                url: "trang-chu",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "VatLieuLotSan.Controllers" }
+            );
             routes.MapRoute(
-              name: "Trang Sản phẩm",
+              name: "Trang San pham",
               url: "san-pham/{Maloai}",
-              defaults: new { controller = "SanPham", action = "Index", id = UrlParameter.Optional }
-          );
+              defaults: new { controller = "SanPham", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "VatLieuLotSan.Controllers" }
+              );
             routes.MapRoute(
               name: "Trang liên hệ",
               url: "lien-he",
-              defaults: new { controller = "LienHe", action = "Index", id = UrlParameter.Optional }
-          );
+              defaults: new { controller = "LienHe", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "VatLieuLotSan.Controllers" }
+              );
             routes.MapRoute(
-             name: "Trang Giới thiệu",
-             url: "gioi-thieu",
-             defaults: new { controller = "GioiThieu", action = "Index", id = UrlParameter.Optional }
-         );
+                name: "Trang Giới thiệu",
+                url: "gioi-thieu",
+                defaults: new { controller = "GioiThieu", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "VatLieuLotSan.Controllers" }
+                );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "VatLieuLotSan.Controllers" }
+              );
         }
     }
 }
