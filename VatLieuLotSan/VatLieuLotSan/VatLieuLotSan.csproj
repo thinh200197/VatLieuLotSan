@@ -169,6 +169,7 @@
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\DangNhapCommon.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
     <Compile Include="DataBase\CHITIETNHOMQUYEN.cs" />
     <Compile Include="DataBase\CTGIOHANG.cs" />
     <Compile Include="DataBase\CTKHUYENMAI.cs" />
@@ -387,6 +388,7 @@
     <Content Include="Views\Shared\HeaderDesktop.cshtml" />
     <Content Include="Views\Shared\MenuMobile.cshtml" />
     <Content Include="Views\Shared\Slide.cshtml" />
+    <Content Include="Views\SanPham\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
