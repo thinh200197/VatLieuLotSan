@@ -283,6 +283,7 @@
     <Content Include="TaiLieu\Admin\TrangDangNhap\vendor\select2\select2.js" />
     <Content Include="TaiLieu\Admin\TrangDangNhap\vendor\select2\select2.min.css" />
     <Content Include="TaiLieu\Admin\TrangDangNhap\vendor\select2\select2.min.js" />
+    <Content Include="TaiLieu\lotSan\san-nhua-go-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-2.jpg" />
     <Content Include="TaiLieu\lotSan\slide-3.jpg" />
