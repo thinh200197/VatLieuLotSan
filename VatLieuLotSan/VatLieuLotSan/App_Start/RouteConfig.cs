@@ -31,10 +31,16 @@ namespace VatLieuLotSan
             routes.MapRoute(
               name: "Trang Sản phẩm theo loại",
               url: "san-pham/{Maloai}",
-              defaults: new { controller = "SanPham", action = "Index", id = UrlParameter.Optional },
+              defaults: new { controller = "SanPham", action = "XuatHangTheoLoai", id = UrlParameter.Optional },
               namespaces: new[] { "VatLieuLotSan.Controllers" }
               );
 
+            routes.MapRoute(
+              name: "Trang chi tiết sản phẩm",
+              url: "chi-tiet-san-pham/{MaHang}",
+              defaults: new { controller = "SanPham", action = "ChiTietSanPham", id = UrlParameter.Optional },
+              namespaces: new[] { "VatLieuLotSan.Controllers" }
+              );
 
             routes.MapRoute(
               name: "Trang liên hệ",

@@ -30,13 +30,14 @@ namespace VatLieuLotSan.DataBase
         [StringLength(100)]
         public string DIACHI { get; set; }
 
+        [StringLength(250)]
+        public string Hinh { get; set; }
+
         [StringLength(10)]
         public string SODIENTHOAI { get; set; }
 
         [StringLength(30)]
         public string EMAIL { get; set; }
-
-        public int? DIEMTICHLUY { get; set; }
 
         public DateTime? NGAYTAO { get; set; }
 

@@ -15,11 +15,21 @@ namespace VatLieuLotSan.Models
         }
         public List<HANGHOA> LoadHangHoa(string LoaiHH)
         {
+
             if (string.IsNullOrEmpty(LoaiHH))
             {
                 return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToList();
             }
-            return db.HANGHOAs.Where(x => x.MALOAI == LoaiHH).OrderByDescending(x => x.NGAYTAO).ToList();
+            var maHang = db.HANGHOAs.Where(x => x.MALOAI == LoaiHH).OrderByDescending(x => x.NGAYTAO).ToList();
+            return maHang;
+        }
+        public List<HANGHOA> XuatHangHoa()
+        {
+            return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToList(); ;
+        }
+        public HANGHOA ChiTietSanPham(string MaHang)
+        {
+            return db.HANGHOAs.Find(MaHang);
         }
     }
 }

@@ -31,6 +31,9 @@ namespace VatLieuLotSan.DataBase
         [StringLength(250)]
         public string DIACHI { get; set; }
 
+        [StringLength(250)]
+        public string Hinh { get; set; }
+
         [StringLength(10)]
         public string CMND { get; set; }
 

@@ -163,11 +163,14 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DangNhapController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HANGHOAsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KHACHHANGsController.cs" />
     <Compile Include="Areas\Admin\Controllers\NGUOIDUNGsController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanTriController.cs" />
     <Compile Include="Areas\Admin\Models\DangNhapQuanTriModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\DangNhapCommon.cs" />
+    <Compile Include="Common\GioHang.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -234,6 +237,16 @@
     <Content Include="Areas\Admin\Views\NGUOIDUNGs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\NGUOIDUNGs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NGUOIDUNGs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HANGHOAs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HANGHOAs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HANGHOAs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HANGHOAs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HANGHOAs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHHANGs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHHANGs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHHANGs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHHANGs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\KHACHHANGs\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -399,6 +412,7 @@
     <Content Include="Views\GioiThieu\Index.cshtml" />
     <Content Include="Views\Home\HeaderDesktop.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

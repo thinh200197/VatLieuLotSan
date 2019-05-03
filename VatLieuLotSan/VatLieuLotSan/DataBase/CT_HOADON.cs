@@ -16,10 +16,6 @@ namespace VatLieuLotSan.DataBase
         [StringLength(10)]
         public string MAHANG { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string MAMAU { get; set; }
-
         public int? SOLUONG { get; set; }
 
         public virtual HANGHOA HANGHOA { get; set; }

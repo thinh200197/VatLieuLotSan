@@ -58,10 +58,6 @@ namespace VatLieuLotSan.DataBase
                 .Property(e => e.MAHANG)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CT_HOADON>()
-                .Property(e => e.MAMAU)
-                .IsUnicode(false);
-
             modelBuilder.Entity<CT_PHIEUDAT>()
                 .Property(e => e.MAPHIEUDAT)
                 .IsUnicode(false);
