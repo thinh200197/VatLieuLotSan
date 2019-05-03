@@ -1,5 +1,4 @@
-﻿@model  List<VatLieuLotSan.DataBase.Menu>
-
+﻿@model List<VatLieuLotSan.DataBase.Menu>
 <!-- Header desktop -->
 <div class="container-menu-header">
     <div class="topbar">
@@ -31,7 +30,7 @@
 
     <div class="wrap_header">
         <!-- Logo -->
-        <a href="index.html" class="logo">
+        <a href="trang-chu" class="logo">
             <img src="~/TaiLieu/Client/images/icons/logo.png" alt="IMG-LOGO">
         </a>
 
@@ -41,8 +40,8 @@
                 <ul class="main_menu">
                     @foreach (var item in Model)
                     {
-                        <li >
-                            <a href="@item.Link"> @item.TenMenu </a>
+                        <li>
+                            <a href= "@item.Link" >@item.TenMenu</a>
                         </li>
                     }
                 </ul>
@@ -120,7 +119,7 @@
                     <div class="header-cart-buttons">
                         <div class="header-cart-wrapbtn">
                             <!-- Button -->
-                            <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                            <a href="gio-hang" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                                 View Cart
                             </a>
                         </div>
@@ -137,3 +136,4 @@
         </div>
     </div>
 </div>
+

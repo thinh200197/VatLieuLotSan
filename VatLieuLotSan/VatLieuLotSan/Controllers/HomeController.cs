@@ -31,8 +31,8 @@ namespace VatLieuLotSan.Controllers
         public ActionResult HeaderDesktop()
         {
             var model = new MenuModel();
-            var menu = model.DanhMuc(1);
-            return View(menu);
+             var menu = model.DanhMuc(1);
+            return PartialView(menu);
         }
     }
 }

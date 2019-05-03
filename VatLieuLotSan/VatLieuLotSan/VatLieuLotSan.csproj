@@ -168,6 +168,7 @@
     <Compile Include="Areas\Admin\Models\DangNhapQuanTriModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\DangNhapCommon.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
@@ -390,13 +391,14 @@
     <Content Include="TaiLieu\Admin\TrangDangNhap\fonts\Fira_Sans_Condensed\FiraSansCondensed-ThinItalic.ttf" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <Content Include="Views\Shared\HeaderMobile.cshtml" />
-    <Content Include="Views\Shared\HeaderDesktop.cshtml" />
     <Content Include="Views\Shared\MenuMobile.cshtml" />
     <Content Include="Views\Shared\Slide.cshtml" />
     <Content Include="Views\SanPham\Index.cshtml" />
     <Content Include="Views\MenuClient\DanhMuc.cshtml" />
     <Content Include="Views\LienHe\Index.cshtml" />
     <Content Include="Views\GioiThieu\Index.cshtml" />
+    <Content Include="Views\Home\HeaderDesktop.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

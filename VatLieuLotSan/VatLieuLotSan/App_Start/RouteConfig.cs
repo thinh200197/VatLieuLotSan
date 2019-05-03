@@ -19,24 +19,44 @@ namespace VatLieuLotSan
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "VatLieuLotSan.Controllers" }
             );
+
             routes.MapRoute(
-              name: "Trang San pham",
+              name: "Trang Sản phẩm",
+              url: "san-pham",
+              defaults: new { controller = "SanPham", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "VatLieuLotSan.Controllers" }
+              );
+
+
+            routes.MapRoute(
+              name: "Trang Sản phẩm theo loại",
               url: "san-pham/{Maloai}",
               defaults: new { controller = "SanPham", action = "Index", id = UrlParameter.Optional },
               namespaces: new[] { "VatLieuLotSan.Controllers" }
               );
+
+
             routes.MapRoute(
               name: "Trang liên hệ",
               url: "lien-he",
               defaults: new { controller = "LienHe", action = "Index", id = UrlParameter.Optional },
               namespaces: new[] { "VatLieuLotSan.Controllers" }
               );
+
             routes.MapRoute(
                 name: "Trang Giới thiệu",
                 url: "gioi-thieu",
                 defaults: new { controller = "GioiThieu", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "VatLieuLotSan.Controllers" }
                 );
+
+            routes.MapRoute(
+              name: "Trang Giỏ hàng",
+              url: "gio-hang",
+              defaults: new { controller = "GioHang", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "VatLieuLotSan.Controllers" }
+              );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

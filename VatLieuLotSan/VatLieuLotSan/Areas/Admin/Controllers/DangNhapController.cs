@@ -27,8 +27,9 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
                 {
                     var user = dao.LayThongTinNguoiDung(model.TaiKhoan);
                     var userSession = new DangNhapCommon();
-                    userSession.TenDangNhap = user.TENDANGNHAP;
-                    userSession.MaNV = user.MANV;
+                    userSession.TenDangNhap = user.TENDANGNHAP.ToString();
+                    userSession.MaNV = user.MANV.ToString();
+                    
 
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "QuanTri");

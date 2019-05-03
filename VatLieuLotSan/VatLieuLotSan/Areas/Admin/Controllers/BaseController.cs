@@ -14,7 +14,7 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
         // GET: Admin/Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var session = (NGUOIDUNG)Session[CommonConstants.USER_SESSION];
+            var session = (DangNhapCommon)Session[CommonConstants.USER_SESSION];
             if (session == null)
             {
                 filterContext.Result = new RedirectToRouteResult(new

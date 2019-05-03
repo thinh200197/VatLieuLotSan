@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace VatLieuLotSan.Areas.Admin.Controllers
+namespace VatLieuLotSan.Controllers
 {
-    public class QuanTriController : BaseController
+    public class GioHangController : Controller
     {
-        // GET: Admin/QuanTri
+        // GET: GioHang
         public ActionResult Index()
         {
             return View();
