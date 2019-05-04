@@ -170,7 +170,6 @@
     <Compile Include="Areas\Admin\Models\DangNhapQuanTriModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\DangNhapCommon.cs" />
-    <Compile Include="Common\GioHang.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -208,6 +207,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHangModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\NhanVienModel.cs" />
     <Compile Include="Areas\Admin\Models\TaiKhoanNhanVienModel.cs" />
