@@ -85,5 +85,7 @@ namespace VatLieuLotSan.DataBase
         public virtual LOAIHANG LOAIHANG { get; set; }
 
         public virtual MAUSAC MAUSAC { get; set; }
+
+        public virtual QUYCACH QUYCACH { get; set; }
     }
 }

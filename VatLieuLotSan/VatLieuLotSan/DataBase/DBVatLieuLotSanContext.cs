@@ -38,6 +38,7 @@ namespace VatLieuLotSan.DataBase
         public virtual DbSet<PHIEUDAT> PHIEUDATs { get; set; }
         public virtual DbSet<PHIEUGIAO> PHIEUGIAOs { get; set; }
         public virtual DbSet<PHIEUNHAP> PHIEUNHAPs { get; set; }
+        public virtual DbSet<QUYCACH> QUYCACHes { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -200,6 +201,10 @@ namespace VatLieuLotSan.DataBase
                 .HasMany(e => e.CTPHIEUGIAOs)
                 .WithRequired(e => e.HANGHOA)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<HANGHOA>()
+                .HasOptional(e => e.QUYCACH)
+                .WithRequired(e => e.HANGHOA);
 
             modelBuilder.Entity<HOADON>()
                 .Property(e => e.MAHD)
@@ -403,6 +408,10 @@ namespace VatLieuLotSan.DataBase
 
             modelBuilder.Entity<PHIEUNHAP>()
                 .Property(e => e.SUABOI)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<QUYCACH>()
+                .Property(e => e.MAHH)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Slide>()

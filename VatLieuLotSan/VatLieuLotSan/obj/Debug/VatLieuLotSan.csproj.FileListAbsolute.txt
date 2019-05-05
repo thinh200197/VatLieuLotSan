@@ -111,3 +111,4 @@ D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\Antlr3.Runtime.pdb
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\Newtonsoft.Json.xml
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.dll
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.pdb
+D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.csprojResolveAssemblyReference.cache

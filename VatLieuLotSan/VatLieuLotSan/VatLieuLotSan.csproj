@@ -203,6 +203,7 @@
     <Compile Include="DataBase\PHIEUDAT.cs" />
     <Compile Include="DataBase\PHIEUGIAO.cs" />
     <Compile Include="DataBase\PHIEUNHAP.cs" />
+    <Compile Include="DataBase\QUYCACH.cs" />
     <Compile Include="DataBase\Slide.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
