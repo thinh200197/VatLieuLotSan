@@ -10,17 +10,30 @@ namespace VatLieuLotSan.Controllers
 {
     public class GioHangController : Controller
     {
+        DBVatLieuLotSanContext db = new DBVatLieuLotSanContext();
         private const string GioHangSession = "GioHangSession";
         // GET: GioHang
-        public ActionResult Index()
+        public ActionResult GioHang()
         {
             var gio = Session[GioHangSession];
             var lstItem = new List<GioHangModel>();
             if (gio != null)
             {
                 lstItem = (List<GioHangModel>)gio ;
+                Session[GioHangSession] = lstItem;
             }
             return View(lstItem);
+        }
+        public List<GioHangModel> LayGioHang()
+        {
+            var gio = Session[GioHangSession];
+            var lstItem = new List<GioHangModel>();
+            if (gio != null)
+            {
+                lstItem = (List<GioHangModel>)gio;
+                Session[GioHangSession] = lstItem;
+            }
+            return lstItem;
         }
         public ActionResult ThemVaoGioHang(string MaHang,int SoLuong)
         {
@@ -62,6 +75,67 @@ namespace VatLieuLotSan.Controllers
             }
             return RedirectToAction("Index"); 
         }
-    
+        public ActionResult CapNhatGioHang(string MaHang, int SoLuong , FormCollection f)
+        {
+            //Kiểm tra hàng hóa
+            HANGHOA hh = db.HANGHOAs.Find(MaHang);
+            // Nếu get sai thì trả về trang lỗi 404
+            if (hh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            //lấy giỏ hàng từ session
+            List<GioHangModel> lstGioHang = LayGioHang();
+            //Kiểm tra tồn tại trong Session[GioHangSession]
+            GioHangModel sp = lstGioHang.Find(x => x.SanPham.MAHANG == MaHang);
+            //Nếu tồn tại thì sẽ sửa số lượng
+            if (sp != null)
+            {
+                sp.SanPham.SOLUONG = int.Parse(f["txtSoLuong"].ToString());
+            }
+            return View("GioHang");
+        }
+        public ActionResult XoaGioHang(string MaHang)
+        {
+            //Kiểm tra MaHang
+            HANGHOA hh = db.HANGHOAs.SingleOrDefault(x=>x.MAHANG == MaHang);
+            // Nếu get sai thì trả về trang lỗi 404
+            if (hh == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            //lấy giỏ hàng từ session
+            List<GioHangModel> lstGioHang = LayGioHang();
+            //Kiểm tra tồn tại trong Session[GioHangSession]
+            GioHangModel sp = lstGioHang.Find(x => x.SanPham.MAHANG == MaHang);
+            //Nếu tồn tại thì sẽ sửa số lượng
+            if (sp != null)
+            {
+                lstGioHang.RemoveAll(n => n.SanPham.MAHANG == MaHang);
+            }
+            return RedirectToAction("GioHang");
+        }
+        private int TinhTongSoLuong()
+        {
+            int TongSoLuong = 0;
+            List<GioHangModel> lstGioHang = Session[GioHangSession] as List<GioHangModel>;
+            if (lstGioHang != null)
+            {
+                TongSoLuong = lstGioHang.Sum(x => x.SoLuong);
+            }
+            return TongSoLuong;
+        }
+        private int TinhTongTien()
+        {
+            int TongTien = 0;
+            List<GioHangModel> lstGioHang = Session[GioHangSession] as List<GioHangModel>;
+            if (lstGioHang != null)
+            {
+                TongTien = lstGioHang.Sum(x => x.ThanhTien);
+            }
+            return TongTien;
+        }
     }
 }

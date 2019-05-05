@@ -6,23 +6,7 @@
 }
 
 
-<script type="text/javascript">
-    function CapNhatSoLuong() {
-        alert("hello");
-    };
-    function TestDown() {
-        var cnsl = document.getElementById("num-product").value;
-        if (cnsl >1) {
-            alert(cnsl - 1);
-        }
-       
-    };
-    function TestUp() {
-        var cnsl = document.getElementById("num-product").value;
-  
-        alert(cnsl);
-    };
-</script>
+
 <!-- breadcrumb -->
 <div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
     <a href="index.html" class="s-text16">
@@ -119,10 +103,13 @@
 
                         <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
                             <!-- Button -->
+                            @using (Html.BeginForm("ThemGioHang","GioHang",new {@MaHang=Model.MAHANG,@SoLuong=1 }))
+                            { 
                             <button class="btn-ThemGioHang flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4"  name="btn-ThemGioHang">
                                 <a onclick="MyTest()" style="text-decoration-line : none; color : white ; font-family : FiraSansCondensed" href="/them-vao-gio-hang?MaHang=@Model.MAHANG&SoLuong=@sl">Thêm vào giỏ hàng</a>
                             
                             </button>
+                            }
                         </div>
                     </div>
                 </div>
@@ -484,7 +471,7 @@
 <script type="text/javascript" src="/TaiLieu/Client/vendor/select2/select2.min.js"></script>
 <script type="text/javascript">
     $(".selection-1").select2({
-        minimumResultsForSearch: 20,
+                            minimumResultsForSearch: 20,
         dropdownParent: $('#dropDownSelect1')
     });
 

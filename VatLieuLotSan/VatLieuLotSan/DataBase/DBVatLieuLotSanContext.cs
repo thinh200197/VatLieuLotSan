@@ -174,6 +174,10 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<HANGHOA>()
+                .Property(e => e.SOKHO)
+                .IsFixedLength();
+
+            modelBuilder.Entity<HANGHOA>()
                 .Property(e => e.SUABOI)
                 .IsUnicode(false);
 

@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     int sl = 1;
     var thanhTien = 0;
+    var sp1 = Model;
 }
 
 <!-- Title Page -->
@@ -86,9 +87,17 @@
 
             <div class="size10 trans-0-4 m-t-10 m-b-10">
                 <!-- Button -->
-                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+                <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" onclick="CapNhatGioHang()">
                     cập nhật giỏ hàng
                 </button>
+                <script>
+                    function CapNhatGioHang(){
+                        var x = document.getElementById("num-product1").value;
+                   
+                        document.getElementById("num-product1").value = x * 2 ;
+                       
+                    };
+                </script>
             </div>
         </div>
 

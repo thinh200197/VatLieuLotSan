@@ -9,7 +9,7 @@ namespace VatLieuLotSan.Controllers
     public class LienHeController : Controller
     {
         // GET: LienHe
-        public ActionResult Index()
+        public ActionResult LienHe()
         {
             return View();
         }

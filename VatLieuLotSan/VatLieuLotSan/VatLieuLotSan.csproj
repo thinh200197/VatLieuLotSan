@@ -3019,12 +3019,12 @@
     <Content Include="Views\Shared\HeaderMobile.cshtml" />
     <Content Include="Views\Shared\MenuMobile.cshtml" />
     <Content Include="Views\Shared\Slide.cshtml" />
-    <Content Include="Views\SanPham\Index.cshtml" />
+    <Content Include="Views\SanPham\SanPham.cshtml" />
     <Content Include="Views\MenuClient\DanhMuc.cshtml" />
-    <Content Include="Views\LienHe\Index.cshtml" />
-    <Content Include="Views\GioiThieu\Index.cshtml" />
+    <Content Include="Views\LienHe\LienHe.cshtml" />
+    <Content Include="Views\GioiThieu\GioiThieu.cshtml" />
     <Content Include="Views\Home\HeaderDesktop.cshtml" />
-    <Content Include="Views\GioHang\Index.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\SanPham\ChiTietSanPham.cshtml" />
     <Content Include="TaiLieu\Client\fonts\elegant-font\html-css\fonts\ElegantIcons.eot" />
     <Content Include="TaiLieu\Client\fonts\elegant-font\html-css\fonts\ElegantIcons.ttf" />

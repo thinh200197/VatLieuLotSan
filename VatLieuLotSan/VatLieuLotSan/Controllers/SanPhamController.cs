@@ -10,7 +10,7 @@ namespace VatLieuLotSan.Controllers
     public class SanPhamController : Controller
     {
         // GET: SanPham
-        public ActionResult Index()
+        public ActionResult SanPham()
         {
             var model = new SanPhamModel();
             var sp = model.XuatHangHoa();

@@ -50,6 +50,9 @@ namespace VatLieuLotSan.DataBase
 
         public int? SOLUONG { get; set; }
 
+        [StringLength(10)]
+        public string SOKHO { get; set; }
+
         public DateTime? NGAYTAO { get; set; }
 
         [StringLength(50)]
