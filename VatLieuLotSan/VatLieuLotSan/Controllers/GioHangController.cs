@@ -28,14 +28,14 @@ namespace VatLieuLotSan.Controllers
             var gio = Session[GioHangSession];
             if (gio != null )
             {
-                var lstItem = new List<GioHangModel>();
+                var lstItem = (List<GioHangModel>)gio;
                 if (lstItem.Exists(x=>x.SanPham.MAHANG == MaHang))
                 {
                     foreach (var item in lstItem)
                     {
                         if (item.SanPham.MAHANG == MaHang)
                         {
-                            item.SoLuong += SoLuong;
+                            item.SoLuong ++;
                         }
                     }
                 }

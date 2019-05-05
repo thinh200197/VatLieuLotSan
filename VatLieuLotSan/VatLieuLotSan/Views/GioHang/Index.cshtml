@@ -4,6 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int sl = 1;
+    var thanhTien = 0;
 }
 
 <!-- Title Page -->
@@ -29,7 +30,6 @@
 
                     @foreach (var item in Model)
                     {
-                        var thanhTien = 0;
                         <tr class="table-row">
                             <td class="column-1">
                                 <div class="cart-img-product b-rad-4 o-f-hidden">
@@ -44,7 +44,7 @@
                                         <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
                                     </button>
 
-                                    <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" id="num-product1" value="@sl">
+                                    <input class="size8 m-text18 t-center num-product" type="number" name="num-product1" id="num-product1" value="@item.SoLuong">
 
                                     <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
                                         <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
@@ -52,14 +52,31 @@
 
                                     <!-- khi số lượng thay đổi sẽ cập nhật tổng tiền -->
                                     <script type="text/javascript">
-                                        $('#num-product1').bind('input', function() {
-                                            $(this).next().stop(true, true).fadeIn(0).html('[input event fired!]: ' + $(this).val()).fadeOut(2000);
-                                            alert($(this).val());
+                                        $('.btn-num-product-down').on('click', function (e) {
+                                            e.preventDefault();
+                                            var numProduct = Number($(this).next().val());
+                                            if (numProduct > 1) $(this).next().val(numProduct - 1);
+
+                                            var giaban = @item.SanPham.GIABAN;
+                                            var soLuong = numProduct;
+                                            var Tien = giaban * soLuong;
+
+                                            $('.tongTien').val() = Tien;
+
+                                        });
+
+                                        $('.btn-num-product-up').on('click', function (e) {
+                                            e.preventDefault();
+                                            var numProduct = Number($(this).prev().val());
+                                            $(this).prev().val(numProduct + 1);
+                                            @item.SoLuong = numProduct;
+                                            @thanhTien = @item.SanPham.GIABAN.Value * @item.SoLuong;
+                                            $('.tongTien').val =() @thanhTien;
                                         });
                                     </script>
                                 </div>
                             </td>
-                            <td class="column-5" name="tongTien">@(thanhTien.ToString("N0"))</td>
+                            <td class="column-5" name="tongTien">@((thanhTien = (item.SanPham.GIABAN.Value * item.SoLuong) > 0 ? thanhTien : -1).ToString("N0"))</td>
 
                         </tr>
 
