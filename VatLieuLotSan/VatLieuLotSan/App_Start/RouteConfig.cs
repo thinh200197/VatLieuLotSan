@@ -23,7 +23,7 @@ namespace VatLieuLotSan
             routes.MapRoute(
               name: "Trang Sản phẩm",
               url: "san-pham",
-              defaults: new { controller = "SanPham", action = "Index", id = UrlParameter.Optional },
+              defaults: new { controller = "SanPham", action = "SanPham", id = UrlParameter.Optional },
               namespaces: new[] { "VatLieuLotSan.Controllers" }
               );
 
@@ -51,21 +51,21 @@ namespace VatLieuLotSan
             routes.MapRoute(
               name: "Trang liên hệ",
               url: "lien-he",
-              defaults: new { controller = "LienHe", action = "Index", id = UrlParameter.Optional },
+              defaults: new { controller = "LienHe", action = "LienHe", id = UrlParameter.Optional },
               namespaces: new[] { "VatLieuLotSan.Controllers" }
               );
 
             routes.MapRoute(
                 name: "Trang Giới thiệu",
                 url: "gioi-thieu",
-                defaults: new { controller = "GioiThieu", action = "Index", id = UrlParameter.Optional },
+                defaults: new { controller = "GioiThieu", action = "GioiThieu", id = UrlParameter.Optional },
                 namespaces: new[] { "VatLieuLotSan.Controllers" }
                 );
 
             routes.MapRoute(
               name: "Trang Giỏ hàng",
               url: "gio-hang",
-              defaults: new { controller = "GioHang", action = "Index", id = UrlParameter.Optional },
+              defaults: new { controller = "GioHang", action = "GioHang", id = UrlParameter.Optional },
               namespaces: new[] { "VatLieuLotSan.Controllers" }
               );
 
