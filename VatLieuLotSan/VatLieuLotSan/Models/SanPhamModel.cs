@@ -31,5 +31,17 @@ namespace VatLieuLotSan.Models
         {
             return db.HANGHOAs.Find(MaHang);
         }
+        public List<HANGHOA> SanPhamNoiBat()
+        {
+            return db.HANGHOAs.OrderByDescending(x=>x.NOIBAT).ToList();
+        }
+        public List<HANGHOA> SanPhamLuotXem()
+        {
+            return db.HANGHOAs.OrderByDescending(x => x.LUOTXEM).ToList();
+        }
+        public List<HANGHOA> SanPhamSapRaMat()
+        {
+            return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToList();
+        }
     }
 }

@@ -11,6 +11,10 @@ namespace VatLieuLotSan.Controllers
     {
         public ActionResult Index()
         {
+            var model = new SanPhamModel();
+            ViewBag.NoiBat = model.SanPhamNoiBat();
+            ViewBag.LuotXem = model.SanPhamLuotXem();
+            ViewBag.ChuaRaMat = model.SanPhamSapRaMat();
             return View();
         }
 

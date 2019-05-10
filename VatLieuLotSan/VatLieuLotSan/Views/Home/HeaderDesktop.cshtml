@@ -1,4 +1,8 @@
 ﻿@model List<VatLieuLotSan.DataBase.Menu>
+
+
+
+
 <!-- Header desktop -->
 <div class="container-menu-header">
     <div class="topbar">
@@ -30,7 +34,7 @@
 
     <div class="wrap_header">
         <!-- Logo -->
-        <a href="trang-chu" class="logo">
+        <a href="/" rel="nofollow" class="logo">
             <img src="~/TaiLieu/Client/images/icons/logo.png" alt="IMG-LOGO">
         </a>
 
@@ -41,7 +45,7 @@
                     @foreach (var item in Model)
                     {
                         <li>
-                            <a href= "@item.Link" >@item.TenMenu</a>
+                            <a href= "@Url.Content(item.Link)" >@item.TenMenu</a>
                         </li>
                     }
                 </ul>

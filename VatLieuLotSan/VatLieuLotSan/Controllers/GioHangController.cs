@@ -73,7 +73,7 @@ namespace VatLieuLotSan.Controllers
                 //thêm ds vào Session
                 Session[GioHangSession] = lstItem;
             }
-            return RedirectToAction("Index"); 
+            return RedirectToAction("GioHang"); 
         }
         public ActionResult CapNhatGioHang(string MaHang, int SoLuong , FormCollection f)
         {
