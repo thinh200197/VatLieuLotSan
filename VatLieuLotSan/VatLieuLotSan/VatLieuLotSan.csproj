@@ -3138,6 +3138,7 @@
     <Content Include="TaiLieu\Client\vendor\slick\slick-theme.scss" />
     <Content Include="TaiLieu\Client\vendor\slick\slick.less" />
     <Content Include="TaiLieu\Client\vendor\slick\slick.scss" />
+    <Content Include="Views\Home\HeaderIconCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

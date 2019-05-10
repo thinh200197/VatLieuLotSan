@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VatLieuLotSan.Common;
 using VatLieuLotSan.DataBase;
 using VatLieuLotSan.Models;
 
@@ -11,34 +12,34 @@ namespace VatLieuLotSan.Controllers
     public class GioHangController : Controller
     {
         DBVatLieuLotSanContext db = new DBVatLieuLotSanContext();
-        private const string GioHangSession = "GioHangSession";
+        //private const string GioHangSession = "GioHangSession";
         // GET: GioHang
         public ActionResult GioHang()
         {
-            var gio = Session[GioHangSession];
+            var gio = Session[CommonConstants.GioHangSession];
             var lstItem = new List<GioHangModel>();
             if (gio != null)
             {
                 lstItem = (List<GioHangModel>)gio ;
-                Session[GioHangSession] = lstItem;
+                Session[CommonConstants.GioHangSession] = lstItem;
             }
             return View(lstItem);
         }
         public List<GioHangModel> LayGioHang()
         {
-            var gio = Session[GioHangSession];
+            var gio = Session[CommonConstants.GioHangSession];
             var lstItem = new List<GioHangModel>();
             if (gio != null)
             {
                 lstItem = (List<GioHangModel>)gio;
-                Session[GioHangSession] = lstItem;
+                Session[CommonConstants.GioHangSession] = lstItem;
             }
             return lstItem;
         }
         public ActionResult ThemVaoGioHang(string MaHang,int SoLuong)
         {
             var sp = new SanPhamModel().ChiTietSanPham(MaHang);
-            var gio = Session[GioHangSession];
+            var gio = Session[CommonConstants.GioHangSession];
             if (gio != null )
             {
                 var lstItem = (List<GioHangModel>)gio;
@@ -60,7 +61,7 @@ namespace VatLieuLotSan.Controllers
                     lstItem.Add(item);
 
                 }
-                Session[GioHangSession] = lstItem;
+                Session[CommonConstants.GioHangSession] = lstItem;
             }
             else
             {
@@ -71,7 +72,7 @@ namespace VatLieuLotSan.Controllers
                 var lstItem = new List<GioHangModel>();
                 lstItem.Add(item);
                 //thêm ds vào Session
-                Session[GioHangSession] = lstItem;
+                Session[CommonConstants.GioHangSession] = lstItem;
             }
             return RedirectToAction("GioHang"); 
         }
@@ -87,7 +88,7 @@ namespace VatLieuLotSan.Controllers
             }
             //lấy giỏ hàng từ session
             List<GioHangModel> lstGioHang = LayGioHang();
-            //Kiểm tra tồn tại trong Session[GioHangSession]
+            //Kiểm tra tồn tại trong Session[CommonConstants.GioHangSession]
             GioHangModel sp = lstGioHang.Find(x => x.SanPham.MAHANG == MaHang);
             //Nếu tồn tại thì sẽ sửa số lượng
             if (sp != null)
@@ -108,7 +109,7 @@ namespace VatLieuLotSan.Controllers
             }
             //lấy giỏ hàng từ session
             List<GioHangModel> lstGioHang = LayGioHang();
-            //Kiểm tra tồn tại trong Session[GioHangSession]
+            //Kiểm tra tồn tại trong Session[CommonConstants.GioHangSession]
             GioHangModel sp = lstGioHang.Find(x => x.SanPham.MAHANG == MaHang);
             //Nếu tồn tại thì sẽ sửa số lượng
             if (sp != null)
@@ -120,7 +121,7 @@ namespace VatLieuLotSan.Controllers
         private int TinhTongSoLuong()
         {
             int TongSoLuong = 0;
-            List<GioHangModel> lstGioHang = Session[GioHangSession] as List<GioHangModel>;
+            List<GioHangModel> lstGioHang = Session[CommonConstants.GioHangSession] as List<GioHangModel>;
             if (lstGioHang != null)
             {
                 TongSoLuong = lstGioHang.Sum(x => x.SoLuong);
@@ -130,7 +131,7 @@ namespace VatLieuLotSan.Controllers
         private int TinhTongTien()
         {
             int TongTien = 0;
-            List<GioHangModel> lstGioHang = Session[GioHangSession] as List<GioHangModel>;
+            List<GioHangModel> lstGioHang = Session[CommonConstants.GioHangSession] as List<GioHangModel>;
             if (lstGioHang != null)
             {
                 TongTien = lstGioHang.Sum(x => x.ThanhTien);

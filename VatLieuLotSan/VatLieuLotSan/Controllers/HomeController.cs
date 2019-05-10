@@ -38,5 +38,16 @@ namespace VatLieuLotSan.Controllers
              var menu = model.DanhMuc(1);
             return PartialView(menu);
         }
+
+        public PartialViewResult HeaderIconCart()
+        {
+            var model = new GioHangModel();
+            var lstProduct = (List<GioHangModel>)Session[Common.CommonConstants.GioHangSession];
+            if (lstProduct == null)
+            {
+                return PartialView();
+            }
+            return PartialView(lstProduct);
+        }
     }
 }
