@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@seccesion
 	<!-- Title Page -->
 <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/TaiLieu/Client/images/heading-pages-02.jpg);">
     <h2 class="l-text2 t-center">
@@ -180,16 +181,16 @@
                                 <img src="@item.HINH" alt="IMG-PRODUCT">
 
                                 <div class="block2-overlay trans-0-4">
-                                    <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                    @*<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
                                         <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
                                         <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>
+                                    </a>*@
 
                                     <div class="block2-btn-addcart w-size1 trans-0-4">
                                         <!-- Button -->
 
                                        <button  class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" name="btn-ThemGioHang" id="btn-ThemGioHang">
-                                           <a href="/them-vao-gio-hang?MaHang=@item.MAHANG&SoLuong=1">Thêm vào giỏ hàng</a> 
+                                          THÊM VÀO GIỎ
                                         </button>
                                     </div>
                                 </div>
@@ -253,22 +254,6 @@
 <script type="text/javascript" src="/TaiLieu/Client/vendor/daterangepicker/moment.min.js"></script>
 <script type="text/javascript" src="/TaiLieu/Client/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-<script type="text/javascript">
-		$('.block2-btn-addcart').each(function(){
-			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
-			});
-		});
-
-		$('.block2-btn-addwishlist').each(function(){
-			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
-			$(this).on('click', function(){
-				swal(nameProduct, "is added to wishlist !", "success");
-			});
-		});
-</script>
-
 <!--===============================================================================================-->
 @*<script type="text/javascript" src="/TaiLieu/Client/vendor/noui/nouislider.min.js"></script>*@
 <script src="/TaiLieu/Client/vendor/noui/nouislider.js"></script>

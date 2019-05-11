@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VatLieuLotSan.Common;
 using VatLieuLotSan.Models;
 
 namespace VatLieuLotSan.Controllers
@@ -41,13 +42,13 @@ namespace VatLieuLotSan.Controllers
 
         public PartialViewResult HeaderIconCart()
         {
-            var model = new GioHangModel();
-            var lstProduct = (List<GioHangModel>)Session[Common.CommonConstants.GioHangSession];
-            if (lstProduct == null)
+            List<GioHangModel> model = new List<GioHangModel>();
+            var lstProduct = (List<GioHangModel>)Session[CommonConstants.GioHangSession];
+            if (lstProduct != null)
             {
-                return PartialView();
+                model = lstProduct;
             }
-            return PartialView(lstProduct);
+            return PartialView(model);
         }
     }
 }

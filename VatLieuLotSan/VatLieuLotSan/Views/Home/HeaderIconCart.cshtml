@@ -1,6 +1,7 @@
 ﻿@model List<VatLieuLotSan.Models.GioHangModel>
     @{ 
-        var SoLuongSanPham = Model.Count;
+        var SoLuongSanPham =  0;
+
     }
 <!-- Header Icon -->
 <div class="header-icons">
@@ -13,18 +14,15 @@
     <div class="header-wrapicon2">
         <img src="~/TaiLieu/Client/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
         <!-- Hiển thị số lượng sản phẩm trong giỏ hàng-->
-        <span class="header-icons-noti">@(SoLuongSanPham )</span>
+        <span class="header-icons-noti">@(Model.Count) </span>
 
         <!-- Header cart noti -->
         <!-- Hiển thị sản phẩm trong giỏ hàng-->
         <div class="header-cart header-dropdown">
-            @if (Model != null)
-            {
                 <ul class="header-cart-wrapitem">
                     <!-- Hiện thị danh sách các sản phẩm trong giỏ hàng. -->
                     @foreach (var item in Model)
                     {
-
                         <li class="header-cart-item">
                             <div class="header-cart-item-img">
                                 <img src="@Url.Content(item.SanPham.HINH)" alt="IMG">
@@ -35,23 +33,18 @@
                                     @item.SanPham.TENHANG;
                                 </a>
 
-                                <span class="header-cart-item-info">
-                                    @item.SoLuong x @item.SanPham.GIABAN
+                                <span class="header-cart-item-info">                                  
+                                     @item.ThanhTien.ToString("N0") VNĐ
                                 </span>
                             </div>
                         </li>
                     }
-
-
-
-
                 </ul>
 
             <!--Hiển thị tổng tiền-->
                 <div class="header-cart-total">
-                    Total: @(Model.Sum(x => x.ThanhTien) )
+                    Tổng : @(Model.Sum(x => x.ThanhTien).ToString("N0") ) VNĐ
                 </div>
-            }
             <!--Btn Thanh Toán và Xem giỏ hàng-->
             <div class="header-cart-buttons">
                 <div class="header-cart-wrapbtn">

@@ -50,7 +50,9 @@ namespace VatLieuLotSan.Controllers
                         if (item.SanPham.MAHANG == MaHang)
                         {
                             item.SoLuong ++;
+                            item.ThanhTien = (SoLuong * item.SanPham.GIABAN.Value);
                         }
+
                     }
                 }
                 else
@@ -58,6 +60,7 @@ namespace VatLieuLotSan.Controllers
                     var item = new GioHangModel();
                     item.SanPham = sp;
                     item.SoLuong = SoLuong;
+                    item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
                     lstItem.Add(item);
 
                 }
@@ -69,12 +72,57 @@ namespace VatLieuLotSan.Controllers
                 var item = new GioHangModel();
                 item.SanPham = sp;
                 item.SoLuong = SoLuong;
+                item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
                 var lstItem = new List<GioHangModel>();
                 lstItem.Add(item);
                 //thêm ds vào Session
                 Session[CommonConstants.GioHangSession] = lstItem;
             }
             return RedirectToAction("GioHang"); 
+        }
+        public ActionResult ThemVaoGioHang(string MaHang, int SoLuong ,string Url)
+        {
+            var sp = new SanPhamModel().ChiTietSanPham(MaHang);
+            var gio = Session[CommonConstants.GioHangSession];
+            if (gio != null)
+            {
+                var lstItem = (List<GioHangModel>)gio;
+                if (lstItem.Exists(x => x.SanPham.MAHANG == MaHang))
+                {
+                    foreach (var item in lstItem)
+                    {
+                        if (item.SanPham.MAHANG == MaHang)
+                        {
+                            item.SoLuong++;
+                            item.ThanhTien = (SoLuong * item.SanPham.GIABAN.Value);
+                        }
+
+                    }
+                }
+                else
+                {
+                    var item = new GioHangModel();
+                    item.SanPham = sp;
+                    item.SoLuong = SoLuong;
+                    item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
+                    lstItem.Add(item);
+
+                }
+                Session[CommonConstants.GioHangSession] = lstItem;
+            }
+            else
+            {
+                // tạo mới đối tượng giỏ hàng item 
+                var item = new GioHangModel();
+                item.SanPham = sp;
+                item.SoLuong = SoLuong;
+                item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
+                var lstItem = new List<GioHangModel>();
+                lstItem.Add(item);
+                //thêm ds vào Session
+                Session[CommonConstants.GioHangSession] = lstItem;
+            }
+            return Redirect(Url);
         }
         public ActionResult CapNhatGioHang(string MaHang, int SoLuong , FormCollection f)
         {
@@ -93,7 +141,8 @@ namespace VatLieuLotSan.Controllers
             //Nếu tồn tại thì sẽ sửa số lượng
             if (sp != null)
             {
-                sp.SanPham.SOLUONG = int.Parse(f["txtSoLuong"].ToString());
+                sp.SoLuong = int.Parse(f["txtSoLuong"].ToString());
+                sp.ThanhTien = sp.SoLuong * sp.SanPham.GIABAN.Value;
             }
             return View("GioHang");
         }
@@ -128,9 +177,9 @@ namespace VatLieuLotSan.Controllers
             }
             return TongSoLuong;
         }
-        private int TinhTongTien()
+        private double TinhTongTien()
         {
-            int TongTien = 0;
+            double TongTien = 0;
             List<GioHangModel> lstGioHang = Session[CommonConstants.GioHangSession] as List<GioHangModel>;
             if (lstGioHang != null)
             {

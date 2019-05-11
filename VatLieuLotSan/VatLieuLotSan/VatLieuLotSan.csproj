@@ -2845,6 +2845,7 @@
     <Content Include="TaiLieu\Client\js\main.min.js" />
     <Content Include="TaiLieu\Client\js\map-custom.js" />
     <Content Include="TaiLieu\Client\js\map-custom.min.js" />
+    <Content Include="TaiLieu\Client\js\MyJs.js" />
     <Content Include="TaiLieu\Client\js\slick-custom.js" />
     <Content Include="TaiLieu\Client\js\slick-custom.min.js" />
     <Content Include="TaiLieu\Client\vendor\animate\animate.css" />
