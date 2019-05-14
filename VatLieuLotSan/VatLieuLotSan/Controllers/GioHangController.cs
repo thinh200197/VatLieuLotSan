@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using VatLieuLotSan.Common;
 using VatLieuLotSan.DataBase;
 using VatLieuLotSan.Models;
@@ -20,7 +21,7 @@ namespace VatLieuLotSan.Controllers
             var lstItem = new List<GioHangModel>();
             if (gio != null)
             {
-                lstItem = (List<GioHangModel>)gio ;
+                lstItem = (List<GioHangModel>)gio;
                 Session[CommonConstants.GioHangSession] = lstItem;
             }
             return View(lstItem);
@@ -80,7 +81,7 @@ namespace VatLieuLotSan.Controllers
         //    }
         //    return RedirectToAction("GioHang"); 
         //}
-        public ActionResult ThemVaoGioHang(string MaHang, int SoLuong ,string Url)
+        public ActionResult ThemVaoGioHang(string MaHang, int SoLuong, string Url)
         {
             var sp = new SanPhamModel().ChiTietSanPham(MaHang);
             var gio = Session[CommonConstants.GioHangSession];
@@ -124,7 +125,109 @@ namespace VatLieuLotSan.Controllers
             }
             return Redirect(Url);
         }
-        public ActionResult CapNhatGioHang(string MaHang, int SoLuong , FormCollection f)
+
+        public JsonResult ThemSPVaoGio(string MaHang, int SoLuong ,string Url)
+        {
+            var sp = new SanPhamModel().ChiTietSanPham(MaHang);
+            var gio = Session[CommonConstants.GioHangSession];
+
+            if (gio != null)
+            {
+                var lstItem = (List<GioHangModel>)gio;
+                if (lstItem.Exists(x => x.SanPham.MAHANG == MaHang))
+                {
+                    foreach (var item in lstItem)
+                    {
+                        if (item.SanPham.MAHANG == MaHang)
+                        {
+                            item.SoLuong++;
+                            item.ThanhTien = (item.SoLuong * item.SanPham.GIABAN.Value);
+                        }
+                    }
+                }
+                else
+                {
+                    var item = new GioHangModel();
+                    item.SanPham = sp;
+                    item.SoLuong = SoLuong;
+                    item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
+                    lstItem.Add(item);
+                }
+                Session[CommonConstants.GioHangSession] = lstItem;
+            }
+            else
+            {
+                // tạo mới đối tượng giỏ hàng item 
+                var item = new GioHangModel();
+                item.SanPham = sp;
+                item.SoLuong = SoLuong;
+                item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
+                var lstItem = new List<GioHangModel>();
+                lstItem.Add(item);
+                //thêm ds vào Session
+                Session[CommonConstants.GioHangSession] = lstItem;
+            }
+            return Json(new
+            {
+                status = true,
+                link = Url
+            });
+        }
+        public JsonResult CapNhatHang(string giohangModel)
+        {
+            var jsonGio = new JavaScriptSerializer().Deserialize<List<GioHangModel>>(giohangModel);
+            var sessionGio = (List<GioHangModel>)Session[CommonConstants.GioHangSession];
+
+            foreach (var item in sessionGio)
+            {
+                var jsonItem = jsonGio.SingleOrDefault(x => x.SanPham.MAHANG == item.SanPham.MAHANG);
+                if (jsonItem != null)
+                {
+                    item.SoLuong = jsonItem.SoLuong;
+                }
+            }
+            Session[CommonConstants.GioHangSession] = sessionGio;
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+        public JsonResult XoaHetSP()
+        {
+            Session[CommonConstants.GioHangSession] = null;
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+        public JsonResult Xoa1SP(string MaHang)
+        {
+            var sessionGio = (List<GioHangModel>)Session[CommonConstants.GioHangSession];
+            sessionGio.RemoveAll(a => a.SanPham.MAHANG == MaHang);
+            Session[CommonConstants.GioHangSession] = sessionGio;
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public ActionResult CapNhatGioHang(string MaHang, int SoLuong, FormCollection f)
         {
             //Kiểm tra hàng hóa
             HANGHOA hh = db.HANGHOAs.Find(MaHang);
@@ -149,7 +252,7 @@ namespace VatLieuLotSan.Controllers
         public ActionResult XoaGioHang(string MaHang)
         {
             //Kiểm tra MaHang
-            HANGHOA hh = db.HANGHOAs.SingleOrDefault(x=>x.MAHANG == MaHang);
+            HANGHOA hh = db.HANGHOAs.SingleOrDefault(x => x.MAHANG == MaHang);
             // Nếu get sai thì trả về trang lỗi 404
             if (hh == null)
             {
@@ -165,7 +268,7 @@ namespace VatLieuLotSan.Controllers
             {
                 lstGioHang.RemoveAll(n => n.SanPham.MAHANG == MaHang);
             }
-            return RedirectToAction("GioHang");
+            return RedirectToAction("SanPham", "SanPham");
         }
         private int TinhTongSoLuong()
         {
