@@ -13,9 +13,6 @@ namespace VatLieuLotSan.DataBase
         [StringLength(50)]
         public string TENDANGNHAP { get; set; }
 
-        [StringLength(10)]
-        public string MANV { get; set; }
-
         [StringLength(30)]
         public string MATKHAU { get; set; }
 
@@ -33,7 +30,5 @@ namespace VatLieuLotSan.DataBase
         public string HOATDONG { get; set; }
 
         public virtual CHITIETNHOMQUYEN CHITIETNHOMQUYEN { get; set; }
-
-        public virtual NHANVIEN NHANVIEN { get; set; }
     }
 }

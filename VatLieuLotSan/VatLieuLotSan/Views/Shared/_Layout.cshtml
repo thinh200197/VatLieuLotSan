@@ -34,15 +34,15 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/lightbox2/css/lightbox.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/css/util.css">
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/css/main.css">
     <!--===============================================================================================-->
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body  class="animsition">
     <!-- Header -->
-    <header class="header1">
+    <header class="header1" style="height: 75px;">
         <!-- Header desktop -->
         @{Html.RenderAction("HeaderDesktop", "Home");}
         <!--===============================================================================================-->

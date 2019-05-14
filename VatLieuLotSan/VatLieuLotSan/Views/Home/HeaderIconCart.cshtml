@@ -6,7 +6,7 @@
 <!-- Header Icon -->
 <div class="header-icons">
     <a href="#" class="header-wrapicon1 dis-block">
-        <img src="~/TaiLieu/Client/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+        <img src="/TaiLieu/Client/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
     </a>
 
     <span class="linedivide1"></span>
@@ -34,7 +34,7 @@
                                 </a>
 
                                 <span class="header-cart-item-info">                                  
-                                     @item.ThanhTien.ToString("N0") VNĐ
+                                     @item.SoLuong x @item.SanPham.GIABAN.Value.ToString("N0") VNĐ
                                 </span>
                             </div>
                         </li>
@@ -49,7 +49,7 @@
             <div class="header-cart-buttons">
                 <div class="header-cart-wrapbtn">
                     <!-- Button -->
-                    <a href="gio-hang" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                    <a href="/gio-hang" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
                         Xem giỏ hàng
                     </a>
                 </div>

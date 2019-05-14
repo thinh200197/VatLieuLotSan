@@ -9,12 +9,6 @@ namespace VatLieuLotSan.DataBase
     [Table("KHACHHANG")]
     public partial class KHACHHANG
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KHACHHANG()
-        {
-            HOADONs = new HashSet<HOADON>();
-        }
-
         [Key]
         [StringLength(10)]
         public string MAKHACHHANG { get; set; }
@@ -59,9 +53,6 @@ namespace VatLieuLotSan.DataBase
         public string MATKHAU { get; set; }
 
         public virtual GIOHANG GIOHANG1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HOADON> HOADONs { get; set; }
 
         public virtual LOAIKHACHHANG LOAIKHACHHANG { get; set; }
     }

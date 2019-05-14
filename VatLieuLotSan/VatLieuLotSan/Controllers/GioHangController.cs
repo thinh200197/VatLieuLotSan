@@ -36,50 +36,50 @@ namespace VatLieuLotSan.Controllers
             }
             return lstItem;
         }
-        public ActionResult ThemVaoGioHang(string MaHang,int SoLuong)
-        {
-            var sp = new SanPhamModel().ChiTietSanPham(MaHang);
-            var gio = Session[CommonConstants.GioHangSession];
-            if (gio != null )
-            {
-                var lstItem = (List<GioHangModel>)gio;
-                if (lstItem.Exists(x=>x.SanPham.MAHANG == MaHang))
-                {
-                    foreach (var item in lstItem)
-                    {
-                        if (item.SanPham.MAHANG == MaHang)
-                        {
-                            item.SoLuong ++;
-                            item.ThanhTien = (SoLuong * item.SanPham.GIABAN.Value);
-                        }
+        //public ActionResult ThemVaoGioHang(string MaHang,int SoLuong)
+        //{
+        //    var sp = new SanPhamModel().ChiTietSanPham(MaHang);
+        //    var gio = Session[CommonConstants.GioHangSession];
+        //    if (gio != null )
+        //    {
+        //        var lstItem = (List<GioHangModel>)gio;
+        //        if (lstItem.Exists(x=>x.SanPham.MAHANG == MaHang))
+        //        {
+        //            foreach (var item in lstItem)
+        //            {
+        //                if (item.SanPham.MAHANG == MaHang)
+        //                {
+        //                    item.SoLuong ++;
+        //                    item.ThanhTien = (SoLuong * item.SanPham.GIABAN.Value);
+        //                }
 
-                    }
-                }
-                else
-                {
-                    var item = new GioHangModel();
-                    item.SanPham = sp;
-                    item.SoLuong = SoLuong;
-                    item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
-                    lstItem.Add(item);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            var item = new GioHangModel();
+        //            item.SanPham = sp;
+        //            item.SoLuong = SoLuong;
+        //            item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
+        //            lstItem.Add(item);
 
-                }
-                Session[CommonConstants.GioHangSession] = lstItem;
-            }
-            else
-            {
-                // tạo mới đối tượng giỏ hàng item 
-                var item = new GioHangModel();
-                item.SanPham = sp;
-                item.SoLuong = SoLuong;
-                item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
-                var lstItem = new List<GioHangModel>();
-                lstItem.Add(item);
-                //thêm ds vào Session
-                Session[CommonConstants.GioHangSession] = lstItem;
-            }
-            return RedirectToAction("GioHang"); 
-        }
+        //        }
+        //        Session[CommonConstants.GioHangSession] = lstItem;
+        //    }
+        //    else
+        //    {
+        //        // tạo mới đối tượng giỏ hàng item 
+        //        var item = new GioHangModel();
+        //        item.SanPham = sp;
+        //        item.SoLuong = SoLuong;
+        //        item.ThanhTien = SoLuong * item.SanPham.GIABAN.Value;
+        //        var lstItem = new List<GioHangModel>();
+        //        lstItem.Add(item);
+        //        //thêm ds vào Session
+        //        Session[CommonConstants.GioHangSession] = lstItem;
+        //    }
+        //    return RedirectToAction("GioHang"); 
+        //}
         public ActionResult ThemVaoGioHang(string MaHang, int SoLuong ,string Url)
         {
             var sp = new SanPhamModel().ChiTietSanPham(MaHang);
@@ -94,7 +94,7 @@ namespace VatLieuLotSan.Controllers
                         if (item.SanPham.MAHANG == MaHang)
                         {
                             item.SoLuong++;
-                            item.ThanhTien = (SoLuong * item.SanPham.GIABAN.Value);
+                            item.ThanhTien = (item.SoLuong * item.SanPham.GIABAN.Value);
                         }
 
                     }

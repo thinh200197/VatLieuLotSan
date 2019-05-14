@@ -18,6 +18,7 @@ namespace VatLieuLotSan.Models
             SoLuong = 0;
             ThanhTien = 0;
         }
+
     }
 
 }

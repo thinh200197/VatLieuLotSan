@@ -165,13 +165,13 @@
     <Compile Include="Areas\Admin\Controllers\DangNhapController.cs" />
     <Compile Include="Areas\Admin\Controllers\HANGHOAsController.cs" />
     <Compile Include="Areas\Admin\Controllers\KHACHHANGsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\NGUOIDUNGsController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanTriController.cs" />
     <Compile Include="Areas\Admin\Models\DangNhapQuanTriModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\DangNhapCommon.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
+    <Compile Include="Controllers\HoaDonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\MenuClientController.cs" />
@@ -208,7 +208,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DatHangModel.cs" />
     <Compile Include="Models\GioHangModel.cs" />
+    <Compile Include="Models\HoaDonModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\NhanVienModel.cs" />
     <Compile Include="Areas\Admin\Models\TaiKhoanNhanVienModel.cs" />
@@ -233,11 +235,6 @@
     <Content Include="Areas\Admin\Views\DangNhap\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\LayoutQuanTri.cshtml" />
     <Content Include="Areas\Admin\Views\QuanTri\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Details.cshtml" />
@@ -3140,6 +3137,7 @@
     <Content Include="TaiLieu\Client\vendor\slick\slick.less" />
     <Content Include="TaiLieu\Client\vendor\slick\slick.scss" />
     <Content Include="Views\Home\HeaderIconCart.cshtml" />
+    <Content Include="Views\HoaDon\LapHoaDon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

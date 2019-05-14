@@ -12,7 +12,6 @@ namespace VatLieuLotSan.Areas.Admin.Models
         public string TaiKhoan { get; set; }
         [Required(ErrorMessage = "Mời nhập mật khẩu")]
         public string MatKhau { get; set; }
-        public bool MaNV { get; set; }
         public bool GhiNhoToi { get; set; }
     }
 }

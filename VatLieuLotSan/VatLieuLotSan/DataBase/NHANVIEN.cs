@@ -12,7 +12,6 @@ namespace VatLieuLotSan.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NHANVIEN()
         {
-            NGUOIDUNGs = new HashSet<NGUOIDUNG>();
             PHIEUGIAOs = new HashSet<PHIEUGIAO>();
         }
 
@@ -24,6 +23,9 @@ namespace VatLieuLotSan.DataBase
         public string TENNV { get; set; }
 
         public DateTime? NGAYSINH { get; set; }
+
+        [StringLength(150)]
+        public string QUYEN { get; set; }
 
         [StringLength(3)]
         public string GIOITINH { get; set; }
@@ -52,9 +54,6 @@ namespace VatLieuLotSan.DataBase
 
         [StringLength(10)]
         public string SODIENTHOAI { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NGUOIDUNG> NGUOIDUNGs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIEUGIAO> PHIEUGIAOs { get; set; }

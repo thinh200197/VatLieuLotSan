@@ -20,7 +20,7 @@ namespace VatLieuLotSan.DataBase
         [StringLength(10)]
         public string MANCC { get; set; }
 
-        [StringLength(30)]
+        [StringLength(100)]
         public string TENNCC { get; set; }
 
         [StringLength(100)]

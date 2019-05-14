@@ -9,5 +9,6 @@ namespace VatLieuLotSan.Common
     {
         public static string USER_SESSION = "USER_SESSION";
         public static string GioHangSession = "GioHangSession";
+        public static string KhachHang = "KhachHang";
     }
 }

@@ -43,6 +43,13 @@ namespace VatLieuLotSan
               );
 
             routes.MapRoute(
+             name: "Thêm sản phẩm vào giỏ hàng",
+             url: "them-san-pham-gio-hang/{MaHang,SoLuong,Url}",
+             defaults: new { controller = "GioHang", action = "ThemVaoGioHang", id = UrlParameter.Optional },
+             namespaces: new[] { "VatLieuLotSan.Controllers" }
+             );
+
+            routes.MapRoute(
              name: "Thêm vào giỏ",
              url: "them-vao-gio-hang",
              defaults: new { controller = "GioHang", action = "ThemVaoGioHang", id = UrlParameter.Optional },

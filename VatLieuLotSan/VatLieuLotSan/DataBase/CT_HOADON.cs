@@ -9,12 +9,18 @@ namespace VatLieuLotSan.DataBase
     public partial class CT_HOADON
     {
         [Key]
+        [Column(Order = 0)]
         [StringLength(10)]
         public string MAHD { get; set; }
 
-        [Required]
+        [Key]
+        [Column(Order = 1)]
         [StringLength(10)]
         public string MAHANG { get; set; }
+
+        public double? DONGIA { get; set; }
+
+        public double? THANHTIEN { get; set; }
 
         public int? SOLUONG { get; set; }
 

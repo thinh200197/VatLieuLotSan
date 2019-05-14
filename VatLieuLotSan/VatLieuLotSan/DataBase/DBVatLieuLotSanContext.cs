@@ -215,16 +215,13 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<HOADON>()
-                .Property(e => e.MAKHACHHANG)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HOADON>()
                 .Property(e => e.SUABOI)
                 .IsUnicode(false);
 
             modelBuilder.Entity<HOADON>()
-                .HasOptional(e => e.CT_HOADON)
-                .WithRequired(e => e.HOADON);
+                .HasMany(e => e.CT_HOADON)
+                .WithRequired(e => e.HOADON)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KHACHHANG>()
                 .Property(e => e.MAKHACHHANG)
@@ -314,10 +311,6 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
-                .Property(e => e.MANV)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NGUOIDUNG>()
                 .Property(e => e.MATKHAU)
                 .IsUnicode(false);
 
@@ -371,7 +364,7 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUDAT>()
-                .Property(e => e.SUABOI)
+                .Property(e => e.MANV)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUGIAO>()
@@ -411,7 +404,7 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUNHAP>()
-                .Property(e => e.SUABOI)
+                .Property(e => e.MANV)
                 .IsUnicode(false);
 
             modelBuilder.Entity<QUYCACH>()

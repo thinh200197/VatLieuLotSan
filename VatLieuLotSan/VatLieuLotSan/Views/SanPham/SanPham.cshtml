@@ -3,8 +3,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@seccesion
-	<!-- Title Page -->
+@section scripts{
+    <script src="~/TaiLieu/Client/js/MyJs.js"></script>
+}
+<!-- Title Page -->
 <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/TaiLieu/Client/images/heading-pages-02.jpg);">
     <h2 class="l-text2 t-center">
         Women
@@ -172,51 +174,54 @@
 
                 <!-- Product -->
                 <div class="row">
-                   @foreach (var item in Model)
-                   {
-                    <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-                        <!-- Block2 -->
-                        <div class="block2">
-                            <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
-                                <img src="@item.HINH" alt="IMG-PRODUCT">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                            <!-- Block2 -->
+                            <div class="block2">
+                                <div class="block2-img wrap-pic-w of-hidden pos-relative block2-labelnew">
+                                    <img src="@item.HINH" alt="IMG-PRODUCT">
 
-                                <div class="block2-overlay trans-0-4">
-                                    @*<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                    </a>*@
+                                    <div class="block2-overlay trans-0-4">
+                                        @*<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                                <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                                <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                            </a>*@
 
-                                    <div class="block2-btn-addcart w-size1 trans-0-4">
-                                        <!-- Button -->
-
-                                       <button  class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" name="btn-ThemGioHang" id="btn-ThemGioHang">
-                                          THÊM VÀO GIỎ
-                                        </button>
+                                        <div class="block2-btn-addcart w-size1 trans-0-4">
+                                            <!-- Button -->
+                                            @using (Html.BeginForm("ThemVaoGioHang", "GioHang", new { @MaHang = @item.MAHANG, @SoLuong = 1, @Url = Request.Url.ToString() }))
+                                            {
+                                                <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" >
+                                                    THÊM VÀO GIỎ
+                                                </button>
+                                            }
+                                           
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="block2-txt p-t-20">
-                                <a href="/chi-tiet-san-pham/@item.MAHANG" class="block2-name dis-block s-text3 p-b-5">
-                                    @item.TENHANG
-                                </a>
+                                <div class="block2-txt p-t-20">
+                                    <a href="/chi-tiet-san-pham/@item.MAHANG" class="block2-name dis-block s-text3 p-b-5">
+                                        @item.TENHANG
+                                    </a>
 
-                                <span class="block2-price m-text6 p-r-5">
-                                    @item.GIABAN.Value.ToString("N0") 
-                                </span>
-                                <span class="m-text6 p-r-5">
-                                  VNĐ
-                                </span>
+                                    <span class="block2-price m-text6 p-r-5">
+                                        @item.GIABAN.Value.ToString("N0")
+                                    </span>
+                                    <span class="m-text6 p-r-5">
+                                        VNĐ
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                   }
+                    }
 
 
                 </div>
 
                 <!-- Pagination -->
-                <div class="pagination flex-m flex-w p-t-26">
+                <div class="pagination flex-m flex-w p-t-26" style="display:inline-flex">
                     <a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
                     <a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
                 </div>
@@ -238,17 +243,17 @@
 <script type="text/javascript" src="/TaiLieu/Client/vendor/bootstrap/js/popper.js"></script>
 <script type="text/javascript" src="/TaiLieu/Client/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+<script type="text/javascript" src="/TaiLieu/Client/vendor/select2/select2.min.js"></script>
 <script type="text/javascript">
-		$(".selection-1").select2({
-			minimumResultsForSearch: 20,
-			dropdownParent: $('#dropDownSelect1')
-		});
+    $(".selection-1").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect1')
+    });
 
-		$(".selection-2").select2({
-			minimumResultsForSearch: 20,
-			dropdownParent: $('#dropDownSelect2')
-		});
+    $(".selection-2").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect2')
+    });
 </script>
 <!--===============================================================================================-->
 <script type="text/javascript" src="/TaiLieu/Client/vendor/daterangepicker/moment.min.js"></script>
@@ -258,26 +263,26 @@
 @*<script type="text/javascript" src="/TaiLieu/Client/vendor/noui/nouislider.min.js"></script>*@
 <script src="/TaiLieu/Client/vendor/noui/nouislider.js"></script>
 <script type="text/javascript">
-		/*[ No ui ]
-	    ===========================================================*/
-	    var filterBar = document.getElementById('filter-bar');
+    /*[ No ui ]
+    ===========================================================*/
+    var filterBar = document.getElementById('filter-bar');
 
-	    noUiSlider.create(filterBar, {
-	        start: [ 50, 200 ],
-	        connect: true,
-	        range: {
-	            'min': 50,
-	            'max': 200
-	        }
-	    });
+    noUiSlider.create(filterBar, {
+        start: [50, 200],
+        connect: true,
+        range: {
+            'min': 50,
+            'max': 200
+        }
+    });
 
-	    var skipValues = [
-	    document.getElementById('value-lower'),
-	    document.getElementById('value-upper')
-	    ];
+    var skipValues = [
+    document.getElementById('value-lower'),
+    document.getElementById('value-upper')
+    ];
 
-	    filterBar.noUiSlider.on('update', function( values, handle ) {
-	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
-	    });
+    filterBar.noUiSlider.on('update', function (values, handle) {
+        skipValues[handle].innerHTML = Math.round(values[handle]);
+    });
 </script>
 <!--===============================================================================================-->

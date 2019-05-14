@@ -13,15 +13,15 @@
             window.location.href = "/san-pham";
         });
         $('.btn_ThemVaoGioHang').off('click').on('click', function () {
-            pid = $(this).attr("data-id");
-            soLuong = 1;
-            urlNow = Request.Url.ToString();
+            var pid = $(this).attr("data-id");
+            var soLuong = 1;
+            var urlNow = $(this).attr("data-Url");
             $.ajax({
                 url: "/GioHang/ThemVaoGioHang",
                 data: { MaHang: pid, SoLuong: soLuong, Url: urlNow },
                 success: function(reg)
                 {
-
+                    alert("Thêm thành công");
                 }
 
             });

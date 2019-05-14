@@ -8,8 +8,7 @@ namespace VatLieuLotSan.Common
     [Serializable]
     public class DangNhapCommon
     {
-
-        public string MaNV { get; set; }
+        
         public string TenDangNhap { get; set; }
         public string MatKhau { get; set; }
 
