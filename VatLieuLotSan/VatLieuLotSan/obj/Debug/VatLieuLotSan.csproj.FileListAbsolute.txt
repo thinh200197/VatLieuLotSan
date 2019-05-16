@@ -112,3 +112,7 @@ D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\Newtonsoft.Json.xm
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.dll
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.pdb
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.csprojResolveAssemblyReference.cache
+D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.dll
+D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.Mvc.dll
+D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.xml
+D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.Mvc.xml

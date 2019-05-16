@@ -71,17 +71,39 @@
                     url: "/GioHang/ThemSPVaoGio",
                     data: { MaHang: pid, SoLuong: soLuong, Url: urlNow },
                     dataType: 'json',
-                    type:'POST',
-                    success: function(res)
-                    {
-                        if (res.status == true)
-                        {
+                    type: 'POST',
+                    success: function (res) {
+                        if (res.status == true) {
                             //window.location.href = res.link;
                             console.log()
                         }
                     }
                 });
         });
+
+        // Vào trang giỏ hàng 
+        $('.btn_VaoGioHang').off('click').on('click', function () {
+            window.location.href = "/gio-hang";
+        });
+
+        // ĐẶT HÀNG 
+        $('#btn_DatHang').off('click').on('click', function () {
+            window.location.href = "/dat-hang";
+        });
+
+        // Thêm class active 
+        $('.danhMuc').off('click').on('click', function () {
+            var listDM = $('.danhMuc');
+
+            $.each(listDM, function (i, item) {
+                // Xóa lớp active của các mục
+                $(item).removeClass("active1");
+            }),
+
+            $('.div_danhmuc').load();
+       
+        });
+
     }
 
 }

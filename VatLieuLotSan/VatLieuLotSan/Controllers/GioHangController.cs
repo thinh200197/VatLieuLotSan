@@ -123,7 +123,7 @@ namespace VatLieuLotSan.Controllers
                 //thêm ds vào Session
                 Session[CommonConstants.GioHangSession] = lstItem;
             }
-            return Redirect(Url);
+            return Redirect("/gio-hang");
         }
 
         public JsonResult ThemSPVaoGio(string MaHang, int SoLuong ,string Url)
@@ -213,20 +213,61 @@ namespace VatLieuLotSan.Controllers
             });
         }
 
+        // Đặt hàng 
+     
+        public ActionResult DatHang()
+        {
+            var kh = (KHACHHANG)Session[CommonConstants.KhachHang];
+            if (kh != null)
+                ViewBag.KhachHang = kh;
+            else
+                ViewBag.KhachHang = null;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DatHang(string tenkh, string diachi, string sdt, string email, string hinhthuc, string ghichu)
+        {
+            var giohangsessionn = (List<GioHangModel>)Session[CommonConstants.GioHangSession];
+            if (giohangsessionn == null || giohangsessionn.Count == 0)
+            {
+                ViewBag.ThongBao = "Mời bạn chọn sản phẩm để thanh toán ";
+                return PartialView();
+            }
+            //khơi tạo các biến lưu vào csdl
+            var hoadon = new HOADON();
 
 
+            // Lưu hóa đơn trước để có mã Hóa đơn mới lưu Chi tiết hóa đơn  
+            // Mã hóa đơn cho tự động , lấy ví dụ mã là ngày hiện tại
+            hoadon.MAHD = DateTime.Now.ToString();
+            hoadon.NGAYLAP = DateTime.Now;
+            hoadon.TINHTRANG = "Chưa xữ lý";
+            hoadon.TONGTIEN = giohangsessionn.Sum(x => x.ThanhTien);
+            hoadon.TENKHACHHANG = tenkh;
 
+            db.HOADONs.Add(hoadon);
+            db.SaveChanges();
+            // Lưu CT hóa đơn 
+            foreach (var item in giohangsessionn)
+            {
+                var cthd = new CT_HOADON();
+                cthd.MAHD = hoadon.MAHD;
+                cthd.MAHANG = item.SanPham.MAHANG;
+                cthd.SOLUONG = item.SoLuong;
+                cthd.THANHTIEN = item.ThanhTien;
+                db.CT_HOADON.Add(cthd);
 
+            }
+            db.SaveChanges();
+            return RedirectToAction("/hoan-thanh");
+        }
 
-
-
-
-
-
-
-
-
-
+        // Hoàn thành
+        public ActionResult HoanThanh()
+        {
+            return View();
+        }
+        
         public ActionResult CapNhatGioHang(string MaHang, int SoLuong, FormCollection f)
         {
             //Kiểm tra hàng hóa

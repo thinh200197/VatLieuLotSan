@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VatLieuLotSan.DataBase;
+using PagedList.Mvc;
+using PagedList;
 
 namespace VatLieuLotSan.Models
 {
@@ -13,19 +15,19 @@ namespace VatLieuLotSan.Models
         {
             db = new DBVatLieuLotSanContext();
         }
-        public List<HANGHOA> LoadHangHoa(string LoaiHH)
+        public IEnumerable<HANGHOA> LoadHangHoa(string LoaiHH, int soTrang, int soSanPham)
         {
 
             if (string.IsNullOrEmpty(LoaiHH))
             {
-                return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToList();
+                return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(soTrang,soSanPham);
             }
-            var maHang = db.HANGHOAs.Where(x => x.MALOAI == LoaiHH).OrderByDescending(x => x.NGAYTAO).ToList();
+            var maHang = db.HANGHOAs.Where(x => x.MALOAI == LoaiHH).OrderByDescending(x => x.NGAYTAO).ToPagedList(soTrang, soSanPham);
             return maHang;
         }
-        public List<HANGHOA> XuatHangHoa()
+        public IEnumerable<HANGHOA> XuatHangHoa(int soTrang , int soSanPham)
         {
-            return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToList(); ;
+            return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(soTrang,soSanPham) ;
         }
         public HANGHOA ChiTietSanPham(string MaHang)
         {
@@ -33,15 +35,19 @@ namespace VatLieuLotSan.Models
         }
         public List<HANGHOA> SanPhamNoiBat()
         {
-            return db.HANGHOAs.OrderByDescending(x=>x.NOIBAT).ToList();
+            return db.HANGHOAs.Where(x => x.NOIBAT > x.NGAYTAO).OrderByDescending(x => x.NGAYTAO).Take(12).ToList();
         }
         public List<HANGHOA> SanPhamLuotXem()
         {
-            return db.HANGHOAs.OrderByDescending(x => x.LUOTXEM).ToList();
+            return db.HANGHOAs.OrderByDescending(x => x.LUOTXEM).Take(12).ToList();
         }
         public List<HANGHOA> SanPhamSapRaMat()
         {
-            return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToList();
+            return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).Take(12).ToList();
+        }
+        public List<LOAIHANG> LoaiHang()
+        {
+            return db.LOAIHANGs.ToList();
         }
     }
 }
