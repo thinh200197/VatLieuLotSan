@@ -179,7 +179,9 @@
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HoaDonController.cs" />
+    <Compile Include="Controllers\HOADONsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\MenuClientController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
@@ -3151,6 +3153,12 @@
     <Content Include="Views\HoaDon\LapHoaDon.cshtml" />
     <Content Include="Views\GioHang\HoanThanh.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\KhachHang\KhachHang.cshtml" />
+    <Content Include="Views\HOADONs\Create.cshtml" />
+    <Content Include="Views\HOADONs\Delete.cshtml" />
+    <Content Include="Views\HOADONs\Details.cshtml" />
+    <Content Include="Views\HOADONs\Edit.cshtml" />
+    <Content Include="Views\HOADONs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

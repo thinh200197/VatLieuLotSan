@@ -41,7 +41,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body  class="animsition">
+<body class="animsition">
     <!-- Header -->
     <header class="header1" style="height: 75px;">
         <!-- Header desktop -->
@@ -60,8 +60,15 @@
 
     <!--Phần Container -->
     @RenderBody()
-  
+
     <!--Chat box-->
+    <script src="https://ladibot.com/libs/landing-page.widget.js"></script>
+    <script>
+        LadibotChat({
+            page: 'https://ladibot.com/pages/4pu8n6WKsh5ccc578b2be61'
+        });
+    </script>
+
 
     <!-- Footer -->
     @{Html.RenderPartial("Footer");}
@@ -93,6 +100,7 @@
         });
     </script>
     <!--===============================================================================================-->
+
     <script type="text/javascript" src="~/TaiLieu/Client/vendor/slick/slick.min.js"></script>
     <script type="text/javascript" src="~/TaiLieu/Client/js/slick-custom.js"></script>
     <!--===============================================================================================-->
@@ -106,6 +114,7 @@
             var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
             $(this).on('click', function () {
                 swal(nameProduct, "Đã được thêm vào giỏ !", "success");
+                $('#MyHeader').load('HeaderIconCart.cshtml');
             });
         });
 

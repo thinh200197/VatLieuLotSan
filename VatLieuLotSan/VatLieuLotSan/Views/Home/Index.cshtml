@@ -6,6 +6,10 @@
     var ChuaRaMat = (List<HANGHOA>)ViewBag.ChuaRaMat;
 }
 
+@section scripts{
+    <script src="~/TaiLieu/Client/js/MyJs.js"></script>
+}
+<!-
 <!-- Slide1 -->
 @{ Html.RenderPartial("Slide");}
 
@@ -63,7 +67,7 @@
     <div class="container">
         <div class="sec-title p-b-22">
             <h3 class="m-text5 t-center">
-                Our Products
+                Sản phẩm khác
             </h3>
         </div>
 
@@ -91,7 +95,9 @@
                         @if (LuotXem == null)
                         {
 
-                            <span class="alert alert-danger">Chưa có Sản phẩm </span>
+                            <div class="col-8">
+                                <span class="alert alert-danger">Chưa có Sản phẩm  </span>
+                            </div>
 
                         }
                         else
@@ -110,7 +116,7 @@
                                                     <!-- Button Thêm sản phẩm vào giỏ hàng-->
                                                     @*@using (Html.BeginForm("ThemVaoGioHang", "GioHang", new { @MaHang = @item.MAHANG, @SoLuong = 1, @Url = Request.Url.ToString() }))
                                                         {*@
-                                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn_ThemVaoGioHang">
+                                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn_ThemVaoGioHang" data-id="@item.MAHANG">
                                                         THÊM VÀO GIỎ
                                                     </button>
                                                     @*}*@
@@ -146,7 +152,9 @@
                         @if (ChuaRaMat == null)
                         {
 
-                            <span class="alert alert-danger">Chưa có Sản phẩm </span>
+                            <div class="col-8">
+                                <span class="alert alert-danger">Chưa có Sản phẩm  </span>
+                            </div>
 
                         }
                         else
@@ -203,8 +211,10 @@
                         <!--Kiểm tra Có sản phẩm ko sau đó xuất thông báo  -->
                         @if (NoiBat == null)
                         {
-
-                            <span class="alert alert-danger">Chưa có Sản phẩm  </span>
+                            <div class="col-8">
+                                <span class="alert alert-danger">Chưa có Sản phẩm  </span>
+                            </div>
+                            
 
                         }
                         else

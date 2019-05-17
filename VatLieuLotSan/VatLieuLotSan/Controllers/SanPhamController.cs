@@ -12,7 +12,7 @@ namespace VatLieuLotSan.Controllers
     public class SanPhamController : Controller
     {
         // GET: SanPham
-        public ActionResult SanPham(int soTrang = 1 , int soSanPham = 12)
+        public ActionResult SanPham(int soTrang = 1 , int soSanPham = 2)
         {
             
             var model = new SanPhamModel();

@@ -74,7 +74,8 @@
                     type: 'POST',
                     success: function (res) {
                         if (res.status == true) {
-                            //window.location.href = res.link;
+                            ////window.location.href = res.link;
+                            //$('.MyHeader').load('@Url.Action("HeaderIconCart", "Home")');
                             console.log()
                         }
                     }

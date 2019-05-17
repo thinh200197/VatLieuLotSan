@@ -233,20 +233,27 @@ namespace VatLieuLotSan.Controllers
                 ViewBag.ThongBao = "Mời bạn chọn sản phẩm để thanh toán ";
                 return PartialView();
             }
-            //khơi tạo các biến lưu vào csdl
             var hoadon = new HOADON();
-
-
-            // Lưu hóa đơn trước để có mã Hóa đơn mới lưu Chi tiết hóa đơn  
-            // Mã hóa đơn cho tự động , lấy ví dụ mã là ngày hiện tại
-            hoadon.MAHD = DateTime.Now.ToString();
-            hoadon.NGAYLAP = DateTime.Now;
-            hoadon.TINHTRANG = "Chưa xữ lý";
-            hoadon.TONGTIEN = giohangsessionn.Sum(x => x.ThanhTien);
-            hoadon.TENKHACHHANG = tenkh;
-
-            db.HOADONs.Add(hoadon);
-            db.SaveChanges();
+            try
+            {
+                //khơi tạo các biến lưu vào csdl
+                // Lưu hóa đơn trước để có mã Hóa đơn mới lưu Chi tiết hóa đơn  
+                // Mã hóa đơn cho tự động , lấy ví dụ mã là ngày hiện tại
+                hoadon.MAHD = DateTime.Today.ToString("dd/MM/yy");
+                hoadon.NGAYLAP = DateTime.Now;
+                hoadon.TINHTRANG = "Chưa xữ lý";
+                hoadon.TONGTIEN = (double)giohangsessionn.Sum(x => x.ThanhTien);
+                hoadon.TENKHACHHANG = tenkh;
+                hoadon.GIAMGIA = 0;
+                hoadon.NGAYSUA = DateTime.Now;
+                hoadon.SUABOI = "";
+                db.HOADONs.Add(hoadon);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                
+            }
             // Lưu CT hóa đơn 
             foreach (var item in giohangsessionn)
             {
@@ -259,7 +266,7 @@ namespace VatLieuLotSan.Controllers
 
             }
             db.SaveChanges();
-            return RedirectToAction("/hoan-thanh");
+            return RedirectToAction("HoanThanh");
         }
 
         // Hoàn thành
