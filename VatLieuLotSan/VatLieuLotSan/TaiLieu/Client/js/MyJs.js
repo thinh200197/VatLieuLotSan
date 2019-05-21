@@ -75,8 +75,7 @@
                     success: function (res) {
                         if (res.status == true) {
                             ////window.location.href = res.link;
-                            //$('.MyHeader').load('@Url.Action("HeaderIconCart", "Home")');
-                            console.log()
+                            $('#Icon_SL').text(res.sl);
                         }
                     }
                 });
@@ -103,6 +102,16 @@
 
             $('.div_danhmuc').load();
        
+        });
+        $('#btn-test').off('click').on('click', function (e) {
+            e.preventDefault();
+            var url = $('#dangnhap').data('url');
+            $.get(url, function (data) {
+                $('#dangnhap').html(data);
+                $('#dangnhap').modal('show');
+
+            })
+
         });
 
     }

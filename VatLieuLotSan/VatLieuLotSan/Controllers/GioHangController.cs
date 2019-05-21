@@ -130,7 +130,6 @@ namespace VatLieuLotSan.Controllers
         {
             var sp = new SanPhamModel().ChiTietSanPham(MaHang);
             var gio = Session[CommonConstants.GioHangSession];
-
             if (gio != null)
             {
                 var lstItem = (List<GioHangModel>)gio;
@@ -141,6 +140,7 @@ namespace VatLieuLotSan.Controllers
                         if (item.SanPham.MAHANG == MaHang)
                         {
                             item.SoLuong++;
+                            
                             item.ThanhTien = (item.SoLuong * item.SanPham.GIABAN.Value);
                         }
                     }
@@ -170,7 +170,7 @@ namespace VatLieuLotSan.Controllers
             return Json(new
             {
                 status = true,
-                link = Url
+                sl = ((List<GioHangModel>)Session[CommonConstants.GioHangSession]).Count
             });
         }
         public JsonResult CapNhatHang(string giohangModel)

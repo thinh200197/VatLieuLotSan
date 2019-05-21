@@ -6,29 +6,31 @@
     <title>@ViewBag.Title - Vật Liệu Lót Sàn THT</title>
     <!--File đường dẫn-->
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="~/TaiLieu/Client/images/icons/favicon.png" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" type="image/png" href="/TaiLieu/Client/images/icons/favicon.png" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/fonts/themify/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/fonts/themify/themify-icons.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/fonts/elegant-font/html-css/style.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/fonts/elegant-font/html-css/style.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/slick/slick.css">
     <!--===============================================================================================-->
     <link href="~/TaiLieu/Client/vendor/noui/nouislider.css" rel="stylesheet" />
     <!--===============================================================================================-->
@@ -36,16 +38,18 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/css/util.css">
     <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/css/main.css">
+
+
     <!--===============================================================================================-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body class="animsition">
     <!-- Header -->
-    <header class="header1" style="height: 75px;">
+    <header class="header1" style="height: 75px;" >
         <!-- Header desktop -->
         @{Html.RenderAction("HeaderDesktop", "Home");}
+       
         <!--===============================================================================================-->
         <!-- Header Mobile -->
         @{Html.RenderPartial("HeaderMobile");}
@@ -60,7 +64,7 @@
 
     <!--Phần Container -->
     @RenderBody()
-
+   
     <!--Chat box-->
     <script src="https://ladibot.com/libs/landing-page.widget.js"></script>
     <script>
@@ -114,7 +118,7 @@
             var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
             $(this).on('click', function () {
                 swal(nameProduct, "Đã được thêm vào giỏ !", "success");
-                $('#MyHeader').load('HeaderIconCart.cshtml');
+               
             });
         });
 
