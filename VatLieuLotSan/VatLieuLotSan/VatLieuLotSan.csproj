@@ -217,6 +217,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DangNhapKHModel.cs" />
     <Compile Include="Models\DatHangModel.cs" />
     <Compile Include="Models\GioHangModel.cs" />
     <Compile Include="Models\HoaDonModel.cs" />

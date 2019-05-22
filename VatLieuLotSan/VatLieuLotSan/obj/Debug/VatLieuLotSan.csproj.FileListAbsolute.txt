@@ -115,3 +115,4 @@ D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.dll
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.Mvc.dll
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.xml
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.Mvc.xml
+D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.csprojResolveAssemblyReference.cache

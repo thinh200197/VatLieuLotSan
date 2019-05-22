@@ -91,18 +91,12 @@
             window.location.href = "/dat-hang";
         });
 
-        // Thêm class active 
-        $('.danhMuc').off('click').on('click', function () {
-            var listDM = $('.danhMuc');
+        $('#btn_dangnhap').click(function (e) {
+            e.preventDefault();
+            window.location.href("/dang-nhap")
 
-            $.each(listDM, function (i, item) {
-                // Xóa lớp active của các mục
-                $(item).removeClass("active1");
-            }),
-
-            $('.div_danhmuc').load();
-       
         });
+
         $('#btn-test').off('click').on('click', function (e) {
             e.preventDefault();
             var url = $('#dangnhap').data('url');

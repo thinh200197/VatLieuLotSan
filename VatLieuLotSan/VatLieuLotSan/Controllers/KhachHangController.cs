@@ -22,19 +22,29 @@ namespace VatLieuLotSan.Controllers
             return PartialView();
         }
         [HttpPost]
-        public ActionResult Login(DangNhapKHModel model)
+        public ActionResult Login(DangNhapKHModel model,string duongDan)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            var kh = db.KHACHHANGs.Find(model.TenDangNhap);
-            if (kh!= null)
+            KhachHangModel kt = new KhachHangModel();
+            if (kt.KiemTraTaiKhoan(model.TenDangNhap, model.MatKhau))
             {
-                return View("Index","Home");
+                Session[CommonConstants.KhachHang] = model;
+                GioHangModel gh = (GioHangModel)Session[CommonConstants.GioHangSession];
+
+                //Thêm thông tin giỏ hàng vào giỏ hàng của tài khoản .
+                KhachHangModel khmodel = new KhachHangModel();
+                khmodel.CapNhatGioHangKhachHang();
+
+               
+
+
+
+                return Redirect(duongDan);
             }
-            ViewBag.ThongBao = "Tài khoản hoặc mật khẩu không chính xác";
 
             return View(model);
         }
