@@ -119,7 +119,7 @@ namespace VatLieuLotSan.Models
                 CTGIOHANG ctgh = new CTGIOHANG();
 
                 ghkh.MAGIOHANG = DateTime.Now.Day.ToString() + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second;
-                ghkh.TONGTIEN = ;
+                //ghkh.TONGTIEN = ;
                 db.GIOHANGs.Add(ghkh);
                 db.SaveChanges();
 

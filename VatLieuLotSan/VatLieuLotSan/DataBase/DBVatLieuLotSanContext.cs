@@ -119,10 +119,6 @@ namespace VatLieuLotSan.DataBase
                 .Property(e => e.SANPHAMTANG)
                 .IsFixedLength();
 
-            modelBuilder.Entity<CTKHUYENMAI>()
-                .Property(e => e.SOLUONG)
-                .IsFixedLength();
-
             modelBuilder.Entity<CTPHIEUGIAO>()
                 .Property(e => e.MAHD)
                 .IsUnicode(false);
@@ -162,23 +158,11 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<HANGHOA>()
-                .Property(e => e.NHAN)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HANGHOA>()
                 .Property(e => e.MALOAI)
                 .IsUnicode(false);
 
             modelBuilder.Entity<HANGHOA>()
                 .Property(e => e.MAU)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HANGHOA>()
-                .Property(e => e.SOKHO)
-                .IsFixedLength();
-
-            modelBuilder.Entity<HANGHOA>()
-                .Property(e => e.SUABOI)
                 .IsUnicode(false);
 
             modelBuilder.Entity<HANGHOA>()
@@ -215,20 +199,12 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<HOADON>()
-                .Property(e => e.SUABOI)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HOADON>()
                 .HasMany(e => e.CT_HOADON)
                 .WithRequired(e => e.HOADON)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<KHACHHANG>()
                 .Property(e => e.MAKHACHHANG)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<KHACHHANG>()
-                .Property(e => e.NHAN)
                 .IsUnicode(false);
 
             modelBuilder.Entity<KHACHHANG>()
@@ -241,10 +217,6 @@ namespace VatLieuLotSan.DataBase
 
             modelBuilder.Entity<KHACHHANG>()
                 .Property(e => e.EMAIL)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<KHACHHANG>()
-                .Property(e => e.SUABOI)
                 .IsUnicode(false);
 
             modelBuilder.Entity<KHACHHANG>()
@@ -276,10 +248,6 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<LOAIKHACHHANG>()
-                .Property(e => e.NHAN)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<LOAIKHACHHANG>()
                 .HasMany(e => e.KHACHHANGs)
                 .WithOptional(e => e.LOAIKHACHHANG)
                 .HasForeignKey(e => e.LOAIKHACH);
@@ -298,10 +266,6 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<MAUSAC>()
-                .Property(e => e.NHAN)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<MAUSAC>()
                 .HasMany(e => e.HANGHOAs)
                 .WithOptional(e => e.MAUSAC)
                 .HasForeignKey(e => e.MAU);
@@ -312,10 +276,6 @@ namespace VatLieuLotSan.DataBase
 
             modelBuilder.Entity<NGUOIDUNG>()
                 .Property(e => e.MATKHAU)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NGUOIDUNG>()
-                .Property(e => e.SUABOI)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
@@ -339,17 +299,8 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<NHANVIEN>()
-                .Property(e => e.SUABOI)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NHANVIEN>()
                 .Property(e => e.SODIENTHOAI)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<NHANVIEN>()
-                .HasMany(e => e.PHIEUGIAOs)
-                .WithOptional(e => e.NHANVIEN)
-                .HasForeignKey(e => e.NGUOIGIAO);
 
             modelBuilder.Entity<NHOMQUYEN>()
                 .Property(e => e.MANHOM)
@@ -376,16 +327,12 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUGIAO>()
-                .Property(e => e.NGUOIGIAO)
+                .Property(e => e.MANV)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUGIAO>()
                 .Property(e => e.SDT)
                 .IsFixedLength();
-
-            modelBuilder.Entity<PHIEUGIAO>()
-                .Property(e => e.SUABOI)
-                .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUGIAO>()
                 .Property(e => e.SODIENTHOAI)

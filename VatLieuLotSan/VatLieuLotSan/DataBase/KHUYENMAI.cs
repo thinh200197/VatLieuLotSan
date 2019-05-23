@@ -10,17 +10,17 @@ namespace VatLieuLotSan.DataBase
     public partial class KHUYENMAI
     {
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAKM { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string TENKM { get; set; }
 
         public DateTime? NGAYBATDAU { get; set; }
 
         public DateTime? NGAYKETTHUC { get; set; }
 
-        [StringLength(30)]
+        [StringLength(100)]
         public string HINHTHUCKM { get; set; }
 
         public virtual CTKHUYENMAI CTKHUYENMAI { get; set; }

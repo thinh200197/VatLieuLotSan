@@ -17,13 +17,13 @@ namespace VatLieuLotSan.DataBase
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MANCC { get; set; }
 
         [StringLength(100)]
         public string TENNCC { get; set; }
 
-        [StringLength(100)]
+        [StringLength(250)]
         public string DIACHI { get; set; }
 
         [StringLength(10)]

@@ -13,7 +13,7 @@ namespace VatLieuLotSan.DataBase
         [StringLength(50)]
         public string TENDANGNHAP { get; set; }
 
-        [StringLength(10)]
+        [StringLength(100)]
         public string MANHOM { get; set; }
 
         public virtual NGUOIDUNG NGUOIDUNG { get; set; }

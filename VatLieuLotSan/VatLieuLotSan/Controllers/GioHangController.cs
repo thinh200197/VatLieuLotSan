@@ -245,14 +245,11 @@ namespace VatLieuLotSan.Controllers
                 hoadon.TONGTIEN = (double)giohangsessionn.Sum(x => x.ThanhTien);
                 hoadon.TENKHACHHANG = tenkh;
                 hoadon.GIAMGIA = 0;
-                hoadon.NGAYSUA = DateTime.Now;
-                hoadon.SUABOI = "";
                 db.HOADONs.Add(hoadon);
                 db.SaveChanges();
             }
             catch (Exception ex)
             {
-                
             }
             // Lưu CT hóa đơn 
             foreach (var item in giohangsessionn)

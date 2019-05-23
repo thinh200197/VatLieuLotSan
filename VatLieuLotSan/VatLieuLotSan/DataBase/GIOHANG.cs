@@ -17,7 +17,7 @@ namespace VatLieuLotSan.DataBase
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAGIOHANG { get; set; }
 
         public double? TONGTIEN { get; set; }

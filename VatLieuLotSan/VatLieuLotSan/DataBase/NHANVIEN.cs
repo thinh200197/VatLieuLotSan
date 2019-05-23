@@ -16,10 +16,10 @@ namespace VatLieuLotSan.DataBase
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MANV { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string TENNV { get; set; }
 
         public DateTime? NGAYSINH { get; set; }
@@ -30,11 +30,11 @@ namespace VatLieuLotSan.DataBase
         [StringLength(3)]
         public string GIOITINH { get; set; }
 
-        [StringLength(250)]
-        public string DIACHI { get; set; }
+        [StringLength(100)]
+        public string HINH { get; set; }
 
         [StringLength(250)]
-        public string Hinh { get; set; }
+        public string DIACHI { get; set; }
 
         [StringLength(10)]
         public string CMND { get; set; }
@@ -43,14 +43,6 @@ namespace VatLieuLotSan.DataBase
         public string Email { get; set; }
 
         public DateTime? NGAYTAO { get; set; }
-
-        [StringLength(50)]
-        public string TAOBOI { get; set; }
-
-        public DateTime? NGAYSUA { get; set; }
-
-        [StringLength(50)]
-        public string SUABOI { get; set; }
 
         [StringLength(10)]
         public string SODIENTHOAI { get; set; }

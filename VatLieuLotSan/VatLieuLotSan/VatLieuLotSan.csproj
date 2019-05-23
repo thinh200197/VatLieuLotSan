@@ -2926,6 +2926,7 @@
     <Content Include="TaiLieu\Client\vendor\slick\slick.js" />
     <Content Include="TaiLieu\Client\vendor\slick\slick.min.js" />
     <Content Include="TaiLieu\Client\vendor\sweetalert\sweetalert.min.js" />
+    <Content Include="TaiLieu\lotSan\1.jpg" />
     <Content Include="TaiLieu\lotSan\san-nhua-go-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-2.jpg" />

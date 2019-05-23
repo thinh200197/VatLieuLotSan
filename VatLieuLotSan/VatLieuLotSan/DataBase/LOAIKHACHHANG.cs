@@ -16,18 +16,13 @@ namespace VatLieuLotSan.DataBase
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MALOAI { get; set; }
 
-        [StringLength(30)]
+        [StringLength(100)]
         public string TENLOAN { get; set; }
 
-        [StringLength(100)]
-        public string NHAN { get; set; }
-
         public double? MUCGIAM { get; set; }
-
-        public int? GIOIHANGDIEM { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KHACHHANG> KHACHHANGs { get; set; }

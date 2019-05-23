@@ -37,7 +37,7 @@ namespace VatLieuLotSan.Controllers
 
                 //Thêm thông tin giỏ hàng vào giỏ hàng của tài khoản .
                 KhachHangModel khmodel = new KhachHangModel();
-                khmodel.CapNhatGioHangKhachHang();
+                //khmodel.CapNhatGioHangKhachHang();
 
                
 

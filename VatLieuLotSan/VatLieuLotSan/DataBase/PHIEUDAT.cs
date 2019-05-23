@@ -10,13 +10,13 @@ namespace VatLieuLotSan.DataBase
     public partial class PHIEUDAT
     {
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAPHIEUDAT { get; set; }
 
-        [StringLength(10)]
+        [StringLength(100)]
         public string MANCC { get; set; }
 
-        [StringLength(10)]
+        [StringLength(100)]
         public string MANV { get; set; }
 
         public DateTime? NGAYDAT { get; set; }

@@ -17,7 +17,7 @@ namespace VatLieuLotSan.DataBase
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAHD { get; set; }
 
         public DateTime? NGAYLAP { get; set; }
@@ -28,14 +28,6 @@ namespace VatLieuLotSan.DataBase
 
         [StringLength(100)]
         public string TENKHACHHANG { get; set; }
-
-        [StringLength(50)]
-        public string TAOBOI { get; set; }
-
-        public DateTime? NGAYSUA { get; set; }
-
-        [StringLength(50)]
-        public string SUABOI { get; set; }
 
         [StringLength(10)]
         public string TINHTRANG { get; set; }

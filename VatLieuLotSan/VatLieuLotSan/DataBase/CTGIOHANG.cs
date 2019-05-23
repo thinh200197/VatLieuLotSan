@@ -11,12 +11,12 @@ namespace VatLieuLotSan.DataBase
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAGIOHANG { get; set; }
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAHANG { get; set; }
 
         public int? SOLUONG { get; set; }

@@ -35,8 +35,6 @@ namespace VatLieuLotSan.Models
                 user.SODIENTHOAI = entity.SODIENTHOAI;
                 user.Email = entity.Email;
                 user.DIACHI = entity.DIACHI;
-                user.SUABOI = entity.SUABOI;
-                user.NGAYSUA = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }
