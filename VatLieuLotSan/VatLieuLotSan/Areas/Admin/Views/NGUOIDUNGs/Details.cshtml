@@ -1,0 +1,83 @@
+﻿@model VatLieuLotSan.DataBase.NGUOIDUNG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/LayoutQuanTri.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NGUOIDUNG</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CHITIETNHOMQUYEN.MANHOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHITIETNHOMQUYEN.MANHOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHANVIEN.TENNV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANVIEN.TENNV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MATKHAU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MATKHAU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYTAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYTAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAOBOI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAOBOI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYSUA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSUA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SUABOI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUABOI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOATDONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOATDONG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TENDANGNHAP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
