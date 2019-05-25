@@ -87,6 +87,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -152,11 +164,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -165,14 +172,16 @@
     <Compile Include="Areas\Admin\Controllers\DangNhapController.cs" />
     <Compile Include="Areas\Admin\Controllers\HANGHOAsController.cs" />
     <Compile Include="Areas\Admin\Controllers\KHACHHANGsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\NGUOIDUNGsController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanTriController.cs" />
     <Compile Include="Areas\Admin\Models\DangNhapQuanTriModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\DangNhapCommon.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
+    <Compile Include="Controllers\HoaDonController.cs" />
+    <Compile Include="Controllers\HOADONsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\MenuClientController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
@@ -208,7 +217,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DangNhapKHModel.cs" />
+    <Compile Include="Models\DatHangModel.cs" />
     <Compile Include="Models\GioHangModel.cs" />
+    <Compile Include="Models\HoaDonModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
     <Compile Include="Models\NhanVienModel.cs" />
     <Compile Include="Areas\Admin\Models\TaiKhoanNhanVienModel.cs" />
@@ -218,6 +230,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -233,11 +246,6 @@
     <Content Include="Areas\Admin\Views\DangNhap\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\LayoutQuanTri.cshtml" />
     <Content Include="Areas\Admin\Views\QuanTri\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\NGUOIDUNGs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Details.cshtml" />
@@ -248,6 +256,7 @@
     <Content Include="Areas\Admin\Views\KHACHHANGs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHHANGs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KHACHHANGs\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\myweb.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -2917,13 +2926,16 @@
     <Content Include="TaiLieu\Client\vendor\slick\slick.js" />
     <Content Include="TaiLieu\Client\vendor\slick\slick.min.js" />
     <Content Include="TaiLieu\Client\vendor\sweetalert\sweetalert.min.js" />
+    <Content Include="TaiLieu\lotSan\1.jpg" />
     <Content Include="TaiLieu\lotSan\san-nhua-go-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-2.jpg" />
     <Content Include="TaiLieu\lotSan\slide-3.jpg" />
     <Content Include="TaiLieu\lotSan\slide-4.jpg" />
     <Content Include="TaiLieu\lotSan\Slide-5.jpg" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -3140,6 +3152,15 @@
     <Content Include="TaiLieu\Client\vendor\slick\slick.less" />
     <Content Include="TaiLieu\Client\vendor\slick\slick.scss" />
     <Content Include="Views\Home\HeaderIconCart.cshtml" />
+    <Content Include="Views\HoaDon\LapHoaDon.cshtml" />
+    <Content Include="Views\GioHang\HoanThanh.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\KhachHang\KhachHang.cshtml" />
+    <Content Include="Views\HOADONs\Create.cshtml" />
+    <Content Include="Views\HOADONs\Delete.cshtml" />
+    <Content Include="Views\HOADONs\Details.cshtml" />
+    <Content Include="Views\HOADONs\Edit.cshtml" />
+    <Content Include="Views\HOADONs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

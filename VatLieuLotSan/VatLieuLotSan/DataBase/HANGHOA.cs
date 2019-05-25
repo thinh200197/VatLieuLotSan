@@ -20,15 +20,13 @@ namespace VatLieuLotSan.DataBase
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAHANG { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string TENHANG { get; set; }
 
-        public string NHAN { get; set; }
-
-        [StringLength(10)]
+        [StringLength(100)]
         public string MALOAI { get; set; }
 
         [StringLength(30)]
@@ -36,32 +34,18 @@ namespace VatLieuLotSan.DataBase
 
         public string MOTA { get; set; }
 
-        [Column(TypeName = "xml")]
-        public string NHIEUANH { get; set; }
-
         public string HINH { get; set; }
 
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAU { get; set; }
 
         public double? GIANHAP { get; set; }
 
         public double? GIABAN { get; set; }
 
-        public int? SOLUONG { get; set; }
-
-        [StringLength(10)]
-        public string SOKHO { get; set; }
-
         public DateTime? NGAYTAO { get; set; }
 
-        [StringLength(50)]
-        public string TAOBOI { get; set; }
-
-        public DateTime? NGAYSUA { get; set; }
-
-        [StringLength(50)]
-        public string SUABOI { get; set; }
+        public int? SOLUONG { get; set; }
 
         public DateTime? NOIBAT { get; set; }
 

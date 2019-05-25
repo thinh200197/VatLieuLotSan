@@ -1,0 +1,120 @@
+﻿@model List<VatLieuLotSan.Models.GioHangModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var sp1 = Model;
+    VatLieuLotSan.DataBase.KHACHHANG kh = new VatLieuLotSan.DataBase.KHACHHANG();
+    if (ViewBag.KhachHang != null)
+    {
+        kh = (VatLieuLotSan.DataBase.KHACHHANG)ViewBag.KhachHang;
+    }
+
+}
+@section scripts{
+
+    <script src="/TaiLieu/Client/js/MyJs.js"></script>
+
+}
+<!-- Title Page -->
+<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(/TaiLieu/Client/images/heading-pages-01.jpg);">
+    <h2 class="l-text2 t-center">
+        GIỎ HÀNG
+    </h2>
+</section>
+<!-- Cart -->
+<section class="cart bgwhite p-t-70 p-b-100">
+    <div class="container">
+
+        <!-- Cho nhập thông tin khách hàng và nơi giao .  -->
+        @using (Html.BeginForm("DatHang", "GioHang", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-12">
+                    <div class="flex-w flex-sb bo10 p-t-15 p-b-20">
+                        <div class="col-md-12 p-b-0">
+                            <h4 class="m-text26 p-b-36 p-t-15">
+                                THÔNG TIN CỦA KHÁCH HÀNG
+                            </h4>
+                        </div>
+                        <form class="form-horizontal">
+                            <div class="row col-md-12 p-b-0">
+                                <!--Thông tin khách hàng -->
+                                <div class="col-md-6 p-b-30">
+                                    <div class="bo4 of-hidden size15 m-b-20 form-group">
+                                        <input class="txt_KH sizefull s-text7 p-l-22 p-r-22 " type="text" name="tenkh" placeholder="Họ và tên" value="@kh.TENKHACHHANG">
+                                    </div>
+
+                                    <div class="bo4 of-hidden size15 m-b-20 form-group">
+                                        <input class="txt_KH sizefull s-text7 p-l-22 p-r-22 " type="text" name="sdt" placeholder="Số điện thoại" value="@kh.SODIENTHOAI">
+                                    </div>
+
+                                    <div class="bo4 of-hidden size15 m-b-20 form-group">
+                                        <input class="txt_KH sizefull s-text7 p-l-22 p-r-22 " type="text" name="diachi" placeholder="Địa chỉ" value="@kh.DIACHI">
+                                    </div>
+
+                                    <div class="bo4 of-hidden size15 m-b-20 form-group">
+                                        <input class="txt_KH sizefull s-text7 p-l-22 p-r-22 " type="text" name="email" placeholder="Email" value="@kh.EMAIL">
+                                    </div>
+
+                                    <textarea class="txt_KH dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20 " name="ghichu" placeholder="Ghi chú"></textarea>
+
+
+
+                                </div>
+                                <!--Hình thức thanh toán -->
+                                <div class="col-md-6 p-b-30">
+                                    <div class="p-r-20 p-r-0-lg">
+
+                                        <div class="bo4 of-hidden size15 m-b-20">
+                                            <input class="txt_KH sizefull s-text7 p-l-22 p-r-22" type="text" name="hinhthuc" placeholder="Hình Thức">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row col-md-12 p-b-0">
+                                <!--Thông tin khách hàng -->
+                                <div class="col-md-6 p-b-30">
+                                    <div class="flex-w flex-sb-m p-t-26 p-b-30">
+                                        <div class="size15 trans-0-4">
+                                            <!-- Button  Đặt hàng lập hóa đơn-->
+                                            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 " type="submit">
+                                                ĐẶT HÀNG
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <!--============================================================================================  -->
+
+                </div>
+            </div>
+        }
+        <!--============================================================================================  -->
+        @*</div>*@
+
+    </div>
+
+</section>
+
+<!-- Container Selection -->
+<div id="dropDownSelect1"></div>
+<div id="dropDownSelect2"></div>
+<!--===============================================================================================-->
+<script type="text/javascript" src="/TaiLieu/Client/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" src="/TaiLieu/Client/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="/TaiLieu/Client/vendor/bootstrap/js/popper.js"></script>
+<script type="text/javascript" src="/TaiLieu/Client/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->

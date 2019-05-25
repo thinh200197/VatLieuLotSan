@@ -10,19 +10,21 @@ namespace VatLieuLotSan.DataBase
     public partial class CTPHIEUGIAO
     {
         [Required]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAHD { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAHANG { get; set; }
 
+        public int? SOLUONG { get; set; }
+
         [Required]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAMAU { get; set; }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAPHIEUGIAO { get; set; }
 
         public virtual HANGHOA HANGHOA { get; set; }

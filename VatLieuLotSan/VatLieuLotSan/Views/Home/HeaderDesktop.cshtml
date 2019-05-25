@@ -45,7 +45,7 @@
                     @foreach (var item in Model)
                     {
                         <li>
-                            <a href="@Url.Content(item.Link) " rel="nofollow">@item.TenMenu</a>
+                            <a href="/@item.Link" rel="nofollow">@item.TenMenu</a>
                         </li>
                     }
                     
@@ -53,7 +53,10 @@
             </nav>
         </div>
         <!--Header Icon - Icon Tài khoản Khách hàng và giỏ hàng -->
-        @{Html.RenderAction("HeaderIconCart", "Home");}
+        <div class="MyHeader" id="MyHeader">
+            @{Html.RenderAction("HeaderIconCart", "Home");}
+        </div>
+        
     </div>
 </div>
 

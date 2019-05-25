@@ -10,7 +10,7 @@ namespace VatLieuLotSan.DataBase
     public partial class QUYCACH
     {
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAHH { get; set; }
 
         [StringLength(50)]

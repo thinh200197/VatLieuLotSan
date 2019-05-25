@@ -13,5 +13,10 @@ namespace VatLieuLotSan.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult LienHe(string name ,string phone_number , string email,string message)
+        {
+            return View();
+        }
     }
 }

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using VatLieuLotSan.Common;
 using VatLieuLotSan.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace VatLieuLotSan.Controllers
 {

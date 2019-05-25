@@ -10,25 +10,18 @@ namespace VatLieuLotSan.DataBase
     public partial class PHIEUNHAP
     {
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAPHIEUNHAP { get; set; }
 
-        [StringLength(10)]
+        [StringLength(100)]
         public string MANCC { get; set; }
+
+        [StringLength(100)]
+        public string MANV { get; set; }
 
         public DateTime? NGAYNHAP { get; set; }
 
         public double? TONGTIEN { get; set; }
-
-        public DateTime? NGAYTAO { get; set; }
-
-        [StringLength(50)]
-        public string TAOBOI { get; set; }
-
-        public DateTime? NGAYSUA { get; set; }
-
-        [StringLength(50)]
-        public string SUABOI { get; set; }
 
         [StringLength(10)]
         public string TINHTRANG { get; set; }

@@ -10,22 +10,21 @@ namespace VatLieuLotSan.DataBase
     public partial class CTKHUYENMAI
     {
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAKM { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAHANG { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAMAU { get; set; }
 
-        [StringLength(10)]
+        [StringLength(100)]
         public string SANPHAMTANG { get; set; }
 
-        [StringLength(10)]
-        public string SOLUONG { get; set; }
+        public int? SOLUONG { get; set; }
 
         public double? GIABANGIAM { get; set; }
 

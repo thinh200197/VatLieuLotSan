@@ -4,28 +4,33 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using VatLieuLotSan.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace VatLieuLotSan.Controllers
 {
     public class SanPhamController : Controller
     {
         // GET: SanPham
-        public ActionResult SanPham()
+        public ActionResult SanPham(int soTrang = 1 , int soSanPham = 2)
         {
+            
             var model = new SanPhamModel();
-            var sp = model.XuatHangHoa();
+            ViewBag.LoaiHang = model.LoaiHang();
+            var sp = model.XuatHangHoa(soTrang,soSanPham);
             return View(sp);
         }
         public ActionResult XuatHangTheoLoai(string Maloai)
         {
             var model = new SanPhamModel();
-            var sanpham = model.LoadHangHoa(Maloai);
+            var sanpham = model.LoadHangHoa(Maloai,1,12);
             if (sanpham != null)
             {
-                return View("Index",sanpham);
+                ViewBag.LoaiHang = model.LoaiHang();
+                return View("SanPham",sanpham);
             }
             ViewBag.KhongSanPham = "Không có loại hàng này !";
-            return View("Index");
+            return View("SanPham");
         }
         public ActionResult ChiTietSanPham(string MaHang)
         {

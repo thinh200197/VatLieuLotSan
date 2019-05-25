@@ -16,11 +16,8 @@ namespace VatLieuLotSan.DataBase
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAMAU { get; set; }
-
-        [StringLength(50)]
-        public string NHAN { get; set; }
 
         [StringLength(50)]
         public string TENMAU { get; set; }

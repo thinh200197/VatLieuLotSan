@@ -1,0 +1,66 @@
+﻿@model List<VatLieuLotSan.Models.GioHangModel>
+    @{ 
+        var SoLuongSanPham =  0;
+
+    }
+<!-- Header Icon -->
+<div class="header-icons">
+    <a href="#" class="header-wrapicon1 dis-block">
+        <img src="/TaiLieu/Client/images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+    </a>
+
+    <span class="linedivide1"></span>
+
+    <div class="header-wrapicon2">
+        <img src="~/TaiLieu/Client/images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
+        <!-- Hiển thị số lượng sản phẩm trong giỏ hàng-->
+        <span class="header-icons-noti">@(Model.Count) </span>
+
+        <!-- Header cart noti -->
+        <!-- Hiển thị sản phẩm trong giỏ hàng-->
+        <div class="header-cart header-dropdown">
+                <ul class="header-cart-wrapitem">
+                    <!-- Hiện thị danh sách các sản phẩm trong giỏ hàng. -->
+                    @foreach (var item in Model)
+                    {
+                        <li class="header-cart-item">
+                            <div class="header-cart-item-img">
+                                <img src="@Url.Content(item.SanPham.HINH)" alt="IMG">
+                            </div>
+
+                            <div class="header-cart-item-txt">
+                                <a href="#" class="header-cart-item-name">
+                                    @item.SanPham.TENHANG;
+                                </a>
+
+                                <span class="header-cart-item-info">                                  
+                                     @item.SoLuong x @item.SanPham.GIABAN.Value.ToString("N0") VNĐ
+                                </span>
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+            <!--Hiển thị tổng tiền-->
+                <div class="header-cart-total">
+                    Tổng : @(Model.Sum(x => x.ThanhTien).ToString("N0") ) VNĐ
+                </div>
+            <!--Btn Thanh Toán và Xem giỏ hàng-->
+            <div class="header-cart-buttons">
+                <div class="header-cart-wrapbtn">
+                    <!-- Button -->
+                    <a href="/gio-hang" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                        Xem giỏ hàng
+                    </a>
+                </div>
+
+                <div class="header-cart-wrapbtn">
+                    <!-- Button -->
+                    <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                        Thanh Toán
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,19 +9,19 @@ namespace VatLieuLotSan.DataBase
     public partial class CT_PHIEUNHAP
     {
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAPHIEUNHAP { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAPHIEUDAT { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAHANG { get; set; }
 
         [Required]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MAMAU { get; set; }
 
         public int? SOLUONG { get; set; }

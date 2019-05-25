@@ -16,10 +16,10 @@ namespace VatLieuLotSan.DataBase
         }
 
         [Key]
-        [StringLength(10)]
+        [StringLength(100)]
         public string MALOAI { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string TENLOAI { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
