@@ -49,7 +49,7 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAHANG,TENHANG,NHAN,MALOAI,DONVITINH,MOTA,NHIEUANH,HINH,MAU,GIANHAP,GIABAN,SOLUONG,NGAYTAO,TAOBOI,NGAYSUA,SUABOI,NOIBAT,LUOTXEM,TINHTRANG")] HANGHOA hANGHOA)
+        public ActionResult Create([Bind(Include = "MAHANG,TENHANG,MALOAI,DONVITINH,MOTA,HINH,MAU,GIANHAP,GIABAN,SOLUONG,NGAYTAO,LUOTXEM,TINHTRANG")] HANGHOA hANGHOA)
         {
             if (ModelState.IsValid)
             {

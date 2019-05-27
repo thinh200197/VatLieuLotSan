@@ -387,7 +387,7 @@ iframe {
 .symbol-btn-back-to-top {
   font-size: 22px;
   color: white;
-  line-height: 1em;
+  line-height: 2em;
 }
 
 .btn-back-to-top:hover {
@@ -743,8 +743,9 @@ iframe {
 
 .main_menu > li > a {
   font-family: FiraSansCondensed-Regular;
-  font-size: 15px;
+  font-size: 22px;
   color: #333333;
+  text-transform:uppercase;
   padding: 0;
   border-bottom: 1px solid transparent;
 }

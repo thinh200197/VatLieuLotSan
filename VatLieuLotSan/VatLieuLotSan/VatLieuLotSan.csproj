@@ -230,6 +230,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\myCss.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -2926,6 +2927,10 @@
     <Content Include="TaiLieu\Client\vendor\slick\slick.js" />
     <Content Include="TaiLieu\Client\vendor\slick\slick.min.js" />
     <Content Include="TaiLieu\Client\vendor\sweetalert\sweetalert.min.js" />
+    <Content Include="TaiLieu\DangNhapKH\css\font-awesome.css" />
+    <Content Include="TaiLieu\DangNhapKH\css\style.css" />
+    <Content Include="TaiLieu\DangNhapKH\fonts\fontawesome-webfont.svg" />
+    <Content Include="TaiLieu\DangNhapKH\images\tick.png" />
     <Content Include="TaiLieu\lotSan\1.jpg" />
     <Content Include="TaiLieu\lotSan\san-nhua-go-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-1.jpg" />
@@ -3161,6 +3166,14 @@
     <Content Include="Views\HOADONs\Details.cshtml" />
     <Content Include="Views\HOADONs\Edit.cshtml" />
     <Content Include="Views\HOADONs\Index.cshtml" />
+    <Content Include="Views\KhachHang\DangKy.cshtml" />
+    <Content Include="TaiLieu\DangNhapKH\fonts\fontawesome-webfont.eot" />
+    <Content Include="TaiLieu\DangNhapKH\fonts\fontawesome-webfont.ttf" />
+    <Content Include="TaiLieu\DangNhapKH\fonts\fontawesome-webfont.woff" />
+    <Content Include="TaiLieu\DangNhapKH\fonts\fontawesome-webfont.woff2" />
+    <Content Include="TaiLieu\DangNhapKH\fonts\FontAwesome.otf" />
+    <Content Include="Views\Shared\DangNhapKH.cshtml" />
+    <Content Include="Views\Shared\DangKyKH.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,6 +7,7 @@ using VatLieuLotSan.Common;
 using VatLieuLotSan.Models;
 using PagedList;
 using PagedList.Mvc;
+using VatLieuLotSan.DataBase;
 
 namespace VatLieuLotSan.Controllers
 {
@@ -45,6 +46,12 @@ namespace VatLieuLotSan.Controllers
         public PartialViewResult HeaderIconCart()
         {
             List<GioHangModel> model = new List<GioHangModel>();
+            KHACHHANG kh = (KHACHHANG)Session[CommonConstants.KhachHang];
+            if (kh != null)
+            {
+                ViewBag.KH = kh;
+            }
+
             var lstProduct = (List<GioHangModel>)Session[CommonConstants.GioHangSession];
             if (lstProduct != null)
             {

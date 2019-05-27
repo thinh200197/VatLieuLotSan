@@ -222,6 +222,12 @@ namespace VatLieuLotSan.Controllers
                 ViewBag.KhachHang = kh;
             else
                 ViewBag.KhachHang = null;
+            var giohangsessionn = (List<GioHangModel>)Session[CommonConstants.GioHangSession];
+            if (giohangsessionn == null || giohangsessionn.Count == 0)
+            {
+                ViewBag.ThongBao = "Mời bạn chọn sản phẩm để thanh toán ";
+                return Redirect("/gio-hang");
+            }
             return View();
         }
         [HttpPost]

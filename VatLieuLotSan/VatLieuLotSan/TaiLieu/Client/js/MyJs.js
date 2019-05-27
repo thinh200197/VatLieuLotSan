@@ -93,7 +93,8 @@
 
         $('#btn_dangnhap').click(function (e) {
             e.preventDefault();
-            window.location.href("/dang-nhap")
+            //window.location.href("/dang-nhap")
+            $('#myModal').show();
 
         });
 
@@ -107,6 +108,12 @@
             })
 
         });
+
+        //$('#btn_DangNhapKhachHang').off('click').on('click', function (e) {
+        //    e.preventDefault();
+        //    window.location.href = "/dang-nhap";
+
+        //});
 
     }
 

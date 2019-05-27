@@ -59,9 +59,22 @@ namespace VatLieuLotSan.Controllers
            
             return PartialView();
         }
-        public ActionResult DangNhapKhachHang()
+        public ActionResult DangNhap()
         {
-            return PartialView();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DangNhap(string TaiKhoanKH ,string MatKhauKH,string GhiNho,string Link_Web)
+        {
+            KhachHangModel model = new KhachHangModel();
+            if (model.KiemTraTaiKhoan(TaiKhoanKH,MatKhauKH))
+            {
+                KHACHHANG kh = new KHACHHANG();
+                kh = model.TT_TaiKhoan_KH(TaiKhoanKH);
+                Session[CommonConstants.KhachHang] = kh;
+                return Redirect(Link_Web);
+            }
+            return View();
         }
         public ActionResult DangKy()
         {
