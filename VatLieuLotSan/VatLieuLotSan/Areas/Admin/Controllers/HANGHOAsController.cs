@@ -10,14 +10,14 @@ using VatLieuLotSan.DataBase;
 
 namespace VatLieuLotSan.Areas.Admin.Controllers
 {
-    public class HANGHOAsController : Controller
+    public class HANGHOAsController : BaseController
     {
         private DBVatLieuLotSanContext db = new DBVatLieuLotSanContext();
 
         // GET: Admin/HANGHOAs
         public ActionResult Index()
         {
-            var hANGHOAs = db.HANGHOAs.Include(h => h.LOAIHANG).Include(h => h.MAUSAC);
+            var hANGHOAs = db.HANGHOAs.Include(h => h.LOAIHANG).Include(h => h.MAUSAC).Include(h => h.QUYCACH);
             return View(hANGHOAs.ToList());
         }
 
@@ -40,7 +40,8 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.MALOAI = new SelectList(db.LOAIHANGs, "MALOAI", "TENLOAI");
-            ViewBag.MAU = new SelectList(db.MAUSACs, "MAMAU", "NHAN");
+            ViewBag.MAU = new SelectList(db.MAUSACs, "MAMAU", "TENMAU");
+            ViewBag.MAHANG = new SelectList(db.QUYCACHes, "MAHH", "KICHTHUOC");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAHANG,TENHANG,MALOAI,DONVITINH,MOTA,HINH,MAU,GIANHAP,GIABAN,SOLUONG,NGAYTAO,LUOTXEM,TINHTRANG")] HANGHOA hANGHOA)
+        public ActionResult Create([Bind(Include = "MAHANG,TENHANG,MALOAI,DONVITINH,MOTA,HINH,MAU,GIANHAP,GIABAN,NGAYTAO,SOLUONG,NOIBAT,LUOTXEM,TINHTRANG")] HANGHOA hANGHOA)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +60,8 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
             }
 
             ViewBag.MALOAI = new SelectList(db.LOAIHANGs, "MALOAI", "TENLOAI", hANGHOA.MALOAI);
-            ViewBag.MAU = new SelectList(db.MAUSACs, "MAMAU", "NHAN", hANGHOA.MAU);
+            ViewBag.MAU = new SelectList(db.MAUSACs, "MAMAU", "TENMAU", hANGHOA.MAU);
+            ViewBag.MAHANG = new SelectList(db.QUYCACHes, "MAHH", "KICHTHUOC", hANGHOA.MAHANG);
             return View(hANGHOA);
         }
 
@@ -76,7 +78,8 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
                 return HttpNotFound();
             }
             ViewBag.MALOAI = new SelectList(db.LOAIHANGs, "MALOAI", "TENLOAI", hANGHOA.MALOAI);
-            ViewBag.MAU = new SelectList(db.MAUSACs, "MAMAU", "NHAN", hANGHOA.MAU);
+            ViewBag.MAU = new SelectList(db.MAUSACs, "MAMAU", "TENMAU", hANGHOA.MAU);
+            ViewBag.MAHANG = new SelectList(db.QUYCACHes, "MAHH", "KICHTHUOC", hANGHOA.MAHANG);
             return View(hANGHOA);
         }
 
@@ -85,7 +88,7 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAHANG,TENHANG,NHAN,MALOAI,DONVITINH,MOTA,NHIEUANH,HINH,MAU,GIANHAP,GIABAN,SOLUONG,NGAYTAO,TAOBOI,NGAYSUA,SUABOI,NOIBAT,LUOTXEM,TINHTRANG")] HANGHOA hANGHOA)
+        public ActionResult Edit([Bind(Include = "MAHANG,TENHANG,MALOAI,DONVITINH,MOTA,HINH,MAU,GIANHAP,GIABAN,NGAYTAO,SOLUONG,NOIBAT,LUOTXEM,TINHTRANG")] HANGHOA hANGHOA)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +97,8 @@ namespace VatLieuLotSan.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.MALOAI = new SelectList(db.LOAIHANGs, "MALOAI", "TENLOAI", hANGHOA.MALOAI);
-            ViewBag.MAU = new SelectList(db.MAUSACs, "MAMAU", "NHAN", hANGHOA.MAU);
+            ViewBag.MAU = new SelectList(db.MAUSACs, "MAMAU", "TENMAU", hANGHOA.MAU);
+            ViewBag.MAHANG = new SelectList(db.QUYCACHes, "MAHH", "KICHTHUOC", hANGHOA.MAHANG);
             return View(hANGHOA);
         }
 

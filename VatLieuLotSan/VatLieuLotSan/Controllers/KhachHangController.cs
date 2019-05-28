@@ -80,5 +80,54 @@ namespace VatLieuLotSan.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult DangKy([Bind(Include = "TENKHACHHANG,TENDANGNHAP,MATKHAU,SODIENTHOAI,DIACHI,EMAIL")] KHACHHANG kHACHHANG)
+        {
+            // họp lệ
+            if (ModelState.IsValid)
+            {
+                KhachHangModel kh = new KhachHangModel();
+
+                if (kh.KT_TonTai(kHACHHANG.TENDANGNHAP))
+                {
+                    ViewBag.ThongBao = "Tên tài khoản đã tồn tại";
+                    return View(kHACHHANG);
+                }
+                try
+                {
+                    kHACHHANG.MAKHACHHANG = kHACHHANG.TENDANGNHAP;
+                    kHACHHANG.Hinh = null;
+                    kHACHHANG.LOAIKHACH = "LOAI2";
+                    kHACHHANG.GIOHANG = kHACHHANG.TENDANGNHAP;
+
+                    //Tạo giỏ hàng trước 
+                    GIOHANG gh = new GIOHANG();
+
+                    gh.MAGIOHANG = kHACHHANG.GIOHANG;
+                    gh.TONGTIEN = 0;
+                    db.GIOHANGs.Add(gh);
+                    db.SaveChanges();
+                    
+                    // lưu khách hàng vào database
+                    db.KHACHHANGs.Add(kHACHHANG);
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+                // các thuộc tính còn thiếu
+               
+
+               
+                
+                Session[CommonConstants.KhachHang] = kHACHHANG;
+
+                return RedirectToAction("Index","Home");
+            }
+            // không hợp lê
+            return View(kHACHHANG);
+        }
     }
 }

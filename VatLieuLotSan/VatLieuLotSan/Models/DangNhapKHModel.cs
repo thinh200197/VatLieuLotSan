@@ -110,6 +110,14 @@ namespace VatLieuLotSan.Models
             return db.KHACHHANGs.SingleOrDefault(x=>x.TENDANGNHAP == TenTaiKhoan);
         }
 
+        public bool KT_TonTai(string  TaiKhoan)
+        {
+            KHACHHANG test = db.KHACHHANGs.SingleOrDefault( a => a.TENDANGNHAP == TaiKhoan);
+            if (test == null)
+                return false;
+            else
+                return true;
+        }
         public bool CapNhatGioHangKhachHang(GioHangModel gh , string TenDangNhap)
         {
             try

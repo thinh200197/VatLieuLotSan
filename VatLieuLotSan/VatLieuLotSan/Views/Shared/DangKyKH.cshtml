@@ -1,4 +1,5 @@
-﻿
+﻿@model VatLieuLotSan.DataBase.KHACHHANG
+
 @section scripts{
 
     <script src="~/TaiLieu/Client/js/MyJs.js"></script>
@@ -13,7 +14,7 @@
     <div class="modal-dialog modal_dialog_MyCode">
 
         <div class="modal-content">
-            @using (Html.BeginForm("DangNhap", "KhachHang", FormMethod.Post))
+            @using (Html.BeginForm("DangKy", "KhachHang", FormMethod.Post))
             {
                 <div class="modal-header" style="text-align:center">
                     <h4 class="modal-title">Đăng Ký</h4>
@@ -21,93 +22,66 @@
                 </div>
                 <div class="modal-body">
 
-                    <div class="form-horizontal">
+                    <div class="form-horizontal col-md-12">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label col-md-3">Tài Khoản</label>
-                                    <div class="col-md-8">
-                                        <div class="effect1 w-size9 ">
-                                            <input class="s-text7 bg6 w-full p-b-5 input_KH" type="text" name="TaiKhoanKH">
-                                            <span class="effect1-line"></span>
-                                        </div>
-                                        <label class="text-danger"></label>
-                                    </div>
-                                </div>
-
+                            @Html.LabelFor(model => model.TENKHACHHANG, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TENKHACHHANG, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TENKHACHHANG, "", new { @class = "text-danger" })
                             </div>
-
-
                         </div>
+
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label col-md-3">Mật Khẩu</label>
-                                    <div class="col-md-8">
-                                        <div class="effect1 w-size9 ">
-                                            <input class="s-text7 bg6 w-full p-b-5 input_KH" type="password" name="MatKhauKH">
-                                            <span class="effect1-line"></span>
-                                        </div>
-                                        <label class="text-danger"></label>
-                                    </div>
-                                </div>
-                                <input class="s-text7 bg6 w-full p-b-5 input_KH" hidden type="password" name="Link_Web" value="@Request.Url.ToString()">
-
+                            @Html.LabelFor(model => model.TENDANGNHAP, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TENDANGNHAP, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TENDANGNHAP, "", new { @class = "text-danger" })
                             </div>
-
-
                         </div>
+
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label col-md-3">Email</label>
-                                    <div class="col-md-8">
-                                        <div class="effect1 w-size9 ">
-                                            <input class="s-text7 bg6 w-full p-b-5 input_KH" type="email" name="Email">
-                                            <span class="effect1-line"></span>
-                                        </div>
-                                        <label class="text-danger"></label>
-                                    </div>
-                                </div>
-
-
+                            @Html.LabelFor(model => model.MATKHAU, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.PasswordFor(model => model.MATKHAU, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MATKHAU, "", new { @class = "text-danger" })
                             </div>
-
-
                         </div>
+                        
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label col-md-3">Điện Thoại</label>
-                                    <div class="col-md-8">
-                                        <div class="effect1 w-size9 ">
-                                            <input class="s-text7 bg6 w-full p-b-5 input_KH fa-phone phone" type="text" name="SDT">
-
-                                            <span class="effect1-line"></span>
-
-                                        </div>
-                                        <script>
-                                            //$('.phone').text(function (i, text) {
-                                            //    i.preventDefault();
-                                            //    return text.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-                                            //});
-                                            $('.phone').mask('(000) 000-0000');
-                                        </script>
-                                        <label class="text-danger"></label>
-                                    </div>
-                                </div>
-
+                            @Html.LabelFor(model => model.SODIENTHOAI, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.SODIENTHOAI, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SODIENTHOAI, "", new { @class = "text-danger" })
                             </div>
-
-
                         </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DIACHI, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DIACHI, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
                     </div>
 
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default" id="btn_DangNhapKhachHang" data-url="@Url.RequestContext.ToString()">Đăng Ký</button>
-
+                   
+                    <button type="submit" class="btn btn-default " id="btn_SubDangKy" data-url="@Url.RequestContext.ToString()">Đăng Ký</button>
+                    <button type="button" class="btn btn-default " data-target="#dangnhap" data-toggle="modal" id="" data-dismiss="modal">Đăng nhập</button>
                 </div>
             }
         </div>
@@ -118,6 +92,7 @@
     .modal_dialog_MyCode {
         left: 0;
         padding-top: 170px;
+        width:
     }
 
     .input_KH {

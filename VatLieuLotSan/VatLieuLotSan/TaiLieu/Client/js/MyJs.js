@@ -114,7 +114,18 @@
         //    window.location.href = "/dang-nhap";
 
         //});
-
+        $('#btn_dangky').click(function (e) {
+            e.preventDefault();
+            $('#dangnhap').modal('hide');
+            $('#dangky').modal('show');
+           
+        })
+        $('#btn_dangnhap').click(function (e) {
+            e.preventDefault();
+            $('#dangky').modal('show');
+            $('#dangnhap').modal('hide');
+            
+        })
     }
 
 }

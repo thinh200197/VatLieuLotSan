@@ -115,7 +115,6 @@ D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.dll
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.Mvc.dll
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.xml
 D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\PagedList.Mvc.xml
-D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.csprojResolveAssemblyReference.cache
 D:\Thinh\27-4-2019\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\ApplicationInsights.config
 D:\Thinh\27-4-2019\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\roslyn\csc.exe
 D:\Thinh\27-4-2019\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -177,3 +176,4 @@ D:\Thinh\27-4-2019\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\bin\Antlr3.Runtime.
 D:\Thinh\27-4-2019\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.csprojResolveAssemblyReference.cache
 D:\Thinh\27-4-2019\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.dll
 D:\Thinh\27-4-2019\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.pdb
+D:\Thinh\github\VatLieuLotSan\VatLieuLotSan\VatLieuLotSan\obj\Debug\VatLieuLotSan.csprojResolveAssemblyReference.cache
