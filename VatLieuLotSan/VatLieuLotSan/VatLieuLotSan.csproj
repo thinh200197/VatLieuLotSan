@@ -251,9 +251,6 @@
     <Content Include="Areas\Admin\Views\HANGHOAs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Index.cshtml" />
-    <Content Include="EmailTemplate\Text.cshtml">
-      <BrowseToURL>/EmailTemplate/Text.cshtml</BrowseToURL>
-    </Content>
     <None Include="Properties\PublishProfiles\myweb.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -3173,6 +3170,7 @@
     <Content Include="Views\Shared\DangKyKH.cshtml" />
     <Content Include="Views\KhachHang\Confirm.cshtml" />
     <Content Include="Views\KhachHang\AfterLogin.cshtml" />
+    <Content Include="EmailTemplate\Text.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

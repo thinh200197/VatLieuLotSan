@@ -22,18 +22,18 @@
                 <div class="alert">
                     <h3 class="text-center">ĐĂNG NHẬP</h3>
                     <form id="loginForm">
-                        <div id="msg"><ul style="color:red;"> Invalid Username Or Password</ul></div>
+                        <div id="msg"><ul style="color:red;"> Tài khoản hoặc mật khẩu không hợp lệ !</ul></div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                <input class="form-control" type="text" name="TaiKhoan" id="TaiKhoan" placeholder="Tài Khoản">
+                                <input class="form-control" type="text" name="TENDANGNHAP" id="TaiKhoan" placeholder="Tài Khoản">
                             </div>
                         </div>
-
+                       
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input class="form-control" type="password" name="Password" id="logPssword" placeholder="Mật Khẩu">
+                                <input class="form-control" type="password" name="MATKHAU" id="logPssword" placeholder="Mật Khẩu">
                             </div>
                         </div>
                     </form>
@@ -68,7 +68,6 @@
     }
 </style>
 <!-- Tạo form đăng ký-->
-@*Design Modal With Registration form*@
 
 <div class="modal fade " id="ShowModal">
     <div class="modal-dialog modal_dialog_MyCode">
@@ -179,7 +178,8 @@
                     $("#msg").show();
                 }
                 else {
-                    window.location.href = "/KhachHang/AfterLogin";
+                    var urlLink = document.URL;
+                    window.location.href = "/KhachHang/AfterLogin?urlLink=" + urlLink;
                     $("#msg").hide();
                 }
             }

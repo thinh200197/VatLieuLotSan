@@ -21,6 +21,11 @@ namespace VatLieuLotSan.Controllers
         {
             return View();
         }
+
+
+
+        // Đăng nhập .. test
+
         public ActionResult Login()
         {
             return PartialView();
@@ -171,7 +176,7 @@ namespace VatLieuLotSan.Controllers
             KHACHHANG Data = db.KHACHHANGs.Where(x => x.TENDANGNHAP == regId).FirstOrDefault();
             //Data.IsValid = true;
             db.SaveChanges();
-            var msg = "Your Email Is Verified!";
+            var msg = "Kích hoạt thành công !";
             return Json(msg, JsonRequestBehavior.AllowGet);
         }
         public void BuildEmailTemplate(string regID)
@@ -180,10 +185,10 @@ namespace VatLieuLotSan.Controllers
             {
                 string body = System.IO.File.ReadAllText(HostingEnvironment.MapPath("~/EmailTemplate/") + "Text" + ".cshtml");
                 var regInfo = db.KHACHHANGs.Where(x => x.TENDANGNHAP == regID).FirstOrDefault();
-                var url = "http://localhost:58464/" + "KhachHang/Confirm?regId=" + regID;
+                var url = "http://localhost:53109/" + "KhachHang/Confirm?regId=" + regID;
                 body = body.Replace("@ViewBag.ConfirmationLink", url);
                 body = body.ToString();
-                BuildEmailTemplate("Your Account Is Successfully Created", body, regInfo.EMAIL);
+                BuildEmailTemplate("Tài khoản của bạn đã được tạo thành công !", body, regInfo.EMAIL);
             }
             catch (Exception ex)
             {
@@ -246,6 +251,7 @@ namespace VatLieuLotSan.Controllers
             var DataItem = db.KHACHHANGs.Where(x => x.TENDANGNHAP == model.TENDANGNHAP && x.MATKHAU == model.MATKHAU).SingleOrDefault();
             if (DataItem != null)
             {
+                Session[CommonConstants.KhachHang] = DataItem;
                 Session["UserID"] = DataItem.TENDANGNHAP.ToString();
                 Session["UserName"] = DataItem.TENKHACHHANG.ToString();
                 result = "Success";
@@ -253,11 +259,12 @@ namespace VatLieuLotSan.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult AfterLogin()
+        public ActionResult AfterLogin(string urlLink)
         {
             if (Session["UserID"] != null)
             {
-                return View();
+
+                return Redirect(urlLink);
             }
             else
             {
@@ -265,11 +272,16 @@ namespace VatLieuLotSan.Controllers
             }
         }
 
-        public ActionResult Logout()
+        public ActionResult Logout(string urlLink)
         {
             Session.Clear();
             Session.Abandon();
-            return RedirectToAction("Index","Home");
+            return Redirect(urlLink);
+        }
+
+        public ActionResult Text()
+        {
+            return View();
         }
     }
 }
