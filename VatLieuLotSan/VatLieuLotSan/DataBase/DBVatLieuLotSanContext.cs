@@ -148,11 +148,6 @@ namespace VatLieuLotSan.DataBase
                 .WithRequired(e => e.GIOHANG)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<GIOHANG>()
-                .HasMany(e => e.KHACHHANGs)
-                .WithOptional(e => e.GIOHANG1)
-                .HasForeignKey(e => e.GIOHANG);
-
             modelBuilder.Entity<HANGHOA>()
                 .Property(e => e.MAHANG)
                 .IsUnicode(false);

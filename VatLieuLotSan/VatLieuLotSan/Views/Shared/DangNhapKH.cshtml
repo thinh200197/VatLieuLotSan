@@ -1,94 +1,51 @@
 ﻿
 @section scripts{
-    
-<script src="~/TaiLieu/Client/js/MyJs.js"></script>
-    }
+
+    <script src="~/TaiLieu/Client/js/MyJs.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+}
 
 
-<!--Modal 
-    
-    
+<!--Modal
+
+
     đăng nhập và đăng ký tài khoản khách hàng -->
-<div id="dangnhap" class="modal fade " role="dialog" data-keyboard="false" >
+<div id="dangnhap" class="modal fade " role="dialog" data-keyboard="false">
     <div class="modal-dialog modal_dialog_MyCode">
 
         <div class="modal-content">
-            @using (Html.BeginForm("DangNhap", "KhachHang", FormMethod.Post))
-            {
-                <div class="modal-header" style="text-align:center">
-                    <h4 class="modal-title">Đăng Nhập</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-
-                    <div class="form-horizontal">
+            @*Form đăng nhập*@
+            <div class="col-md-12">
+                <div class="alert">
+                    <h3 class="text-center">ĐĂNG NHẬP</h3>
+                    <form id="loginForm">
+                        <div id="msg"><ul style="color:red;"> Invalid Username Or Password</ul></div>
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label col-md-3">Tài Khoản</label>
-                                    <div class="col-md-8">
-                                        <div class="effect1 w-size9 ">
-                                            <input class="s-text7 bg6 w-full p-b-5 input_KH" type="text" name="TaiKhoanKH">
-                                            <span class="effect1-line"></span>
-                                        </div>
-                                        <label class="text-danger"></label>
-                                    </div>
-                                </div>
-
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input class="form-control" type="text" name="TaiKhoan" id="TaiKhoan" placeholder="Tài Khoản">
                             </div>
-
-
                         </div>
+
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label class="control-label col-md-3">Mật Khẩu</label>
-                                    <div class="col-md-8">
-                                        <div class="effect1 w-size9 ">
-                                            <input class="s-text7 bg6 w-full p-b-5 input_KH" type="password" name="MatKhauKH">
-                                            <span class="effect1-line"></span>
-                                        </div>
-                                        <label class="text-danger"></label>
-                                    </div>
-                                </div>
-                                <input class="s-text7 bg6 w-full p-b-5 input_KH" hidden type="password" name="Link_Web" value="@Request.Url.ToString()">
-                               
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" name="Password" id="logPssword" placeholder="Mật Khẩu">
                             </div>
-
-
                         </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div style="padding-left:133px">
-                                    <div class="col-md-12">
-                                        <input type="checkbox" id="brand1" name="GhiNho" value="">
-                                        <label for="brand1">
-                                            <span></span>Ghi nhớ
-                                        </label>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <a href="#">Quên mật khẩu?</a>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-
-
-
-
-                            </div>
-
-
-                        </div>
+                    </form>
+                    <div class="form-group">
+                        <button class="btn btn-info form-control" type="submit" onclick="Login()"><i class="glyphicon glyphicon-log-in"></i> Đăng nhập</button>
                     </div>
+                    <div class="form-group">
+                        <a style="float:left">Forget Password ? </a><a style="float:right;cursor:pointer" onclick="SignUp()"> Sign Up</a>
+                    </div>
+                </div>
+            </div>
 
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-default" id="btn_DangNhapKhachHang" data-url="@Url.RequestContext.ToString()">Đăng Nhập</button>
-                    <button type="button" class="btn btn-default" id="dangky" data-target="#dangky" data-toggle="modal"  data-dismiss="modal">Đăng ký</button>
-                </div>
-            }
-       
         </div>
     </div>
 </div>
@@ -110,3 +67,122 @@
         float: left;
     }
 </style>
+<!-- Tạo form đăng ký-->
+@*Design Modal With Registration form*@
+
+<div class="modal fade " id="ShowModal">
+    <div class="modal-dialog modal_dialog_MyCode">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Đăng ký</h4>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+
+
+                <!--Thông báo -->
+                <div id="message1">
+                    <div class="alert alert-success">
+                        <span class="glyphicon glyphicon-ok"></span><strong>
+                            Đăng ký thành công!<br />
+                            Cửa hàng đã gửi thông báo xác nhận vào Email của bạn !<br />
+                            Vui lòng kiểm tra lại hòm thư và xác nhận.
+                        </strong>
+                    </div>
+                </div>
+                <div id="message2">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>Error Message! Your Registration Is Not Complete</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form id="Registration">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name="TENKHACHHANG" id="TenKhachHang" placeholder="Họ Tên" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" name="EMAIL" id="email" placeholder="Email" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name="TENDANGNHAP" id="TenDangNhap" placeholder="Tài Khoản" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name="MATKHAU" id="MatKhau" placeholder="Mật Khẩu" />
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <button class="btn btn-info form-control" type="submit" onclick="SaveForm()"><i class="glyphicon glyphicon-registration-mark"></i> Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function SignUp() {
+        $("#ShowModal").modal();
+        $("#message1").hide();
+        $("#message2").hide();
+    }
+
+    function SaveForm() {
+        var name = $("#TenKhachHang").val();
+        var tk = $("#TenDangNhap").val();
+        var pwd = $("#MatKhau").val();
+        var email = $("#email").val();
+
+        if (name == "" || pwd == "" || email == "" || tk == "") {
+            $("#message1").hide();
+            $("#message2").show();
+            return false;
+        }
+        var data = $("#Registration").serialize();
+        $.ajax({
+            type: "post",
+            data: data,
+            url: "/KhachHang/SaveData",
+            success: function (result) {
+
+                $("#message1").show();
+                $("#message2").hide();
+                $("#Registration")[0].reset();
+            }
+        });
+    }
+
+    //Login System
+    $("#msg").hide();
+
+    var Login = function () {
+        var data = $("#loginForm").serialize();
+        $.ajax({
+            type: "post",
+            url: "/KhachHang/CheckValidUser",
+            data: data,
+            success: function (result) {
+                if (result == "Fail") {
+                    $("#loginForm")[0].reset();
+                    $("#msg").show();
+                }
+                else {
+                    window.location.href = "/KhachHang/AfterLogin";
+                    $("#msg").hide();
+                }
+            }
+        })
+    }
+</script>

@@ -13,7 +13,6 @@ namespace VatLieuLotSan.DataBase
         public GIOHANG()
         {
             CTGIOHANGs = new HashSet<CTGIOHANG>();
-            KHACHHANGs = new HashSet<KHACHHANG>();
         }
 
         [Key]
@@ -24,8 +23,5 @@ namespace VatLieuLotSan.DataBase
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTGIOHANG> CTGIOHANGs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KHACHHANG> KHACHHANGs { get; set; }
     }
 }

@@ -171,7 +171,6 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DangNhapController.cs" />
     <Compile Include="Areas\Admin\Controllers\HANGHOAsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\KHACHHANGsController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanTriController.cs" />
     <Compile Include="Areas\Admin\Models\DangNhapQuanTriModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
@@ -247,16 +246,14 @@
     <Content Include="Areas\Admin\Views\DangNhap\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\LayoutQuanTri.cshtml" />
     <Content Include="Areas\Admin\Views\QuanTri\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHHANGs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHHANGs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHHANGs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHHANGs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\KHACHHANGs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Index.cshtml" />
+    <Content Include="EmailTemplate\Text.cshtml">
+      <BrowseToURL>/EmailTemplate/Text.cshtml</BrowseToURL>
+    </Content>
     <None Include="Properties\PublishProfiles\myweb.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -3174,6 +3171,8 @@
     <Content Include="TaiLieu\DangNhapKH\fonts\FontAwesome.otf" />
     <Content Include="Views\Shared\DangNhapKH.cshtml" />
     <Content Include="Views\Shared\DangKyKH.cshtml" />
+    <Content Include="Views\KhachHang\Confirm.cshtml" />
+    <Content Include="Views\KhachHang\AfterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

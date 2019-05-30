@@ -168,6 +168,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/Site.css">
       <publishTime>05/14/2019 14:56:19</publishTime>
     </File>
+    <File Include="EmailTemplate/Text.cshtml">
+      <publishTime>05/30/2019 17:42:37</publishTime>
+    </File>
     <File Include="favicon.ico">
       <publishTime>04/27/2019 11:51:30</publishTime>
     </File>
