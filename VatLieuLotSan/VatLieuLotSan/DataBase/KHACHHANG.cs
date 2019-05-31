@@ -1,4 +1,4 @@
-namespace VatLieuLotSan.DataBase
+﻿namespace VatLieuLotSan.DataBase
 {
     using System;
     using System.Collections.Generic;
@@ -26,6 +26,10 @@ namespace VatLieuLotSan.DataBase
         public string Hinh { get; set; }
 
         [StringLength(10)]
+        [Required(ErrorMessage = "Nhập số điện thoại")]
+        [Display(Name = "Số điện thoại")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Vui lòng nhập 10 số")]
         public string SODIENTHOAI { get; set; }
 
         [StringLength(50)]

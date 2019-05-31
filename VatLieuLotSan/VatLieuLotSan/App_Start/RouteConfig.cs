@@ -90,7 +90,12 @@ namespace VatLieuLotSan
              namespaces: new[] { "VatLieuLotSan.Controllers" }
              );
 
-         
+            routes.MapRoute(
+            name: "Trang Thông tin Khách Hàng",
+            url: "thong-tin-khach-hang",
+            defaults: new { controller = "KhachHang", action = "KhachHang", id = UrlParameter.Optional },
+            namespaces: new[] { "VatLieuLotSan.Controllers" }
+            );       
 
             routes.MapRoute(
                 name: "Default",

@@ -2926,6 +2926,7 @@
     <Content Include="TaiLieu\DangNhapKH\fonts\fontawesome-webfont.svg" />
     <Content Include="TaiLieu\DangNhapKH\images\tick.png" />
     <Content Include="TaiLieu\lotSan\1.jpg" />
+    <Content Include="TaiLieu\lotSan\anh-dai-dien.jpg" />
     <Content Include="TaiLieu\lotSan\san-nhua-go-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-2.jpg" />
@@ -3154,7 +3155,6 @@
     <Content Include="Views\HoaDon\LapHoaDon.cshtml" />
     <Content Include="Views\GioHang\HoanThanh.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
-    <Content Include="Views\KhachHang\KhachHang.cshtml" />
     <Content Include="Views\HOADONs\Create.cshtml" />
     <Content Include="Views\HOADONs\Delete.cshtml" />
     <Content Include="Views\HOADONs\Details.cshtml" />
@@ -3171,6 +3171,7 @@
     <Content Include="Views\KhachHang\Confirm.cshtml" />
     <Content Include="Views\KhachHang\AfterLogin.cshtml" />
     <Content Include="EmailTemplate\Text.cshtml" />
+    <Content Include="Views\KhachHang\KhachHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

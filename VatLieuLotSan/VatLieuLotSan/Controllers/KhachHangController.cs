@@ -19,7 +19,8 @@ namespace VatLieuLotSan.Controllers
         // GET: KhachHang
         public ActionResult KhachHang()
         {
-            return View();
+            KHACHHANG kh = (KHACHHANG)Session[CommonConstants.KhachHang];
+            return View(kh);
         }
 
 
@@ -149,7 +150,6 @@ namespace VatLieuLotSan.Controllers
                 model.LOAIKHACH = "LOAI1";
                 model.GIOHANG = "";
                 model.Hinh = "";
-                model.SODIENTHOAI = "";
                 model.DIACHI = "";
                 model.MAKHACHHANG = model.TENDANGNHAP;
               
