@@ -9,6 +9,12 @@ namespace VatLieuLotSan.DataBase
     [Table("PHIEUGIAO")]
     public partial class PHIEUGIAO
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PHIEUGIAO()
+        {
+            CTPHIEUGIAOs = new HashSet<CTPHIEUGIAO>();
+        }
+
         [Key]
         [StringLength(100)]
         public string MAPHIEUGIAO { get; set; }
@@ -18,25 +24,26 @@ namespace VatLieuLotSan.DataBase
 
         public DateTime? NGAYGIAO { get; set; }
 
-        [StringLength(100)]
+        [StringLength(250)]
         public string DIACHIGIAO { get; set; }
 
         [StringLength(100)]
         public string MANV { get; set; }
 
         [StringLength(10)]
-        public string SDT { get; set; }
+        public string SDTNV { get; set; }
 
         [StringLength(10)]
         public string TINHTRANG { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string NGUOINHAN { get; set; }
 
         [StringLength(10)]
-        public string SODIENTHOAI { get; set; }
+        public string SDTKH { get; set; }
 
-        public virtual CTPHIEUGIAO CTPHIEUGIAO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTPHIEUGIAO> CTPHIEUGIAOs { get; set; }
 
         public virtual HOADON HOADON { get; set; }
 

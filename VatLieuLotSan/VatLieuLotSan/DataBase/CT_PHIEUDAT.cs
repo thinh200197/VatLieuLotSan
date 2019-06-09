@@ -9,10 +9,12 @@ namespace VatLieuLotSan.DataBase
     public partial class CT_PHIEUDAT
     {
         [Key]
+        [Column(Order = 0)]
         [StringLength(100)]
         public string MAPHIEUDAT { get; set; }
 
-        [Required]
+        [Key]
+        [Column(Order = 1)]
         [StringLength(100)]
         public string MAHANG { get; set; }
 

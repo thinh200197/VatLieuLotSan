@@ -1,28 +1,21 @@
 ﻿@model List<VatLieuLotSan.Models.GioHangModel>
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
     var sp1 = Model;
     VatLieuLotSan.DataBase.KHACHHANG kh = new VatLieuLotSan.DataBase.KHACHHANG();
-    if (ViewBag.KhachHang != null)
-    {
-        kh = (VatLieuLotSan.DataBase.KHACHHANG)ViewBag.KhachHang;
-    }
+        if (ViewBag.KhachHang != null)
+        {
+            kh = (VatLieuLotSan.DataBase.KHACHHANG)ViewBag.KhachHang;
+        }
 
 }
 @section scripts{
 
     <script src="/TaiLieu/Client/js/MyJs.js"></script>
-
 }
-<!-- Title Page -->
-<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(/TaiLieu/Client/images/heading-pages-01.jpg);">
-    <h2 class="l-text2 t-center">
-        GIỎ HÀNG
-    </h2>
-</section>
-<!-- Cart -->
-<section class="cart bgwhite p-t-70 p-b-100">
+
+<section class="cart bgwhite p-t-70 p-b-100 bg-info">
     <div class="container">
 
         <!-- Cho nhập thông tin khách hàng và nơi giao .  -->

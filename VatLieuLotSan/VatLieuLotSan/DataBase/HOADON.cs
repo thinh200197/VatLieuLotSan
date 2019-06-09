@@ -20,14 +20,23 @@ namespace VatLieuLotSan.DataBase
         [StringLength(100)]
         public string MAHD { get; set; }
 
+        [StringLength(100)]
+        public string MAKHACHHANG { get; set; }
+
         public DateTime? NGAYLAP { get; set; }
 
         public double? GIAMGIA { get; set; }
 
-        public double? TONGTIEN { get; set; }
-
         [StringLength(100)]
         public string TENKHACHHANG { get; set; }
+
+        [StringLength(250)]
+        public string DIACHI { get; set; }
+
+        [StringLength(10)]
+        public string SODIENTHOAI { get; set; }
+
+        public double? TONGTIEN { get; set; }
 
         [StringLength(10)]
         public string TINHTRANG { get; set; }

@@ -13,6 +13,10 @@ namespace VatLieuLotSan.DataBase
         [StringLength(100)]
         public string MAPHIEUNHAP { get; set; }
 
+        [Required]
+        [StringLength(100)]
+        public string MAPHIEUDAT { get; set; }
+
         [StringLength(100)]
         public string MANCC { get; set; }
 
@@ -25,8 +29,6 @@ namespace VatLieuLotSan.DataBase
 
         [StringLength(10)]
         public string TINHTRANG { get; set; }
-
-        public virtual CT_PHIEUNHAP CT_PHIEUNHAP { get; set; }
 
         public virtual NHACUNGCAP NHACUNGCAP { get; set; }
     }

@@ -12,8 +12,8 @@ namespace VatLieuLotSan.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NHOMQUYEN()
         {
-            CHITIETNHOMQUYENs = new HashSet<CHITIETNHOMQUYEN>();
-            MANHINHs = new HashSet<MANHINH>();
+            PHANQUYENs = new HashSet<PHANQUYEN>();
+            NGUOIDUNGs = new HashSet<NGUOIDUNG>();
         }
 
         [Key]
@@ -24,9 +24,9 @@ namespace VatLieuLotSan.DataBase
         public string TENNHOM { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETNHOMQUYEN> CHITIETNHOMQUYENs { get; set; }
+        public virtual ICollection<PHANQUYEN> PHANQUYENs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MANHINH> MANHINHs { get; set; }
+        public virtual ICollection<NGUOIDUNG> NGUOIDUNGs { get; set; }
     }
 }

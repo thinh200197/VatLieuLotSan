@@ -10,10 +10,12 @@ namespace VatLieuLotSan.DataBase
     public partial class CTKHUYENMAI
     {
         [Key]
+        [Column(Order = 0)]
         [StringLength(100)]
         public string MAKM { get; set; }
 
-        [Required]
+        [Key]
+        [Column(Order = 1)]
         [StringLength(100)]
         public string MAHANG { get; set; }
 

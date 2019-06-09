@@ -9,6 +9,12 @@ namespace VatLieuLotSan.DataBase
     [Table("KHUYENMAI")]
     public partial class KHUYENMAI
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public KHUYENMAI()
+        {
+            CTKHUYENMAIs = new HashSet<CTKHUYENMAI>();
+        }
+
         [Key]
         [StringLength(100)]
         public string MAKM { get; set; }
@@ -23,6 +29,7 @@ namespace VatLieuLotSan.DataBase
         [StringLength(100)]
         public string HINHTHUCKM { get; set; }
 
-        public virtual CTKHUYENMAI CTKHUYENMAI { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTKHUYENMAI> CTKHUYENMAIs { get; set; }
     }
 }

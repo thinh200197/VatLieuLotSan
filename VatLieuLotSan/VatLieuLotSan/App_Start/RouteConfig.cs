@@ -95,7 +95,21 @@ namespace VatLieuLotSan
             url: "thong-tin-khach-hang",
             defaults: new { controller = "KhachHang", action = "KhachHang", id = UrlParameter.Optional },
             namespaces: new[] { "VatLieuLotSan.Controllers" }
-            );       
+            );
+
+            routes.MapRoute(
+            name: "Lọc sản phẩm",
+            url: "loc-san-pham",
+            defaults: new { controller = "SanPham", action = "BoLocSanPham", id = UrlParameter.Optional },
+            namespaces: new[] { "VatLieuLotSan.Controllers" }
+            );
+
+            routes.MapRoute(
+             name: "Trang Tìm kiếm ",
+             url: "tim-kiem",
+             defaults: new { controller = "SanPham", action = "TimKiem", id = UrlParameter.Optional },
+             namespaces: new[] { "VatLieuLotSan.Controllers" }
+             );
 
             routes.MapRoute(
                 name: "Default",

@@ -9,23 +9,23 @@ namespace VatLieuLotSan.DataBase
     [Table("CTPHIEUGIAO")]
     public partial class CTPHIEUGIAO
     {
-        [Required]
+        [Key]
+        [Column(Order = 0)]
         [StringLength(100)]
-        public string MAHD { get; set; }
+        public string MAPHIEUGIAO { get; set; }
 
-        [Required]
+        [Key]
+        [Column(Order = 1)]
         [StringLength(100)]
         public string MAHANG { get; set; }
-
-        public int? SOLUONG { get; set; }
 
         [Required]
         [StringLength(100)]
         public string MAMAU { get; set; }
 
-        [Key]
-        [StringLength(100)]
-        public string MAPHIEUGIAO { get; set; }
+        public double? DONGIA { get; set; }
+
+        public int? SOLUONG { get; set; }
 
         public virtual HANGHOA HANGHOA { get; set; }
 

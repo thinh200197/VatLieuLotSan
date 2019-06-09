@@ -112,7 +112,7 @@
                     <div class="form-group sodienthoai" >
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                            <input class="form-control fa-phone" type="text" name="SODIENTHOAI" id="sodienthoai" placeholder="Số điện thoại" />
+                            <input class="form-control fa-phone" type="text" name="SODIENTHOAI" onchange="Check(this)" id="sodienthoai" placeholder="Số điện thoại" />
                        
                         </div>
                     </div>
@@ -251,7 +251,7 @@
         })
     }
 
-    function check(input){
+    function Check(input){
         if (input.length != 10) {
             $(".sodienthoai").removeClass("has-success");
             $(".sodienthoai").addClass("has-danger");

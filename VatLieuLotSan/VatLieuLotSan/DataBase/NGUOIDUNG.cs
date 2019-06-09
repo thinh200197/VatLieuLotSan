@@ -9,6 +9,12 @@ namespace VatLieuLotSan.DataBase
     [Table("NGUOIDUNG")]
     public partial class NGUOIDUNG
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NGUOIDUNG()
+        {
+            NHOMQUYENs = new HashSet<NHOMQUYEN>();
+        }
+
         [Key]
         [StringLength(50)]
         public string TENDANGNHAP { get; set; }
@@ -19,6 +25,7 @@ namespace VatLieuLotSan.DataBase
         [StringLength(10)]
         public string HOATDONG { get; set; }
 
-        public virtual CHITIETNHOMQUYEN CHITIETNHOMQUYEN { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<NHOMQUYEN> NHOMQUYENs { get; set; }
     }
 }

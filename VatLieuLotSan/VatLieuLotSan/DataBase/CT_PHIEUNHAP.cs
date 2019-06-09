@@ -9,14 +9,12 @@ namespace VatLieuLotSan.DataBase
     public partial class CT_PHIEUNHAP
     {
         [Key]
+        [Column(Order = 0)]
         [StringLength(100)]
         public string MAPHIEUNHAP { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string MAPHIEUDAT { get; set; }
-
-        [Required]
+        [Key]
+        [Column(Order = 1)]
         [StringLength(100)]
         public string MAHANG { get; set; }
 
@@ -27,7 +25,5 @@ namespace VatLieuLotSan.DataBase
         public int? SOLUONG { get; set; }
 
         public virtual HANGHOA HANGHOA { get; set; }
-
-        public virtual PHIEUNHAP PHIEUNHAP { get; set; }
     }
 }

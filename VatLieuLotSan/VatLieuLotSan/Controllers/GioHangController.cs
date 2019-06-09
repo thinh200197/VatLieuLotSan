@@ -19,11 +19,18 @@ namespace VatLieuLotSan.Controllers
         {
             var gio = Session[CommonConstants.GioHangSession];
             var lstItem = new List<GioHangModel>();
+            KHACHHANG kh = (KHACHHANG) Session[CommonConstants.KhachHang];
             if (gio != null)
             {
                 lstItem = (List<GioHangModel>)gio;
                 Session[CommonConstants.GioHangSession] = lstItem;
             }
+            if (kh != null)
+            {
+                ViewBag.TTKhachHang = kh;
+            }
+            else
+                ViewBag.TTKhachHang = new KHACHHANG();
             return View(lstItem);
         }
         public List<GioHangModel> LayGioHang()
@@ -214,21 +221,21 @@ namespace VatLieuLotSan.Controllers
         }
 
         // Đặt hàng 
-     
-        public ActionResult DatHang()
+
+        public PartialViewResult DatHang()
         {
-            var kh = (KHACHHANG)Session[CommonConstants.KhachHang];
-            if (kh != null)
-                ViewBag.KhachHang = kh;
-            else
-                ViewBag.KhachHang = null;
-            var giohangsessionn = (List<GioHangModel>)Session[CommonConstants.GioHangSession];
-            if (giohangsessionn == null || giohangsessionn.Count == 0)
-            {
-                ViewBag.ThongBao = "Mời bạn chọn sản phẩm để thanh toán ";
-                return Redirect("/gio-hang");
-            }
-            return View();
+            //var kh = (KHACHHANG)Session[CommonConstants.KhachHang];
+            //if (kh != null)
+            //    ViewBag.KhachHang = kh;
+            //else
+            //    ViewBag.KhachHang = null;
+            //var giohangsessionn = (List<GioHangModel>)Session[CommonConstants.GioHangSession];
+            //if (giohangsessionn == null || giohangsessionn.Count == 0)
+            //{
+            //    ViewBag.ThongBao = "Mời bạn chọn sản phẩm để thanh toán ";
+            //    return PartialView(giohangsessionn);
+            //}
+            return PartialView();
         }
         [HttpPost]
         public ActionResult DatHang(string tenkh, string diachi, string sdt, string email, string hinhthuc, string ghichu)
@@ -269,6 +276,7 @@ namespace VatLieuLotSan.Controllers
 
             }
             db.SaveChanges();
+            Session[CommonConstants.GioHangSession] = null;
             return RedirectToAction("HoanThanh");
         }
 

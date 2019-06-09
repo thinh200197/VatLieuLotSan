@@ -184,8 +184,6 @@
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\MenuClientController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
-    <Compile Include="DataBase\CHITIETNHOMQUYEN.cs" />
-    <Compile Include="DataBase\CTGIOHANG.cs" />
     <Compile Include="DataBase\CTKHUYENMAI.cs" />
     <Compile Include="DataBase\CTPHIEUGIAO.cs" />
     <Compile Include="DataBase\CT_HOADON.cs" />
@@ -193,14 +191,12 @@
     <Compile Include="DataBase\CT_PHIEUNHAP.cs" />
     <Compile Include="DataBase\DBVatLieuLotSanContext.cs" />
     <Compile Include="DataBase\FOOTER.cs" />
-    <Compile Include="DataBase\GIOHANG.cs" />
     <Compile Include="DataBase\HANGHOA.cs" />
     <Compile Include="DataBase\HOADON.cs" />
     <Compile Include="DataBase\KHACHHANG.cs" />
     <Compile Include="DataBase\KHUYENMAI.cs" />
     <Compile Include="DataBase\LienHe.cs" />
     <Compile Include="DataBase\LOAIHANG.cs" />
-    <Compile Include="DataBase\LOAIKHACHHANG.cs" />
     <Compile Include="DataBase\MANHINH.cs" />
     <Compile Include="DataBase\MAUSAC.cs" />
     <Compile Include="DataBase\Menu.cs" />
@@ -208,6 +204,7 @@
     <Compile Include="DataBase\NHACUNGCAP.cs" />
     <Compile Include="DataBase\NHANVIEN.cs" />
     <Compile Include="DataBase\NHOMQUYEN.cs" />
+    <Compile Include="DataBase\PHANQUYEN.cs" />
     <Compile Include="DataBase\PHIEUDAT.cs" />
     <Compile Include="DataBase\PHIEUGIAO.cs" />
     <Compile Include="DataBase\PHIEUNHAP.cs" />
@@ -251,6 +248,8 @@
     <Content Include="Areas\Admin\Views\HANGHOAs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HANGHOAs\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\local.pubxml" />
+    <None Include="Properties\PublishProfiles\LocalPlublic.pubxml" />
     <None Include="Properties\PublishProfiles\myweb.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -2802,6 +2801,7 @@
     <Content Include="TaiLieu\Client\images\icons\icon-header-02.png" />
     <Content Include="TaiLieu\Client\images\icons\icon-position-map.png" />
     <Content Include="TaiLieu\Client\images\icons\logo.png" />
+    <Content Include="TaiLieu\Client\images\icons\logo2.jpg" />
     <Content Include="TaiLieu\Client\images\icons\mastercard.png" />
     <Content Include="TaiLieu\Client\images\icons\paypal.png" />
     <Content Include="TaiLieu\Client\images\icons\video-16-9.jpg" />
@@ -2928,11 +2928,34 @@
     <Content Include="TaiLieu\lotSan\1.jpg" />
     <Content Include="TaiLieu\lotSan\anh-dai-dien.jpg" />
     <Content Include="TaiLieu\lotSan\san-nhua-go-1.jpg" />
+    <Content Include="TaiLieu\lotSan\sancokeo1.png" />
+    <Content Include="TaiLieu\lotSan\sancokeo2.png" />
+    <Content Include="TaiLieu\lotSan\sancokeo3.png" />
+    <Content Include="TaiLieu\lotSan\sancokeo4.png" />
+    <Content Include="TaiLieu\lotSan\sancokeo5.png" />
+    <Content Include="TaiLieu\lotSan\sancokeo6.png" />
+    <Content Include="TaiLieu\lotSan\sango1.png" />
+    <Content Include="TaiLieu\lotSan\sango2.png" />
+    <Content Include="TaiLieu\lotSan\sango3.png" />
+    <Content Include="TaiLieu\lotSan\sango4.png" />
+    <Content Include="TaiLieu\lotSan\sango5.png" />
+    <Content Include="TaiLieu\lotSan\sango6.png" />
+    <Content Include="TaiLieu\lotSan\sannhua1.png" />
+    <Content Include="TaiLieu\lotSan\sannhua2.png" />
+    <Content Include="TaiLieu\lotSan\sannhua3.png" />
+    <Content Include="TaiLieu\lotSan\sannhua4.png" />
+    <Content Include="TaiLieu\lotSan\sannhua5.png" />
+    <Content Include="TaiLieu\lotSan\sannhua6.png" />
     <Content Include="TaiLieu\lotSan\slide-1.jpg" />
     <Content Include="TaiLieu\lotSan\slide-2.jpg" />
     <Content Include="TaiLieu\lotSan\slide-3.jpg" />
     <Content Include="TaiLieu\lotSan\slide-4.jpg" />
     <Content Include="TaiLieu\lotSan\Slide-5.jpg" />
+    <Content Include="TaiLieu\lotSan\sp1.jpg" />
+    <Content Include="TaiLieu\lotSan\sp2.jpg" />
+    <Content Include="TaiLieu\lotSan\title1.jpg" />
+    <Content Include="TaiLieu\lotSan\title2.jpg" />
+    <Content Include="TaiLieu\lotSan\title3.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -12,22 +12,18 @@ namespace VatLieuLotSan.DataBase
         {
         }
 
-        public virtual DbSet<CHITIETNHOMQUYEN> CHITIETNHOMQUYENs { get; set; }
         public virtual DbSet<CT_HOADON> CT_HOADON { get; set; }
         public virtual DbSet<CT_PHIEUDAT> CT_PHIEUDAT { get; set; }
         public virtual DbSet<CT_PHIEUNHAP> CT_PHIEUNHAP { get; set; }
-        public virtual DbSet<CTGIOHANG> CTGIOHANGs { get; set; }
         public virtual DbSet<CTKHUYENMAI> CTKHUYENMAIs { get; set; }
         public virtual DbSet<CTPHIEUGIAO> CTPHIEUGIAOs { get; set; }
         public virtual DbSet<FOOTER> FOOTERs { get; set; }
-        public virtual DbSet<GIOHANG> GIOHANGs { get; set; }
         public virtual DbSet<HANGHOA> HANGHOAs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<KHUYENMAI> KHUYENMAIs { get; set; }
         public virtual DbSet<LienHe> LienHes { get; set; }
         public virtual DbSet<LOAIHANG> LOAIHANGs { get; set; }
-        public virtual DbSet<LOAIKHACHHANG> LOAIKHACHHANGs { get; set; }
         public virtual DbSet<MANHINH> MANHINHs { get; set; }
         public virtual DbSet<MAUSAC> MAUSACs { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
@@ -35,6 +31,7 @@ namespace VatLieuLotSan.DataBase
         public virtual DbSet<NHACUNGCAP> NHACUNGCAPs { get; set; }
         public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<NHOMQUYEN> NHOMQUYENs { get; set; }
+        public virtual DbSet<PHANQUYEN> PHANQUYENs { get; set; }
         public virtual DbSet<PHIEUDAT> PHIEUDATs { get; set; }
         public virtual DbSet<PHIEUGIAO> PHIEUGIAOs { get; set; }
         public virtual DbSet<PHIEUNHAP> PHIEUNHAPs { get; set; }
@@ -43,14 +40,6 @@ namespace VatLieuLotSan.DataBase
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CHITIETNHOMQUYEN>()
-                .Property(e => e.TENDANGNHAP)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CHITIETNHOMQUYEN>()
-                .Property(e => e.MANHOM)
-                .IsUnicode(false);
-
             modelBuilder.Entity<CT_HOADON>()
                 .Property(e => e.MAHD)
                 .IsUnicode(false);
@@ -71,16 +60,8 @@ namespace VatLieuLotSan.DataBase
                 .Property(e => e.MAMAU)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CT_PHIEUDAT>()
-                .HasOptional(e => e.PHIEUDAT)
-                .WithRequired(e => e.CT_PHIEUDAT);
-
             modelBuilder.Entity<CT_PHIEUNHAP>()
                 .Property(e => e.MAPHIEUNHAP)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CT_PHIEUNHAP>()
-                .Property(e => e.MAPHIEUDAT)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CT_PHIEUNHAP>()
@@ -89,18 +70,6 @@ namespace VatLieuLotSan.DataBase
 
             modelBuilder.Entity<CT_PHIEUNHAP>()
                 .Property(e => e.MAMAU)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CT_PHIEUNHAP>()
-                .HasOptional(e => e.PHIEUNHAP)
-                .WithRequired(e => e.CT_PHIEUNHAP);
-
-            modelBuilder.Entity<CTGIOHANG>()
-                .Property(e => e.MAGIOHANG)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<CTGIOHANG>()
-                .Property(e => e.MAHANG)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CTKHUYENMAI>()
@@ -120,7 +89,7 @@ namespace VatLieuLotSan.DataBase
                 .IsFixedLength();
 
             modelBuilder.Entity<CTPHIEUGIAO>()
-                .Property(e => e.MAHD)
+                .Property(e => e.MAPHIEUGIAO)
                 .IsUnicode(false);
 
             modelBuilder.Entity<CTPHIEUGIAO>()
@@ -131,22 +100,9 @@ namespace VatLieuLotSan.DataBase
                 .Property(e => e.MAMAU)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CTPHIEUGIAO>()
-                .Property(e => e.MAPHIEUGIAO)
-                .IsUnicode(false);
-
             modelBuilder.Entity<FOOTER>()
                 .Property(e => e.ID)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<GIOHANG>()
-                .Property(e => e.MAGIOHANG)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<GIOHANG>()
-                .HasMany(e => e.CTGIOHANGs)
-                .WithRequired(e => e.GIOHANG)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<HANGHOA>()
                 .Property(e => e.MAHANG)
@@ -194,6 +150,14 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<HOADON>()
+                .Property(e => e.MAKHACHHANG)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<HOADON>()
+                .Property(e => e.SODIENTHOAI)
+                .IsFixedLength();
+
+            modelBuilder.Entity<HOADON>()
                 .HasMany(e => e.CT_HOADON)
                 .WithRequired(e => e.HOADON)
                 .WillCascadeOnDelete(false);
@@ -215,10 +179,6 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<KHACHHANG>()
-                .Property(e => e.GIOHANG)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<KHACHHANG>()
                 .Property(e => e.TENDANGNHAP)
                 .IsUnicode(false);
 
@@ -231,30 +191,22 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<KHUYENMAI>()
-                .HasOptional(e => e.CTKHUYENMAI)
-                .WithRequired(e => e.KHUYENMAI);
+                .HasMany(e => e.CTKHUYENMAIs)
+                .WithRequired(e => e.KHUYENMAI)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<LOAIHANG>()
                 .Property(e => e.MALOAI)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<LOAIKHACHHANG>()
-                .Property(e => e.MALOAI)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<LOAIKHACHHANG>()
-                .HasMany(e => e.KHACHHANGs)
-                .WithOptional(e => e.LOAIKHACHHANG)
-                .HasForeignKey(e => e.LOAIKHACH);
 
             modelBuilder.Entity<MANHINH>()
                 .Property(e => e.MAMH)
                 .IsUnicode(false);
 
             modelBuilder.Entity<MANHINH>()
-                .HasMany(e => e.NHOMQUYENs)
-                .WithMany(e => e.MANHINHs)
-                .Map(m => m.ToTable("PHANQUYEN").MapLeftKey("MAMH").MapRightKey("MANHOM"));
+                .HasMany(e => e.PHANQUYENs)
+                .WithRequired(e => e.MANHINH)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<MAUSAC>()
                 .Property(e => e.MAMAU)
@@ -274,8 +226,9 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<NGUOIDUNG>()
-                .HasOptional(e => e.CHITIETNHOMQUYEN)
-                .WithRequired(e => e.NGUOIDUNG);
+                .HasMany(e => e.NHOMQUYENs)
+                .WithMany(e => e.NGUOIDUNGs)
+                .Map(m => m.ToTable("CHITIETNHOMQUYEN").MapLeftKey("TENDANGNHAP").MapRightKey("MANHOM"));
 
             modelBuilder.Entity<NHACUNGCAP>()
                 .Property(e => e.MANCC)
@@ -290,6 +243,10 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<NHANVIEN>()
+                .Property(e => e.MATKHAU)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NHANVIEN>()
                 .Property(e => e.CMND)
                 .IsUnicode(false);
 
@@ -298,6 +255,23 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<NHOMQUYEN>()
+                .Property(e => e.MANHOM)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<NHOMQUYEN>()
+                .HasMany(e => e.PHANQUYENs)
+                .WithRequired(e => e.NHOMQUYEN)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PHANQUYEN>()
+                .Property(e => e.MAMH)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PHANQUYEN>()
+                .Property(e => e.TINIHTRANG)
+                .IsFixedLength();
+
+            modelBuilder.Entity<PHANQUYEN>()
                 .Property(e => e.MANHOM)
                 .IsUnicode(false);
 
@@ -313,6 +287,11 @@ namespace VatLieuLotSan.DataBase
                 .Property(e => e.MANV)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<PHIEUDAT>()
+                .HasMany(e => e.CT_PHIEUDAT)
+                .WithRequired(e => e.PHIEUDAT)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<PHIEUGIAO>()
                 .Property(e => e.MAPHIEUGIAO)
                 .IsUnicode(false);
@@ -326,19 +305,24 @@ namespace VatLieuLotSan.DataBase
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUGIAO>()
-                .Property(e => e.SDT)
+                .Property(e => e.SDTNV)
                 .IsFixedLength();
 
             modelBuilder.Entity<PHIEUGIAO>()
-                .Property(e => e.SODIENTHOAI)
+                .Property(e => e.SDTKH)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUGIAO>()
-                .HasOptional(e => e.CTPHIEUGIAO)
-                .WithRequired(e => e.PHIEUGIAO);
+                .HasMany(e => e.CTPHIEUGIAOs)
+                .WithRequired(e => e.PHIEUGIAO)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PHIEUNHAP>()
                 .Property(e => e.MAPHIEUNHAP)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<PHIEUNHAP>()
+                .Property(e => e.MAPHIEUDAT)
                 .IsUnicode(false);
 
             modelBuilder.Entity<PHIEUNHAP>()

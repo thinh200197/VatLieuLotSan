@@ -22,6 +22,9 @@ namespace VatLieuLotSan.DataBase
         [StringLength(100)]
         public string TENNV { get; set; }
 
+        [StringLength(100)]
+        public string MATKHAU { get; set; }
+
         public DateTime? NGAYSINH { get; set; }
 
         [StringLength(150)]

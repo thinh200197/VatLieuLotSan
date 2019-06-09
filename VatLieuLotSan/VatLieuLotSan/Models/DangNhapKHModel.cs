@@ -123,21 +123,10 @@ namespace VatLieuLotSan.Models
             try
             {
                 KHACHHANG ttkh = TT_TaiKhoan_KH(TenDangNhap);
-                GIOHANG ghkh = new GIOHANG();
-                CTGIOHANG ctgh = new CTGIOHANG();
-
-                ghkh.MAGIOHANG = DateTime.Now.Day.ToString() + DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second;
                 //ghkh.TONGTIEN = ;
-                db.GIOHANGs.Add(ghkh);
                 db.SaveChanges();
 
-
-                ctgh.MAGIOHANG = ghkh.MAGIOHANG;
-                ctgh.MAHANG = gh.SanPham.MAHANG;
-                ctgh.SOLUONG = gh.SoLuong;
-                ctgh.THANHTIEN = gh.ThanhTien;
-                ctgh.GHICHU = "";
-                ctgh.DONGIA = gh.SanPham.GIABAN;
+                
                 return true;
             }
             catch (Exception)

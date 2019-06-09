@@ -62,6 +62,7 @@
             });
         });
 
+
         $('.btn_ThemVaoGioHang').off('click').on('click', function () {
             var pid = $(this).data('id');
             var soLuong = 1;
@@ -126,6 +127,9 @@
             $('#dangnhap').modal('hide');
             
         })
+
+        $('#searchproduct')
+        
     }
 
 }

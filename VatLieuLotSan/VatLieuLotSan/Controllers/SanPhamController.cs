@@ -12,7 +12,7 @@ namespace VatLieuLotSan.Controllers
     public class SanPhamController : Controller
     {
         // GET: SanPham
-        public ActionResult SanPham(int soTrang = 1 , int soSanPham = 2)
+        public ActionResult SanPham(int soTrang = 1 , int soSanPham = 12)
         {
             
             var model = new SanPhamModel();
@@ -38,8 +38,16 @@ namespace VatLieuLotSan.Controllers
             var sp = model.ChiTietSanPham(MaHang);
             return View(sp);
         }
-
-
+        public ActionResult BoLocSanPham(string kieuloc, string giaban)
+        {
+            SanPhamModel model = new SanPhamModel();
+            var sp = model.BoLocSanPham(kieuloc, giaban);
+            return View("SanPham",sp);
+        }
+         public ActionResult TimKiem(string searchproduct)
+        {
+            return View("SanPham");
+        }
 
     }
 }

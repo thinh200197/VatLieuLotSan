@@ -108,14 +108,6 @@ namespace VatLieuLotSan.Controllers
                     kHACHHANG.MAKHACHHANG = kHACHHANG.TENDANGNHAP;
                     kHACHHANG.Hinh = null;
                     kHACHHANG.LOAIKHACH = "LOAI2";
-                    kHACHHANG.GIOHANG = kHACHHANG.TENDANGNHAP;
-
-                    //Tạo giỏ hàng trước 
-                    GIOHANG gh = new GIOHANG();
-
-                    gh.MAGIOHANG = kHACHHANG.GIOHANG;
-                    gh.TONGTIEN = 0;
-                    db.GIOHANGs.Add(gh);
                     db.SaveChanges();
                     
                     // lưu khách hàng vào database
@@ -148,7 +140,6 @@ namespace VatLieuLotSan.Controllers
             try
             {
                 model.LOAIKHACH = "LOAI1";
-                model.GIOHANG = "";
                 model.Hinh = "";
                 model.DIACHI = "";
                 model.MAKHACHHANG = model.TENDANGNHAP;

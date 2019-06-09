@@ -59,5 +59,12 @@ namespace VatLieuLotSan.Controllers
             }
             return PartialView(model);
         }
+
+        public PartialViewResult Footer()
+        {
+            SanPhamModel sp = new SanPhamModel();
+            ViewBag.lh = sp.LoaiHang();
+            return PartialView();
+        }
     }
 }

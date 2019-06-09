@@ -20,14 +20,14 @@ namespace VatLieuLotSan.Models
 
             if (string.IsNullOrEmpty(LoaiHH))
             {
-                return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(soTrang,soSanPham);
+                return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(soTrang, soSanPham);
             }
             var maHang = db.HANGHOAs.Where(x => x.MALOAI == LoaiHH).OrderByDescending(x => x.NGAYTAO).ToPagedList(soTrang, soSanPham);
             return maHang;
         }
-        public IEnumerable<HANGHOA> XuatHangHoa(int soTrang , int soSanPham)
+        public IEnumerable<HANGHOA> XuatHangHoa(int soTrang, int soSanPham)
         {
-            return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(soTrang,soSanPham) ;
+            return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(soTrang, soSanPham);
         }
         public HANGHOA ChiTietSanPham(string MaHang)
         {
@@ -48,6 +48,55 @@ namespace VatLieuLotSan.Models
         public List<LOAIHANG> LoaiHang()
         {
             return db.LOAIHANGs.ToList();
+        }
+        public IEnumerable<HANGHOA> BoLocSanPham(string KieuLoc, string GiaLoc)
+        {
+            if (string.IsNullOrEmpty(GiaLoc) || string.IsNullOrEmpty(KieuLoc))
+            {
+                return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(1, 12);
+            }
+            IPagedList<HANGHOA> sp = null;
+            switch (KieuLoc)
+            {
+                case "macdinh":
+                    sp = db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(1, 12);
+                    break;
+                case "caothap":
+                    sp = db.HANGHOAs.OrderBy(x => x.GIABAN).OrderBy(x => x.GIABAN).ToPagedList(1, 12);
+                    break;
+                case "thapcao":
+                    sp = db.HANGHOAs.OrderByDescending(x => x.GIABAN).OrderByDescending(x => x.GIABAN).ToPagedList(1, 12);
+                    break;
+                default:
+                    sp = db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(1, 12);
+                    break;
+            }
+            switch (GiaLoc)
+            {
+                case "duoi100":
+                    sp = sp.Where(x=>x.GIABAN < 100000).ToPagedList(1,12) ;
+                    break;
+                case "caothap":
+                    sp = db.HANGHOAs.OrderBy(x => x.GIABAN).OrderBy(x => x.GIABAN).ToPagedList(1, 12);
+                    break;
+                case "thapcao":
+                    sp = db.HANGHOAs.OrderByDescending(x => x.GIABAN).OrderByDescending(x => x.GIABAN).ToPagedList(1, 12);
+                    break;
+                default:
+                    sp = db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(1, 12);
+                    break;
+            }
+            return sp;
+        }
+        public IEnumerable<HANGHOA> LocGia(double min, double max)
+        {
+            if (min == null || max == null)
+            {
+                return db.HANGHOAs.OrderByDescending(x => x.NGAYTAO).ToPagedList(1, 12);
+            }
+            IPagedList<HANGHOA> sp = null;
+            sp = db.HANGHOAs.Where(x => x.GIABAN >= min && x.GIABAN <= max).OrderByDescending(x => x.GIABAN).ToPagedList(1, 12);
+            return sp;
         }
     }
 }
