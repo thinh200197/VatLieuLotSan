@@ -278,7 +278,7 @@ namespace VatLieuLotSan.Controllers
             }
             db.SaveChanges();
             Session[CommonConstants.GioHangSession] = null;
-            return RedirectToAction("HoanThanh");
+            return RedirectToAction("HoanThanh",hoadon);
         }
 
         // Hoàn thành
