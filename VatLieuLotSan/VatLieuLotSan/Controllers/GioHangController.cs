@@ -263,6 +263,7 @@ namespace VatLieuLotSan.Controllers
             }
             catch (Exception ex)
             {
+                return RedirectToAction("GioHang",hoadon);
             }
             // Lưu CT hóa đơn 
             foreach (var item in giohangsessionn)
