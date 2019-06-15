@@ -47,6 +47,8 @@ namespace VatLieuLotSan.Controllers
          public ActionResult TimKiem(string searchproduct)
         {
             var sp = new SanPhamModel().TimKiem(searchproduct);
+            var model = new SanPhamModel();
+            ViewBag.LoaiHang = model.LoaiHang();
             return View("SanPham",sp);
         }
         [HttpPost]

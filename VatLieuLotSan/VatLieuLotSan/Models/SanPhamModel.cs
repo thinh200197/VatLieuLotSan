@@ -101,8 +101,7 @@ namespace VatLieuLotSan.Models
 
         public IEnumerable<HANGHOA> TimKiem(string keyword)
         {
-            IPagedList<HANGHOA> sp = null;
-            sp = db.HANGHOAs.Where(x => x.TENHANG.Contains(keyword)).OrderByDescending(x =>x.NGAYTAO).ToPagedList(1, 12);
+            IPagedList<HANGHOA> sp = db.HANGHOAs.Where(x => x.TENHANG.Contains(keyword)== true).OrderByDescending(x=>x.NGAYTAO).ToPagedList(1,12);          
             return sp;
         }
         public List<string> LayDSTimKiem(string keyword)

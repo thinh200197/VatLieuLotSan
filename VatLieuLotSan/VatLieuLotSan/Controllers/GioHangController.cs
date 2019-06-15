@@ -252,7 +252,7 @@ namespace VatLieuLotSan.Controllers
                 //khơi tạo các biến lưu vào csdl
                 // Lưu hóa đơn trước để có mã Hóa đơn mới lưu Chi tiết hóa đơn  
                 // Mã hóa đơn cho tự động , lấy ví dụ mã là ngày hiện tại
-                hoadon.MAHD = DateTime.Today.ToString("dd/MM/yy");
+                hoadon.MAHD = "HD"+DateTime.Today.ToString("dd/MM/yy");
                 hoadon.NGAYLAP = DateTime.Now;
                 hoadon.TINHTRANG = "Chưa xữ lý";
                 hoadon.TONGTIEN = (double)giohangsessionn.Sum(x => x.ThanhTien);

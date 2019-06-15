@@ -137,23 +137,12 @@ namespace VatLieuLotSan.Controllers
 
         public JsonResult SaveData(KHACHHANG model)
         {
-            try
-            {
                 model.LOAIKHACH = "LOAI1";
                 model.Hinh = "";
                 model.DIACHI = "";
-                model.MAKHACHHANG = model.TENDANGNHAP;
-              
-
+                model.MAKHACHHANG = "KH"+model.TENDANGNHAP;
                 db.KHACHHANGs.Add(model);
                 db.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-           
             BuildEmailTemplate(model.TENDANGNHAP);
             return Json("Registration Successfull", JsonRequestBehavior.AllowGet);
         }
@@ -239,15 +228,16 @@ namespace VatLieuLotSan.Controllers
         public JsonResult CheckValidUser(KHACHHANG model)
         {
             string result = "Fail";
-            var DataItem = db.KHACHHANGs.Where(x => x.TENDANGNHAP == model.TENDANGNHAP && x.MATKHAU == model.MATKHAU).SingleOrDefault();
-            if (DataItem != null)
-            {
-                Session[CommonConstants.KhachHang] = DataItem;
-                Session["UserID"] = DataItem.TENDANGNHAP.ToString();
-                Session["UserName"] = DataItem.TENKHACHHANG.ToString();
-                result = "Success";
-            }
+                var DataItem = db.KHACHHANGs.Where(x => x.TENDANGNHAP == model.TENDANGNHAP && x.MATKHAU == model.MATKHAU).SingleOrDefault();
+                if (DataItem != null)
+                {
+                    Session[CommonConstants.KhachHang] = DataItem;
+                    Session["UserID"] = DataItem.TENDANGNHAP.ToString();
+                    Session["UserName"] = DataItem.TENKHACHHANG.ToString();
+                    result = "Success";
+                }
             return Json(result, JsonRequestBehavior.AllowGet);
+
         }
 
         public ActionResult AfterLogin(string urlLink)
