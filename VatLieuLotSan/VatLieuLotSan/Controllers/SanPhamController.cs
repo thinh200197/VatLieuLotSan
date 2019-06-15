@@ -46,8 +46,15 @@ namespace VatLieuLotSan.Controllers
         }
          public ActionResult TimKiem(string searchproduct)
         {
-            return View("SanPham");
+            var sp = new SanPhamModel().TimKiem(searchproduct);
+            return View("SanPham",sp);
         }
-
+        [HttpPost]
+        public JsonResult LayDSTimKiem(string keyword)
+        {
+            var result = new SanPhamModel().LayDSTimKiem(keyword);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+  
     }
 }

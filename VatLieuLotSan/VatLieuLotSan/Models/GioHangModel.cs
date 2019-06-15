@@ -12,6 +12,8 @@ namespace VatLieuLotSan.Models
         public HANGHOA SanPham { get; set; }
         public int SoLuong { get; set; }
         public double ThanhTien { get; set; }
+        public double GiaGiam { get; set;
+        }
         public GioHangModel()
         {
             SanPham = null;

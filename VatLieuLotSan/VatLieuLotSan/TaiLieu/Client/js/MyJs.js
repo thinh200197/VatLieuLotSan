@@ -61,7 +61,15 @@
                 }
             });
         });
+        
+        $('.block2-btn-addcart').each(function () {
+            debugger
+            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "Đã được thêm vào giỏ !", "success");
 
+            });
+        });
 
         $('.btn_ThemVaoGioHang').off('click').on('click', function () {
             var pid = $(this).data('id');
@@ -128,7 +136,6 @@
             
         })
 
-        $('#searchproduct')
         
     }
 

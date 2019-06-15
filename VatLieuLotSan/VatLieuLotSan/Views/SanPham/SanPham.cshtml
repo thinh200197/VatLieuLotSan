@@ -1,11 +1,14 @@
 ﻿@model PagedList.IPagedList<VatLieuLotSan.DataBase.HANGHOA>
 @using PagedList.Mvc;
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var lh = (List<VatLieuLotSan.DataBase.LOAIHANG>)ViewBag.LoaiHang;
 }
 @section scripts{
+    <linkrel = "stylesheet" href = "//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" >
+     <scriptsrc ="//code.jquery.com/jquery-1.11.2.min.js"> </script> 
+     <scriptsrc = "//code.jquery.com/ui/1.11.2/jquery-ui.js" > </script>
     <script src="~/TaiLieu/Client/js/MyJs.js"></script>
 }
 <!-- Title Page -->
@@ -13,7 +16,7 @@
     <h2 class="l-text2 t-center" style=" color:#6d2726">
         SẢN PHẨM LÓT SÀN CAO CẤP TH
     </h2>
-    <p class="m-text13 t-center" style=" color:#6d2726">
+    <p class="m-text13 t-center" style="color:#6d2726">
         New Arrivals Women Collection 2018
     </p>
 </section>
@@ -173,16 +176,16 @@
                                             <img src="@item.HINH" alt="IMG-PRODUCT">
 
                                             <div class="block2-overlay trans-0-4">
-                                                @*<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                                <a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
                                                         <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
                                                         <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-                                                    </a>*@
+                                                    </a>
 
                                                 <div class="block2-btn-addcart w-size1 trans-0-4">
                                                     <!-- Button -->
                                                     @*@using (Html.BeginForm("ThemVaoGioHang", "GioHang", new { @MaHang = @item.MAHANG, @SoLuong = 1, @Url = Request.Url.ToString() }))
                                                         {*@
-                                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn_ThemVaoGioHang" data-id="@item.MAHANG">
+                                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn_ThemVaoGioHang" id="btn_ThemVaoGioHang" data-id="@item.MAHANG">
                                                         THÊM VÀO GIỎ
                                                     </button>
                                                     @*}*@
@@ -233,14 +236,14 @@
 
 
 <!--===============================================================================================-->
-<script type="text/javascript" src="/TaiLieu/Client/vendor/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-<script type="text/javascript" src="/TaiLieu/Client/vendor/animsition/js/animsition.min.js"></script>
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-<script type="text/javascript" src="/TaiLieu/Client/vendor/bootstrap/js/popper.js"></script>
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/bootstrap/js/popper.js"></script>
 <script type="text/javascript" src="/TaiLieu/Client/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-<script type="text/javascript" src="/TaiLieu/Client/vendor/select2/select2.min.js"></script>
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/select2/select2.min.js"></script>
 <script type="text/javascript">
 
     $(".selection-2").select2({
@@ -250,12 +253,12 @@
 
 </script>
 <!--===============================================================================================-->
-<script type="text/javascript" src="/TaiLieu/Client/vendor/daterangepicker/moment.min.js"></script>
-<script type="text/javascript" src="/TaiLieu/Client/vendor/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
 <!--===============================================================================================-->
-<script type="text/javascript" src="/TaiLieu/Client/vendor/noui/nouislider.min.js"></script>
-<script src="/TaiLieu/Client/vendor/noui/nouislider.js"></script>
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/noui/nouislider.min.js"></script>
+<script src="~/TaiLieu/Client/vendor/noui/nouislider.js"></script>
 <script type="text/javascript">
     /*[ No ui ]
     ===========================================================*/
@@ -293,5 +296,36 @@
         });
         alert(tien.value);
     }
+</script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#searchproduct").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/SanPham/LayDSTimKiem",
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            keyword: request.term
+                        },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.GameName,
+                                    value: item.GameName
+                                };
+                            }))
+                        },
+                        error: function () {
+                            alert('something went wrong !');
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "",
+                    results: ""
+                }
+            });
+        })
 </script>
 <!--===============================================================================================-->

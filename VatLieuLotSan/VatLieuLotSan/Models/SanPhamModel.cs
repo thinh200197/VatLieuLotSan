@@ -98,5 +98,16 @@ namespace VatLieuLotSan.Models
             sp = db.HANGHOAs.Where(x => x.GIABAN >= min && x.GIABAN <= max).OrderByDescending(x => x.GIABAN).ToPagedList(1, 12);
             return sp;
         }
+
+        public IEnumerable<HANGHOA> TimKiem(string keyword)
+        {
+            IPagedList<HANGHOA> sp = null;
+            sp = db.HANGHOAs.Where(x => x.TENHANG.Contains(keyword)).OrderByDescending(x =>x.NGAYTAO).ToPagedList(1, 12);
+            return sp;
+        }
+        public List<string> LayDSTimKiem(string keyword)
+        {
+            return db.HANGHOAs.Where(x => x.TENHANG.Contains(keyword)).Select(x=>x.TENHANG).ToList();
+        }
     }
 }

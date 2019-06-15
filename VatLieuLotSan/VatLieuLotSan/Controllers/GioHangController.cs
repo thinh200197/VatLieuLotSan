@@ -244,7 +244,7 @@ namespace VatLieuLotSan.Controllers
             if (giohangsessionn == null || giohangsessionn.Count == 0)
             {
                 ViewBag.ThongBao = "Mời bạn chọn sản phẩm để thanh toán ";
-                return PartialView();
+                return RedirectToAction("GioHang");
             }
             var hoadon = new HOADON();
             try

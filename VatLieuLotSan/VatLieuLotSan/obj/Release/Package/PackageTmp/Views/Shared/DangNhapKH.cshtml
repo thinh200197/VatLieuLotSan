@@ -1,0 +1,268 @@
+﻿
+@section scripts{
+
+    <script src="~/TaiLieu/Client/js/MyJs.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+}
+
+
+<!--Modal
+
+
+    đăng nhập và đăng ký tài khoản khách hàng -->
+<div id="dangnhap" class="modal fade " role="dialog" data-keyboard="false">
+    <div class="modal-dialog modal_dialog_MyCode">
+
+        <div class="modal-content">
+            @*Form đăng nhập*@
+            <div class="col-md-12">
+                <div class="alert">
+                    <h3 class="text-center">ĐĂNG NHẬP</h3>
+                    <form id="loginForm">
+                        <div id="msg"><ul style="color:red;"> Tài khoản hoặc mật khẩu không hợp lệ !</ul></div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input class="form-control" type="text" name="TENDANGNHAP" id="TaiKhoan" placeholder="Tài Khoản">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" name="MATKHAU" id="logPssword" placeholder="Mật Khẩu">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <button class="btn btn-info form-control" type="submit" onclick="Login()"><i class="glyphicon glyphicon-log-in"></i> Đăng nhập</button>
+                    </div>
+                    <div class="form-group">
+                        <a style="float:left">Forget Password ? </a><a style="float:right;cursor:pointer" onclick="SignUp()"> Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Stype cỉnh sửa form đăng nhập / đăng ký -->
+<style>
+    .modal_dialog_MyCode {
+        left: 0;
+        padding-top: 170px;
+    }
+
+    .input_KH {
+        background-color: #ffffff;
+    }
+
+    .div_KH {
+    }
+
+    .sub-agile {
+        float: left;
+    }
+</style>
+<!-- Tạo form đăng ký-->
+
+<div class="modal fade " id="ShowModal">
+    <div class="modal-dialog modal_dialog_MyCode">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Đăng ký</h4>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+
+
+                <!--Thông báo -->
+                <div id="message1">
+                    <div class="alert alert-success">
+                        <span class="glyphicon glyphicon-ok"></span><strong>
+                            Đăng ký thành công!<br />
+                            Cửa hàng đã gửi thông báo xác nhận vào Email của bạn !<br />
+                            Vui lòng kiểm tra lại hòm thư và xác nhận.
+                        </strong>
+                    </div>
+                </div>
+                <div id="message2">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>Error Message! Your Registration Is Not Complete</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form id="Registration">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i></span>
+                            <input class="form-control" type="text" name="TENKHACHHANG" id="TenKhachHang" placeholder="Họ Tên" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="email" name="EMAIL" id="email" placeholder="Email" />
+                        </div>
+                    </div>
+
+                    <div class="form-group sodienthoai" >
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                            <input class="form-control fa-phone" type="text" name="SODIENTHOAI" onchange="Check(this)" id="sodienthoai" placeholder="Số điện thoại" />
+                       
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name="TENDANGNHAP" id="TenDangNhap" placeholder="Tài Khoản" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input class="form-control" type="password" name="MATKHAU" id="MatKhau" placeholder="Mật Khẩu" />
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group">
+                    <button class="btn btn-info form-control" type="submit" onclick="SaveForm()"><i class="glyphicon glyphicon-registration-mark"></i> Đăng ký</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modol Đổi Mật khẩu-->
+@*<div class="modal fade " id="ShowModal">
+    <div class="modal-dialog modal_dialog_MyCode">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row" style="text-align:center;">
+                    <h4>Đổi mật khẩu</h4>
+                </div>
+                <div id="message1">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>Mật khẩu cũ bạn nhập không đúng ! Vui lòng kiểm tra lại !</strong>
+                    </div>
+                </div>
+                <div id="message2">
+                    <div class="alert alert-danger">
+                        <span class="glyphicon glyphicon-remove"></span><strong>Nhập lại mật khẩu không trùng khớp ! Vui lòng kiểm tra lại !</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form id="DoiMatKhau">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name="MATKHAUCU" id="matkhaucu" placeholder="Mật khẩu cũ" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input class="form-control" type="text" name="MATKHAUMOI" id="matkhaumoi" placeholder="Mật khẩu mới" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input class="form-control" type="text" name="NHAPLAIMK" id="nhaplaimk" placeholder="Nhập lại mật khẩu" />
+                        </div>
+                    </div>
+
+
+                </form>
+                <div class="form-group">
+                    <button class="btn btn-info form-control" type="submit" onclick="SaveForm()"><i class="glyphicon glyphicon-registration-mark"></i> Cập nhật</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<script>
+    function SignUp() {
+        $("#ShowModal").modal();
+        $("#message1").hide();
+        $("#message2").hide();
+    }
+
+    function SaveForm() {
+        var name = $("#TenKhachHang").val();
+        var tk = $("#TenDangNhap").val();
+        var pwd = $("#MatKhau").val();
+        var email = $("#email").val();
+        var sdt = $("#sodienthoai").val();
+
+        //$("#message3").hide();
+        //if()
+
+        if (name == "" || pwd == "" || email == "" || tk == "" || sdt == "") {
+            $("#message1").hide();
+            $("#message2").show();
+            return false;
+        }
+        var data = $("#Registration").serialize();
+        $.ajax({
+            type: "post",
+            data: data,
+            url: "/KhachHang/SaveData",
+            success: function (result) {
+
+                $("#message1").show();
+                $("#message2").hide();
+                $("#Registration")[0].reset();
+            }
+        });
+    }
+
+    //Login System
+    $("#msg").hide();
+
+    var Login = function () {
+        var data = $("#loginForm").serialize();
+        $.ajax({
+            type: "post",
+            url: "/KhachHang/CheckValidUser",
+            data: data,
+            success: function (result) {
+                if (result == "Fail") {
+                    $("#loginForm")[0].reset();
+                    $("#msg").show();
+                }
+                else {
+                    var urlLink = document.URL;
+                    window.location.href = "/KhachHang/AfterLogin?urlLink=" + urlLink;
+                    $("#msg").hide();
+                }
+            }
+        })
+    }
+
+    function Check(input){
+        if (input.length != 10) {
+            $(".sodienthoai").removeClass("has-success");
+            $(".sodienthoai").addClass("has-danger");
+            $("#thongbao1").show();
+        }else
+        {
+            $(".sodienthoai").removeClass("has-danger");
+            $(".sodienthoai").addClass("has-success");            
+            $("#thongbao1").hide();
+        }
+    }
+
+
+</script>

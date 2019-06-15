@@ -1,12 +1,13 @@
 ﻿@using VatLieuLotSan.DataBase;
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Trang chủ";
     var NoiBat = (List<HANGHOA>)ViewBag.NoiBat;
     var LuotXem = (List<HANGHOA>)ViewBag.LuotXem;
     var ChuaRaMat = (List<HANGHOA>)ViewBag.ChuaRaMat;
 }
 
 @section scripts{
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/TaiLieu/Client/js/MyJs.js"></script>
 }
 <!-
@@ -21,11 +22,11 @@
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="/TaiLieu/lotSan/san-nhua-go-1.jpg" alt="IMG-BENNER">
+                        <img src="~/TaiLieu/lotSan/sango1.png" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="/san-pham/LH001" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                            <a href="/san-pham/sango" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
                                 Sàn gỗ
                             </a>
                         </div>
@@ -35,12 +36,12 @@
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="/TaiLieu/lotSan/san-nhua-go-1.jpg" alt="IMG-BENNER">
+                        <img src="~/TaiLieu/lotSan/sannhua1.png" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="/san-pham/LH002" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Thảm
+                            <a href="/san-pham/sannhua" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                Sàn nhựa
                             </a>
                         </div>
                     </div>
@@ -49,12 +50,12 @@
                 <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
                     <!-- block1 -->
                     <div class="block1 hov-img-zoom pos-relative m-b-30">
-                        <img src="/TaiLieu/lotSan/san-nhua-go-1.jpg" alt="IMG-BENNER">
+                        <img src="~/TaiLieu/lotSan/sancokeo1.png" alt="IMG-BENNER">
 
                         <div class="block1-wrapbtn w-size2">
                             <!-- Button -->
-                            <a href="/san-pham/LH001" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
-                                Gạch
+                            <a href="/san-pham/sancokeo" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                               Sàn có keo
                             </a>
                         </div>
                     </div>
@@ -277,7 +278,7 @@
         <div class="container">
             <div class="sec-title p-b-52">
                 <h3 class="m-text5 t-center">
-                    Our Blog
+                    Sản phẩm ưa chuộng
                 </h3>
             </div>
 
@@ -285,22 +286,24 @@
                 <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
                     <!-- Block3 -->
                     <div class="block3">
-                        <a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-                            <img src="/TaiLieu/lotSan/san-nhua-go-1.jpg" alt="IMG-BLOG">
+                        <a href="/trang-chu" class="block3-img dis-block hov-img-zoom">
+                            <img src="/TaiLieu/lotSan/sango1.png" alt="IMG-BLOG">
                         </a>
 
                         <div class="block3-txt p-t-14">
                             <h4 class="p-b-7">
-                                <a href="blog-detail.html" class="m-text11">
-                                    Black Friday Guide: Best Sales & Discount Codes
+                                <a href="/trang-chu" class="m-text11">
+                                    Sàn gỗ công nghiệp Galamax BG220
                                 </a>
                             </h4>
 
-                            <span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-                            <span class="s-text6">on</span> <span class="s-text7">July 22, 2017</span>
+                            @*<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+                            <span class="s-text6">on</span> <span class="s-text7">July 22, 2017</span>*@
 
                             <p class="s-text8 p-t-16">
-                                Duis ut velit gravida nibh bibendum commodo. Sus-pendisse pellentesque mattis augue id euismod. Inter-dum et malesuada fames
+                                Với kích thước Dài 914.4mm x rộng​ 152.4mm x Dày 2mm  đem lại cho không gian rộng rãi thông thoáng khu vực văn phòng, đại sảng và cả nơi công cộng...
+
+                                Đặc biệt sàn nhựa giả gỗ  dễ thi công, giá thành thấp, khắc phục nhược điểm của sàn gỗ thật như: không gây tiếng ồn khi đi lại, chống cong vênh, chống trầy xước, mối mọt, mùi hôi, nấm mốc, kháng ẩm tốt và chống cháy lan,... đảm bảo sử dụng trong thời gian dài mà không bị phai màu hay biến dạng.
                             </p>
                         </div>
                     </div>
@@ -309,23 +312,26 @@
                 <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
                     <!-- Block3 -->
                     <div class="block3">
-                        <a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-                            <img src="/TaiLieu/lotSan/san-nhua-go-1.jpg" alt="IMG-BLOG">
+                        <a href="/trang-chu" class="block3-img dis-block hov-img-zoom">
+                            <img src="~/TaiLieu/lotSan/sannhua3.png" alt="IMG-BLOG">
                         </a>
 
                         <div class="block3-txt p-t-14">
                             <h4 class="p-b-7">
-                                <a href="blog-detail.html" class="m-text11">
-                                    The White Sneakers Nearly Every Fashion Girls Own
+                                <a href="/trang-chu" class="m-text11">
+                                    SÀN NHỰA DÁN KEO SP304
+
                                 </a>
                             </h4>
 
-                            <span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-                            <span class="s-text6">on</span> <span class="s-text7">July 18, 2017</span>
+                            @*<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+                            <span class="s-text6">on</span> <span class="s-text7">July 18, 2017</span>*@
 
                             <p class="s-text8 p-t-16">
-                                Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit ame
-                            </p>
+                                Được sản xuất từ nhựa PVC nguyên sinh (Polyvinyl Clorua) và hỗn hợp bột đá. Trải qua các quá trình gia công nghiêm ngặt khác nhau, đồng nhất 2 loại hỗn hợp, ép nóng dưới nền nhiệt độ cao tạo ra tấm ván sàn có kết cấu chắc chắn và bền bỉ.
+
+                                - Bề mặt gồm lớp tráng PU với hạt gốm gia cố đặc biệt làm tăng độ bền, ngăn ngừa vi khuẩn, nấm mốc. Lớp phim tạo vân trên nền giấy in 5 màu đúng với hoa văn vân gỗ tự nhiên hiện đại. Bề mặt AC3 theo tiêu chuẩn thị trường Châu Âu quy định chống mài mòn, trầy xước, trơn trượt và có khả năng tự chống cháy (tàn thuốc lá).
+                             </p>
                         </div>
                     </div>
                 </div>
@@ -333,22 +339,22 @@
                 <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
                     <!-- Block3 -->
                     <div class="block3">
-                        <a href="blog-detail.html" class="block3-img dis-block hov-img-zoom">
-                            <img src="/TaiLieu/lotSan/san-nhua-go-1.jpg" alt="IMG-BLOG">
+                        <a href="/trang-chu" class="block3-img dis-block hov-img-zoom">
+                            <img src="~/TaiLieu/lotSan/sancokeo4.png" alt="IMG-BLOG">
                         </a>
 
                         <div class="block3-txt p-t-14">
                             <h4 class="p-b-7">
-                                <a href="blog-detail.html" class="m-text11">
-                                    New York SS 2018 Street Style: Annina Mislin
+                                <a href="/trang-chu" class="m-text11">
+                                    Sàn Vinyl Gerflor Mipolam Tronplan Plus 
                                 </a>
                             </h4>
 
-                            <span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
-                            <span class="s-text6">on</span> <span class="s-text7">July 2, 2017</span>
+                            @*<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+                            <span class="s-text6">on</span> <span class="s-text7">July 2, 2017</span>*@
 
                             <p class="s-text8 p-t-16">
-                                Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
+                                là loại sàn nhỏ gọn với dạng tấm, thiết kế định hướng, màu sắc được nhuộm lại từ các mảng màu nguyên sinh để đảm bảo màu sắc của sàn luôn đều màu khi nén lại.
                             </p>
                         </div>
                     </div>
@@ -362,31 +368,31 @@
         <div class="flex-w p-l-15 p-r-15">
             <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
                 <h4 class="m-text12 t-center">
-                    Free Delivery Worldwide
+                    Hướng dẫn bảo quản
                 </h4>
 
                 <a href="#" class="s-text11 t-center">
-                    Click here for more info
+                    Xem chi tiết
                 </a>
             </div>
 
             <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
                 <h4 class="m-text12 t-center">
-                    30 Days Return
+                    Giao hàng cấp tốc
                 </h4>
 
                 <span class="s-text11 t-center">
-                    Simply return it within 30 days for an exchange.
+                    Giao hàn trong 7 ngày sau khi đặt hàng
                 </span>
             </div>
 
             <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
                 <h4 class="m-text12 t-center">
-                    Store Opening
+                   Hoạt Động
                 </h4>
 
                 <span class="s-text11 t-center">
-                    Shop open from Monday to Sunday
+                    Cửa hàng mở của thứ 2 - chủ nhật
                 </span>
             </div>
         </div>

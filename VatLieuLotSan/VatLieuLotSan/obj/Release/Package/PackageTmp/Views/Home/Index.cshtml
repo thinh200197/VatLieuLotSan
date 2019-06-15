@@ -1,0 +1,402 @@
+﻿@using VatLieuLotSan.DataBase;
+@{
+    ViewBag.Title = "Trang chủ";
+    var NoiBat = (List<HANGHOA>)ViewBag.NoiBat;
+    var LuotXem = (List<HANGHOA>)ViewBag.LuotXem;
+    var ChuaRaMat = (List<HANGHOA>)ViewBag.ChuaRaMat;
+}
+
+@section scripts{
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/TaiLieu/Client/js/MyJs.js"></script>
+}
+<!-
+<!-- Slide1 -->
+@{ Html.RenderPartial("Slide");}
+
+<div class="">
+    <!-- Banner -->
+    <div class="banner bgwhite p-t-40 p-b-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                    <!-- block1 -->
+                    <div class="block1 hov-img-zoom pos-relative m-b-30">
+                        <img src="~/TaiLieu/lotSan/sango1.png" alt="IMG-BENNER">
+
+                        <div class="block1-wrapbtn w-size2">
+                            <!-- Button -->
+                            <a href="/san-pham/sango" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                Sàn gỗ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                    <!-- block1 -->
+                    <div class="block1 hov-img-zoom pos-relative m-b-30">
+                        <img src="~/TaiLieu/lotSan/sannhua1.png" alt="IMG-BENNER">
+
+                        <div class="block1-wrapbtn w-size2">
+                            <!-- Button -->
+                            <a href="/san-pham/sannhua" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                                Sàn nhựa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 col-md-8 col-lg-4 m-l-r-auto">
+                    <!-- block1 -->
+                    <div class="block1 hov-img-zoom pos-relative m-b-30">
+                        <img src="~/TaiLieu/lotSan/sancokeo1.png" alt="IMG-BENNER">
+
+                        <div class="block1-wrapbtn w-size2">
+                            <!-- Button -->
+                            <a href="/san-pham/sancokeo" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+                               Sàn có keo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our product -->
+    <section class="bgwhite p-t-45 p-b-58">
+        <div class="container">
+            <div class="sec-title p-b-22">
+                <h3 class="m-text5 t-center">
+                    Sản phẩm khác
+                </h3>
+            </div>
+
+            <!-- Tab01 -->
+            <div class="tab01">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#best-seller" role="tab">XEM NHIỀU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#featured" role="tab">SẮP RA MẮT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#sale" role="tab">NỔI BẬT</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content p-t-35">
+                    <!-- - -->
+                    <div class="tab-pane fade show active" id="best-seller" role="tabpanel">
+                        <div class="row">
+                            <!--Kiểm tra Có sản phẩm ko sau đó xuất thông báo  -->
+                            @if (LuotXem == null)
+                            {
+
+                                <div class="col-8">
+                                    <span class="alert alert-danger">Chưa có Sản phẩm  </span>
+                                </div>
+
+                            }
+                            else
+                            {
+                                foreach (var item in LuotXem)
+                                {
+                                    <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                                        <!-- Block2 -->
+                                        <div class="block2">
+                                            <div class="block2-img wrap-pic-w of-hidden pos-relative ">
+                                                <img src="@item.HINH" alt="IMG-PRODUCT">
+
+                                                <div class="block2-overlay trans-0-4">
+
+                                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                        <!-- Button Thêm sản phẩm vào giỏ hàng-->
+                                                        @*@using (Html.BeginForm("ThemVaoGioHang", "GioHang", new { @MaHang = @item.MAHANG, @SoLuong = 1, @Url = Request.Url.ToString() }))
+                                                            {*@
+                                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn_ThemVaoGioHang" data-id="@item.MAHANG">
+                                                            THÊM VÀO GIỎ
+                                                        </button>
+                                                        @*}*@
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="block2-txt p-t-20">
+                                                <a href="/chi-tiet-san-pham/@item.MAHANG" class="block2-name dis-block s-text3 p-b-5">
+                                                    @item.TENHANG
+                                                </a>
+
+                                                <span class="block2-price m-text6 p-r-5">
+                                                    @item.GIABAN.Value.ToString("N0")
+                                                </span>
+                                                <span class="m-text6 p-r-5">
+                                                    VNĐ
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+                        </div>
+                    </div>
+
+                    <!-- - -->
+
+                    <div class="tab-pane fade" id="featured" role="tabpanel">
+                        <div class="row">
+                            <!--Kiểm tra Có sản phẩm ko sau đó xuất thông báo  -->
+                            @if (ChuaRaMat == null)
+                            {
+
+                                <div class="col-8">
+                                    <span class="alert alert-danger">Chưa có Sản phẩm  </span>
+                                </div>
+
+                            }
+                            else
+                            {
+                                foreach (var item in ChuaRaMat)
+                                {
+                                    <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                                        <!-- Block2 -->
+                                        <div class="block2">
+                                            <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                                <img src="@item.HINH" alt="IMG-PRODUCT">
+
+                                                <div class="block2-overlay trans-0-4">
+
+
+                                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                        <!-- Button Thêm sản phẩm vào giỏ hàng-->
+
+                                                        @using (Html.BeginForm("ThemVaoGioHang", "GioHang", new { @MaHang = @item.MAHANG, @SoLuong = 1, @Url = Request.Url.ToString() }))
+                                                        {
+                                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                                THÊM VÀO GIỎ
+                                                            </button>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="block2-txt p-t-20">
+                                                <a href="/chi-tiet-san-pham/@item.MAHANG" class="block2-name dis-block s-text3 p-b-5">
+                                                    @item.TENHANG
+                                                </a>
+
+                                                <span class="block2-price m-text6 p-r-5">
+                                                    @item.GIABAN.Value.ToString("N0")
+                                                </span>
+                                                <span class="m-text6 p-r-5">
+                                                    VNĐ
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+                            }
+                        </div>
+                    </div>
+
+                    <!--  -->
+
+                    <div class="tab-pane fade" id="sale" role="tabpanel">
+                        <div class="row">
+                            <!--Kiểm tra Có sản phẩm ko sau đó xuất thông báo  -->
+                            @if (NoiBat == null)
+                            {
+                                <div class="col-8">
+                                    <span class="alert alert-danger">Chưa có Sản phẩm  </span>
+                                </div>
+
+
+                            }
+                            else
+                            {
+                                foreach (var item in NoiBat)
+                                {
+                                    <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                                        <!-- Block2 -->
+                                        <div class="block2">
+                                            <div class="block2-img wrap-pic-w of-hidden pos-relative ">
+                                                <img src="@item.HINH" alt="IMG-PRODUCT">
+
+                                                <div class="block2-overlay trans-0-4">
+
+
+                                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                        <!-- Button Thêm sản phẩm vào giỏ hàng-->
+
+                                                        @using (Html.BeginForm("ThemVaoGioHang", "GioHang", new { @MaHang = @item.MAHANG, @SoLuong = 1, @Url = Request.Url.ToString() }))
+                                                        {
+                                                            <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                                                THÊM VÀO GIỎ
+                                                            </button>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="block2-txt p-t-20">
+                                                <a href="/chi-tiet-san-pham/@item.MAHANG" class="block2-name dis-block s-text3 p-b-5">
+                                                    @item.TENHANG
+                                                </a>
+
+                                                <span class="block2-price m-text6 p-r-5">
+                                                    @item.GIABAN.Value.ToString("N0")
+                                                </span>
+                                                <span class="m-text6 p-r-5">
+                                                    VNĐ
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            }
+
+                        </div>
+                    </div>
+
+                    <!--  -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Blog -->
+    <section class="blog bgwhite p-t-94 p-b-65">
+        <div class="container">
+            <div class="sec-title p-b-52">
+                <h3 class="m-text5 t-center">
+                    Our Blog
+                </h3>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+                    <!-- Block3 -->
+                    <div class="block3">
+                        <a href="/trang-chu" class="block3-img dis-block hov-img-zoom">
+                            <img src="/TaiLieu/lotSan/sango1.png" alt="IMG-BLOG">
+                        </a>
+
+                        <div class="block3-txt p-t-14">
+                            <h4 class="p-b-7">
+                                <a href="/trang-chu" class="m-text11">
+                                    Sàn gỗ công nghiệp Galamax BG220
+                                </a>
+                            </h4>
+
+                            @*<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+                            <span class="s-text6">on</span> <span class="s-text7">July 22, 2017</span>*@
+
+                            <p class="s-text8 p-t-16">
+                                Với kích thước Dài 914.4mm x rộng​ 152.4mm x Dày 2mm  đem lại cho không gian rộng rãi thông thoáng khu vực văn phòng, đại sảng và cả nơi công cộng...
+
+                                Đặc biệt sàn nhựa giả gỗ  dễ thi công, giá thành thấp, khắc phục nhược điểm của sàn gỗ thật như: không gây tiếng ồn khi đi lại, chống cong vênh, chống trầy xước, mối mọt, mùi hôi, nấm mốc, kháng ẩm tốt và chống cháy lan,... đảm bảo sử dụng trong thời gian dài mà không bị phai màu hay biến dạng.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+                    <!-- Block3 -->
+                    <div class="block3">
+                        <a href="/trang-chu" class="block3-img dis-block hov-img-zoom">
+                            <img src="~/TaiLieu/lotSan/sannhua3.png" alt="IMG-BLOG">
+                        </a>
+
+                        <div class="block3-txt p-t-14">
+                            <h4 class="p-b-7">
+                                <a href="/trang-chu" class="m-text11">
+                                    SÀN NHỰA DÁN KEO SP304
+
+                                </a>
+                            </h4>
+
+                            @*<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+                            <span class="s-text6">on</span> <span class="s-text7">July 18, 2017</span>*@
+
+                            <p class="s-text8 p-t-16">
+                                Được sản xuất từ nhựa PVC nguyên sinh (Polyvinyl Clorua) và hỗn hợp bột đá. Trải qua các quá trình gia công nghiêm ngặt khác nhau, đồng nhất 2 loại hỗn hợp, ép nóng dưới nền nhiệt độ cao tạo ra tấm ván sàn có kết cấu chắc chắn và bền bỉ.
+
+                                - Bề mặt gồm lớp tráng PU với hạt gốm gia cố đặc biệt làm tăng độ bền, ngăn ngừa vi khuẩn, nấm mốc. Lớp phim tạo vân trên nền giấy in 5 màu đúng với hoa văn vân gỗ tự nhiên hiện đại. Bề mặt AC3 theo tiêu chuẩn thị trường Châu Âu quy định chống mài mòn, trầy xước, trơn trượt và có khả năng tự chống cháy (tàn thuốc lá).
+                             </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-10 col-md-4 p-b-30 m-l-r-auto">
+                    <!-- Block3 -->
+                    <div class="block3">
+                        <a href="/trang-chu" class="block3-img dis-block hov-img-zoom">
+                            <img src="~/TaiLieu/lotSan/sancokeo4.png" alt="IMG-BLOG">
+                        </a>
+
+                        <div class="block3-txt p-t-14">
+                            <h4 class="p-b-7">
+                                <a href="/trang-chu" class="m-text11">
+                                    Sàn Vinyl Gerflor Mipolam Tronplan Plus 
+                                </a>
+                            </h4>
+
+                            @*<span class="s-text6">By</span> <span class="s-text7">Nancy Ward</span>
+                            <span class="s-text6">on</span> <span class="s-text7">July 2, 2017</span>*@
+
+                            <p class="s-text8 p-t-16">
+                                là loại sàn nhỏ gọn với dạng tấm, thiết kế định hướng, màu sắc được nhuộm lại từ các mảng màu nguyên sinh để đảm bảo màu sắc của sàn luôn đều màu khi nén lại.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping -->
+    <section class="shipping bgwhite p-t-62 p-b-46">
+        <div class="flex-w p-l-15 p-r-15">
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+                <h4 class="m-text12 t-center">
+                    Hướng dẫn bảo quản
+                </h4>
+
+                <a href="#" class="s-text11 t-center">
+                    Xem chi tiết
+                </a>
+            </div>
+
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
+                <h4 class="m-text12 t-center">
+                    Giao hàng cấp tốc
+                </h4>
+
+                <span class="s-text11 t-center">
+                    Giao hàn trong 7 ngày sau khi đặt hàng
+                </span>
+            </div>
+
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+                <h4 class="m-text12 t-center">
+                   Hoạt Động
+                </h4>
+
+                <span class="s-text11 t-center">
+                    Cửa hàng mở của thứ 2 - chủ nhật
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+</div>
