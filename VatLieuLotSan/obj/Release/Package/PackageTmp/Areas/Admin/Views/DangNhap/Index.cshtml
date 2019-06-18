@@ -1,0 +1,113 @@
+﻿@model VatLieuLotSan.Areas.Admin.Models.DangNhapQuanTriModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quản trị</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/TaiLieu/Admin/TrangDangNhap/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Admin/TrangDangNhap/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-form-title" style="background-image: url(/TaiLieu/Admin/TrangDangNhap/images/bg-01.jpg);">
+                    <span class="login100-form-title-1">
+                        Đăng Nhập quản trị
+                    </span>
+                </div>
+                @using (Html.BeginForm("DangNhap", "DangNhap", FormMethod.Post))
+                {
+                    @Html.ValidationSummary(false, "", new { @class = "text-danger" });
+                    <div class="login100-form validate-form">
+                        <div class="wrap-input100 validate-input m-b-26" data-validate="Mời nhập tài khoản">
+                            <span class="label-input100">TÀI KHOẢN</span>
+                            @Html.TextBoxFor(a => a.TaiKhoan , new { @class = "input100 form-control inputStyle", @style = "boder:none !important", @placeholder = "Nhập tài khoản" })
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-18" data-validate="Mời nhập mật khẩu">
+                            <span class="label-input100">MẬT KHẨU</span>
+                            @Html.PasswordFor(model => model.MatKhau, new { @class = "input100 form-control inputStyle", @style = "boder:none !important", @placeholder = "Nhập mật khẩu" })
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="flex-sb-m w-full p-b-30">
+                            <div class="contact100-form-checkbox checkbox">
+                                @*<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">*@
+                                <label class="label-checkbox101">
+                                    @Html.CheckBoxFor(model => model.GhiNhoToi,new { @name = "chekGhiNho", @id= "chekGhiNho" })
+                                    Ghi Nhớ
+                                </label>
+
+                            </div>
+
+                            <div>
+                                <a href="#" class="txt1">
+                                    Quên mật khẩu?
+                                </a>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="container-login100-form-btn">
+                            <button class="login100-form-btn" type="submit">
+                                Đăng nhập
+                            </button>
+                        </div>
+
+
+                    </div>
+
+
+                }
+            </div>
+        </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="/TaiLieu/Admin/TrangDangNhap/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/TaiLieu/Admin/TrangDangNhap/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/TaiLieu/Admin/TrangDangNhap/vendor/bootstrap/js/popper.js"></script>
+    <script src="/TaiLieu/Admin/TrangDangNhap/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/TaiLieu/Admin/TrangDangNhap/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/TaiLieu/Admin/TrangDangNhap/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/TaiLieu/Admin/TrangDangNhap/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="/TaiLieu/Admin/TrangDangNhap/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="/TaiLieu/Admin/TrangDangNhap/js/main.js"></script>
+
+</body>
+</html>

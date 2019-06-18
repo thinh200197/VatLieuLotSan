@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Vật Liệu Lót Sàn THT</title>
+    <!--File đường dẫn-->
+    <!--===============================================================================================-->
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="icon" type="image/png" href="~/TaiLieu/Client/images/icons/favicon.png" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/fonts/themify/themify-icons.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/fonts/elegant-font/html-css/style.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/TaiLieu/Client/vendor/slick/slick.css">
+    <!--===============================================================================================-->
+    <link href="~/TaiLieu/Client/vendor/noui/nouislider.css" rel="stylesheet" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/vendor/lightbox2/css/lightbox.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/TaiLieu/Client/css/main.css">
+
+
+
+    @*<link href="~/Content/myCss.css" rel="stylesheet" />*@
+    <!--===============================================================================================-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body class="animsition">
+    <!-- Header -->
+    <header class="header1" style="height: 75px;">
+        <!-- Header desktop -->
+        @{Html.RenderAction("HeaderDesktop","Home");}
+
+        <!--===============================================================================================-->
+        <!-- Header Mobile -->
+        @{Html.RenderPartial("HeaderMobile");}
+
+        <!--===============================================================================================-->
+        <!-- Menu Mobile -->
+      @*  @{Html.RenderPartial("MenuMobile");}*@
+
+        <!--===============================================================================================-->
+    </header>
+
+
+    <!--Phần Container -->
+    @RenderBody()
+
+
+    <!-- Pratial form đăng nhập / đăng ký-->
+    @*@{Html.RenderPartial("DangKyKH");}*@
+    @{Html.RenderPartial("DangNhapKH");}
+
+
+    <!--Chat box-->
+    <script src="https://ladibot.com/libs/landing-page.widget.js"></script>
+    <script>
+        LadibotChat({
+            page: 'https://ladibot.com/pages/4pu8n6WKsh5ccc578b2be61'
+        });
+    </script>
+
+
+    <!-- Footer -->
+    @{Html.RenderAction("Footer", "Home");}
+
+    <!--===============================================================================================-->
+    <!-- Back to top -->
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+
+    <script src="'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.0/css/bootstrap.min.css"></script>
+    <link href="/maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="/maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- Script -->
+    <!--===============================================================================================-->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/select2/select2.min.js"></script>
+    <script type="text/javascript">
+        $(".selection-1").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+    <!--===============================================================================================-->
+
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/slick/slick.min.js"></script>
+    <script type="text/javascript" src="~/TaiLieu/Client/js/slick-custom.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/lightbox2/js/lightbox.min.js"></script>
+    <!--===============================================================================================-->
+    <!-- JS tự viết -->
+    <script src="~/TaiLieu/Client/js/MyJs.js"></script>
+    <script src="~/TaiLieu/Client/js/main.js"></script>
+    <script type="text/javascript" src="~/TaiLieu/Client/vendor/sweetalert/sweetalert.min.js"></script>
+
+    @*<script type="text/javascript">
+        $('.block2-btn-addcart').each(function () {
+            var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+            $(this).on('click', function () {
+                swal(nameProduct, "Đã được thêm vào giỏ !", "success");
+
+            });
+        });
+    </script>*@
+
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

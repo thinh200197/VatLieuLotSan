@@ -1,0 +1,328 @@
+﻿@model PagedList.IPagedList<VatLieuLotSan.DataBase.HANGHOA>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var lh = (List<VatLieuLotSan.DataBase.LOAIHANG>)ViewBag.LoaiHang;
+}
+@section scripts{
+    <linkrel = "stylesheet" href = "//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" >
+     <scriptsrc ="//code.jquery.com/jquery-1.11.2.min.js"> </script> 
+     <scriptsrc = "//code.jquery.com/ui/1.11.2/jquery-ui.js" > </script>
+    <script src="~/TaiLieu/Client/js/MyJs.js"></script>
+}
+<!-- Title Page -->
+<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/TaiLieu/lotSan/title1.jpg); ">
+    <h2 class="l-text2 t-center" style=" color:#6d2726">
+        SẢN PHẨM LÓT SÀN CAO CẤP TH
+    </h2>
+    <p class="m-text13 t-center" style="color:#6d2726">
+        lựa chọn hoàn hảo năm @DateTime.Now.Year
+    </p>
+</section>
+
+
+<!-- Content page -->
+<section class="bgwhite p-t-55 p-b-65">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+                <div class="leftbar p-r-20 p-r-0-sm div_danhmuc">
+                    <!--  -->
+                    <h4 class="m-text14 p-b-7">
+                        DANH MỤC
+                    </h4>
+
+                    <ul class="p-b-54">
+                        <li class="p-t-4">
+                            <a href="/san-pham" class="s-text13 danhMuc active1">
+                                Tất cả
+                            </a>
+                        </li>
+                        @foreach (var item in lh)
+                        {
+                        <li class="p-t-4">
+                            <a href="/san-pham/@item.MALOAI" class="s-text13 danhMuc">
+                                @item.TENLOAI
+                            </a>
+                        </li>
+                        }
+                    </ul>
+
+                    <!--  -->
+                    <div class="filter-price p-t-22 p-b-50 bo3">
+                        <div class="m-text15 p-b-17">
+                            Giá bán
+                        </div>
+
+                        <div class="wra-filter-bar">
+                            <div id="filter-bar"></div>
+                        </div>
+
+                        <div class="flex-sb-m flex-w p-t-16">
+                            <div class="w-size11">
+                                <!-- Button -->
+                                <button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
+                                    Lọc
+                                </button>
+                            </div>
+
+                            <div class="s-text3 p-t-10 p-b-10">
+                                Giá bán: <span id="value-lower">50,000 VNĐ</span> - <span id="value-upper">200,000 VNĐ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-color p-t-22 p-b-50 bo3">
+                        <div class="m-text15 p-b-12">
+                            Màu
+                        </div>
+
+                        <ul class="flex-w">
+                            <li class="m-r-10">
+                                <input class="checkbox-color-filter" id="color-filter1" type="checkbox" name="color-filter1">
+                                <label class="color-filter color-filter1" for="color-filter1"></label>
+                            </li>
+
+                            <li class="m-r-10">
+                                <input class="checkbox-color-filter" id="color-filter2" type="checkbox" name="color-filter2">
+                                <label class="color-filter color-filter2" for="color-filter2"></label>
+                            </li>
+
+                            <li class="m-r-10">
+                                <input class="checkbox-color-filter" id="color-filter3" type="checkbox" name="color-filter3">
+                                <label class="color-filter color-filter3" for="color-filter3"></label>
+                            </li>
+
+                            <li class="m-r-10">
+                                <input class="checkbox-color-filter" id="color-filter4" type="checkbox" name="color-filter4">
+                                <label class="color-filter color-filter4" for="color-filter4"></label>
+                            </li>
+
+                            <li class="m-r-10">
+                                <input class="checkbox-color-filter" id="color-filter5" type="checkbox" name="color-filter5">
+                                <label class="color-filter color-filter5" for="color-filter5"></label>
+                            </li>
+
+                            <li class="m-r-10">
+                                <input class="checkbox-color-filter" id="color-filter6" type="checkbox" name="color-filter6">
+                                <label class="color-filter color-filter6" for="color-filter6"></label>
+                            </li>
+
+                            <li class="m-r-10">
+                                <input class="checkbox-color-filter" id="color-filter7" type="checkbox" name="color-filter7">
+                                <label class="color-filter color-filter7" for="color-filter7"></label>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Tìm kiếm -->
+                    <div class="search-product pos-relative bo4 of-hidden">
+                        <form action="/tim-kiem" method="get">
+                            <input class="s-text7 size6 p-l-23 p-r-50" type="text" id="searchproduct" name="searchproduct" placeholder="Tìm kiếm...">
+
+                            <button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+                                <i class="fs-12 fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            @if (Model.Count == 0)
+            {
+                <span style="text-align:center;font-size : 15px;font-weight:800px;"> Không tìm thấy sản phẩm</span>
+            }
+            else
+            {
+                <div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+                    <!--  -->
+                    <div class="flex-sb-m flex-w p-b-35">
+                        <div class="flex-w">
+                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+                                <select class="selection-2" id="kieuLoc" name="sorting">
+                                    <option value="MD">Mặc định</option>
+                                    <option value="PB">Phổ biến</option>
+                                    <option value="TLC">Giá bán: Thấp lên Cao</option>
+                                    <option value="CXT">Giá bán: Cao xuống thấp</option>
+                                </select>
+                            </div>
+
+                            <div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+                                <select class="selection-2" id="select_Tien"  name="sorting">
+                                    <option value="tatca">Giá bán</option>
+                                    <option value="duoi100">Dưới 100,000</option>
+                                    <option value="tu100den250">100,000 - 250,000</option>
+                                    <option value="tren250">Trên 250,000</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <span class="s-text8 p-t-5 p-b-5">
+                            12 sản phẩm trên 1 trang
+                        </span>
+                    </div>
+
+                    <!-- Product -->
+                    <table>
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+                                    <!-- Block2 -->
+                                    <div class="block2">
+                                        <div class="block2-img wrap-pic-w of-hidden pos-relative">
+                                            <img src="@item.HINH" alt="IMG-PRODUCT">
+
+                                            <div class="block2-overlay trans-0-4">
+                                        
+
+                                                <div class="block2-btn-addcart w-size1 trans-0-4">
+                                                    <!-- Button -->
+                                                    @*@using (Html.BeginForm("ThemVaoGioHang", "GioHang", new { @MaHang = @item.MAHANG, @SoLuong = 1, @Url = Request.Url.ToString() }))
+                                                        {*@
+                                                    <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 btn_ThemVaoGioHang" id="btn_ThemVaoGioHang" data-id="@item.MAHANG">
+                                                        THÊM VÀO GIỎ
+                                                    </button>
+                                                    @*}*@
+                                                    <p id="txt-MaHang" data-id="@Request.Url.ToString()" class="hidden"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="block2-txt p-t-20">
+                                            <a href="/chi-tiet-san-pham/@item.MAHANG" class="block2-name dis-block s-text3 p-b-5">
+                                                @item.TENHANG
+                                            </a>
+
+                                            <span class="block2-price m-text6 p-r-5">
+                                                @item.GIABAN.Value.ToString("N0") 
+                                            </span>
+                                            <span class="m-text6 p-r-5">
+                                                VNĐ / thùng
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+
+                    </table>
+
+
+                    <!-- Pagination -->
+                    <div class="pagination flex-m flex-w p-t-26" style="display:inline-flex">
+                        <!--Lưu ý biến "soTrang" ta phải ghi giống tên biến trong Controller đã đặt -->
+                        @Html.PagedListPager(Model, soTrang => Url.Action("SanPham", "SanPham", new { soTrang, @class = "pagination flex-m flex-w p-t-26" }))
+                        @*<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination"></a>*@
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+<!-- Container Selection -->
+<div id="dropDownSelect1"></div>
+<div id="dropDownSelect2"></div>
+
+
+<!--===============================================================================================-->
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/bootstrap/js/popper.js"></script>
+<script type="text/javascript" src="/TaiLieu/Client/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/select2/select2.min.js"></script>
+<script type="text/javascript">
+
+    $(".selection-2").select2({
+        minimumResultsForSearch: 20,
+        dropdownParent: $('#dropDownSelect2')
+    });
+
+</script>
+<!--===============================================================================================-->
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+<script type="text/javascript" src="~/TaiLieu/Client/vendor/noui/nouislider.min.js"></script>
+<script src="~/TaiLieu/Client/vendor/noui/nouislider.js"></script>
+<script type="text/javascript">
+    /*[ No ui ]
+    ===========================================================*/
+    var filterBar = document.getElementById('filter-bar');
+
+    noUiSlider.create(filterBar, {
+        start: [50000, 200000],
+        connect: true,
+        range: {
+            'min': 50000,
+            'max': 200000
+        }
+    });
+
+    var skipValues = [
+    document.getElementById('value-lower'),
+    document.getElementById('value-upper')
+    ];
+
+    filterBar.noUiSlider.on('update', function (values, handle) {
+        skipValues[handle].innerHTML = Math.round(values[handle]);
+    });
+
+
+    function LocGia(tien) {
+        var txt_giatien = $('#select_Tien').val;
+        var txt_kieuloc = $('#kieuLoc').val();
+        $.ajax({
+            type: "post",
+            data: { giatien:txt_giatien ,KieuLoc:txt_kieuLoc},
+            url: "/SanPhma/BoLocSanPham",
+            success: function (result) {
+                
+            }
+        });
+        alert(tien.value);
+    }
+</script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#searchproduct").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/SanPham/LayDSTimKiem",
+                        type: "POST",
+                        dataType: "json",
+                        data: {
+                            keyword: request.term
+                        },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.GameName,
+                                    value: item.GameName
+                                };
+                            }))
+                        },
+                        error: function () {
+                            alert('something went wrong !');
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "",
+                    results: ""
+                }
+            });
+        })
+</script>
+<!--===============================================================================================-->

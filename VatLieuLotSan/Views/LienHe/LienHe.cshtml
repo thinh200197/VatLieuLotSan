@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #google_map {
+        height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+@section scripts{
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    @*Tọa độ của trường đại học công nghiệp thực phẩm : 10.807037, 106.628669*@
+
+    <script>
+
+
+        function initMap() {
+            var uluru = { lat: 10.807037, lng: 106.628669 };
+            var map = new google.maps.Map(document.getElementById('google_map'), {
+                zoom: 18,
+                center: uluru
+            });
+
+            var contentString = '<div id="content">' + '<div id="siteNotice">' +
+            '</div>' +
+            '<h1 id="firstHeading" class="firstHeading">Công ty lót sàn HTH</h1>' +
+            '<div id="bodyContent"> ' +
+            '<p>  <b>Công ty THT</b>,được thành lập năm 2019 .<b>Chuyên bán các sản phẩm lót sàn cao cấp </p>' +
+            '</div>' + '</div>'
+            ;
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                title: 'Địa chỉ'
+            });
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+}
+
+<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(/TaiLieu/lotSan/title1.jpg);">
+    <h2 class="l-text2 t-center" style=" color:#6d2726">
+        Liên Hệ
+    </h2>
+</section>
+
+<section class="bgwhite p-t-66 p-b-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 p-b-30">
+                <div class="p-r-20 p-r-0-lg">
+                    <div class="contact-map size21" id="google_map" data-map-x="10.807037" data-map-y="106.628669" data-pin="/TaiLieu/Client/images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 p-b-30">
+                @using (Html.BeginForm("LienHe", "LienHe", FormMethod.Post))
+                {
+                    <form class="leave-comment" action="LienHe" method="post">
+                        <h4 class="m-text26 p-b-36 p-t-15" style="text-transform:uppercase">
+                            Gửi lời nhắn của bạn đến chúng tôi
+                        </h4>
+
+                        <div class="bo4 of-hidden size15 m-b-20">
+                            <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Họ Tên">
+                        </div>
+
+                        <div class="bo4 of-hidden size15 m-b-20">
+                            <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone_number" placeholder="Số điện thoại">
+                        </div>
+
+                        <div class="bo4 of-hidden size15 m-b-20">
+                            <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Email">
+                        </div>
+
+                        <textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Lời nhắn"></textarea>
+
+                        <div class="w-size25">
+                            <!-- Button -->
+                            <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" type="submit">
+                                Gửi
+                            </button>
+                        </div>
+                    </form>
+                }
+              
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+﻿@model List<VatLieuLotSan.Models.GioHangModel>
+@{
+    var SoLuongSanPham = 0;
+    var kh = (VatLieuLotSan.DataBase.KHACHHANG)ViewBag.KH;
+
+}
+<!-- Header Icon -->
+<div class="header-icons">
+    <!--Icon khách hàng-->
+    @*@{Html.RenderPartial("PartialKhachHang");}*@
+    <!-- Hiện thị tên khách hàng -->
+
+    @if (kh != null)
+    {
+    <!--Button chức năng - Khách hàng đã đăng nhập --> 
+
+        <div class="header-wrapicon1">
+            <span class="text-black" style="margin:3px" id="TenKH">Chào @kh.TENKHACHHANG </span>
+            <img src="/TaiLieu/Client/images/icons/icon-header-01.png" class="header-icon1 js-show-header-dropdown " alt="ICON">
+            <div class="header-cart header-dropdown">
+                <ul class="header-cart-wrapitem">
+                    <!-- Hiện thị danh sách các sản phẩm trong giỏ hàng. -->
+                    <li class="header-cart-item"> <a href="/thong-tin-khach-hang">Thông tin cá nhân</a></li>
+                    <li class="header-cart-item" > <a name="btn_DoiMK">Đổi Mật Khẩu</a></li>
+                    <li class="header-cart-item"> <a href="/KhachHang/Logout?urlLink=@Request.Url.ToString()">Đăng xuất</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+    }
+    else
+    {
+    <!--Button chức năng - Khách hàng chưa đăng nhập -->
+        <div class="header-wrapicon1">
+           
+            <img src="/TaiLieu/Client/images/icons/icon-header-01.png" class="header-icon1 " data-target="#dangnhap" data-toggle="modal" alt="ICON">
+            <!-- Modal -->
+          
+        </div>
+     
+    }
+
+    <span class="linedivide1"></span>
+
+    <!-- Giỏ hàng-->
+
+    <div class="header-wrapicon2" id="Icon_GioHang">
+        <!--Icon Giỏ Hàng-->
+        <img src="~/TaiLieu/Client/images/icons/icon-header-02.png" class="header-icon1 btn_VaoGioHang" alt="ICON">
+        <!-- Hiển thị số lượng sản phẩm trong giỏ hàng-->
+        <span class="header-icons-noti" id="Icon_SL">@(Model.Count) </span>
+    </div>
+</div>
+
+<script>
+    $("#msg").hide();
+</script>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+ 
+
+
